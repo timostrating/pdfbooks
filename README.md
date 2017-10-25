@@ -1,5 +1,10 @@
 # pdfbooks.nl
 
+You can run the code by using the build in server in php .
+<pre> $ php -S localhost:8080 </pre>
+
+Or by using a program like xampp.
+
 
 ## Project structure
 <pre>
