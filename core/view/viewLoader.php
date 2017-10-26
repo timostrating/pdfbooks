@@ -6,7 +6,7 @@ class ViewLoader {
         $this->path = $path;
     }
 
-    public function load($viewName){
+    public function load($viewName) {
         if( file_exists($this->path.$viewName) ) {
             return file_get_contents($this->path.$viewName);
         }
