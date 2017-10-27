@@ -5,8 +5,8 @@ class Router {
     private $routes = [];
     private $notFound;
 
-    public function __construct(){
-        $this->notFound = function($url){
+    public function __construct() {
+        $this->notFound = function($url) {
             echo "404 - $url was not found!";
         };
     }
@@ -15,11 +15,11 @@ class Router {
         $this->routes[$url] = $action;
     }
 
-    public function setNotFound($action){
+    public function setNotFound($action) {
         $this->notFound = $action;
     }
 
-    public function dispatch(){
+    public function run() {
         foreach ($this->routes as $url => $action) {
             if( $url == $_SERVER['REQUEST_URI'] ) {
                 return $action();
