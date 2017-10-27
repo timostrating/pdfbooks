@@ -3,7 +3,20 @@
 require('head.php');
 require('../config/routes.php');
 
-$indexController = new IndexController();
-$indexController->index();
+// $indexController = new IndexController();
+// $indexController->index();
 
-// $router->run();
+?>
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>title</title>
+  </head>
+  <body>
+    <?php $router->run(); ?>
+  </body>
+</html>
+
