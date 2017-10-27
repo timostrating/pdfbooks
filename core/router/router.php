@@ -19,12 +19,18 @@ class Router {
         $this->notFound = $action;
     }
 
-    public function run() {
+    public function run(){
         foreach ($this->routes as $url => $action) {
-            if( $url == $_SERVER['REQUEST_URI'] ) {
-                return $action();
+            if( $url == $_SERVER['REQUEST_URI'] ){
+                if(is_callable($action)) return $action();
+
+                $actionArr = explode('#', $action);
+                $controller = 'app\\controllers\\'.$actionArr[0];
+                $method = $actionArr[1];
+
+                return (new $controller)->$method();
             }
         }
-        call_user_func_array($this->notFound, [$_SERVER['REQUEST_URI']]);
+        call_user_func_array($this->notFound,[$_SERVER['REQUEST_URI']]);
     }
 }
