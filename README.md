@@ -1,8 +1,5 @@
 # pdfbooks.nl
 
-You can run the code by using the build in server in php to run the /public/index.php.
-<pre> $ php -S localhost:8080 </pre>
-
 
 ## Project structure
 <!-- You can not trust tabs here for a correct result so we use spaces instead -->

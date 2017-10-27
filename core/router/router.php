@@ -12,7 +12,7 @@ class Router {
     }
 
     public function add($url, $action) {
-        $this->routes[$url] = $action;
+        $this->routes[LOCALHOSTURI.$url] = $action;
     }
 
     public function setNotFound($action) {
