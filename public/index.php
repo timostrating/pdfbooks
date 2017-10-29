@@ -1,6 +1,6 @@
 <?php
 
-require('head.php');
+require('../config/init.php');
 require('../config/routes.php');
 
 // $indexController = new IndexController();

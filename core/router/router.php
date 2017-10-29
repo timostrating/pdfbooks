@@ -25,7 +25,7 @@ class Router {
                 if(is_callable($action)) return $action();
 
                 $actionArr = explode('#', $action);
-                $controller = 'app\\controllers\\'.$actionArr[0];
+                $controller = $actionArr[0];
                 $method = $actionArr[1];
 
                 return (new $controller)->$method();
