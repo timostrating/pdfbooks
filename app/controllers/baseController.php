@@ -7,4 +7,9 @@ class BaseController {
             new ViewLoader(platformSlashes(ROOTPATH.'/app/views/'))
         );
     }
+
+    public function model($model) {
+        require_once( ROOTPATH."/app/models/" . $model . ".php");
+        return new $model();
+    }
 }
