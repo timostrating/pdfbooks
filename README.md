@@ -1,5 +1,3 @@
-# pdfbooks.nl
-
 ## Project structure
 <!-- You can not trust tabs here for a correct result so we use spaces instead -->
 <pre>

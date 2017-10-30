@@ -12,10 +12,34 @@ class Autoload {
         throw new Exception('Loader must be callable '.$name);
     }
 
+    public function registerFile($fileClassName, $URI = false) {
+        $this->register($fileClassName, function() use ($URI) {
+            return require($URI);
+        });
+    }
+
+    public function registerFolder($URI) {
+        $files = glob(platformSlashes($URI.'/*.{php}'), GLOB_BRACE);
+        foreach($files as $file) {
+
+            $fileClassName = explode(platformSlashes('/'), $file);                      
+            $fileClassName = $fileClassName[ count($fileClassName)-1 ];
+            $fileClassName = explode(platformSlashes('.'), $fileClassName);                      
+            $fileClassName = strtolower( $fileClassName[0] );
+
+            $this->register($fileClassName, function() use ($file) {
+                return require($file);
+            });
+            
+        }   
+    }
+
     public function load($name) {
         $name = strtolower($name);
         $filepath = ROOTPATH.'/core/'.$name.'/'.$name.'.php';
         $filepath = $this->platformSlashes($filepath);
+        var_dump($filepath);
+        echo("<br/>");
         if( !empty($this->autoloadable[$name]) ) {
             return $this->autoloadable[$name]($name);
         }
@@ -23,8 +47,7 @@ class Autoload {
             return require($filepath);
         }
 
-        var_dump($filepath);
-        throw new Exception($name.' is not loaded or registred for autoloading');
+        throw new Exception($name.': is not loaded or registerd for autoloading');
     }
 
     function platformSlashes($path) {
