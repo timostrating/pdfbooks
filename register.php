@@ -52,5 +52,8 @@ if(isset($_POST['submit'])){
 
 ?>
     </table>
+<?php
+//require('footer.php');
+?>
     </body>
 </html>
