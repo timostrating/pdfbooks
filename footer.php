@@ -1,3 +1,3 @@
 <footer>
-  Dit is de footer
+  Dit is de footer en dit werkt
 </footer>
