@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html>
-
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-		<title><?= isset($PageTitle) ? $PageTitle : "pdfbooks"?></title>
-
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-		</html>
-
-<body>
+<?php include_once('header.php');?>
 <div class="container">
 
 	<main>
@@ -23,17 +12,20 @@
 <form method ="post" >
 	<div class="row marketing">
           <div class="col-lg-6">
-<p>Naam: <input type="text" name="naam"><br><br> </p>
+          	<div class="container">
+ <br><input type="text" name="naam"  required placeholder="Naam"><br> </p>
 
-<p>Email: <input type="text" name="email"><br><br> </p>
-<p>Opmerking:</p> <textarea name="commentaar" rows="5" 	cols="30"></textarea></br></br>
+<br><input type="text" name="email"   pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"
+    required placeholder="email" 
+><br><br> 
+ <textarea name="commentaar" rows="5" 	cols="30" placeholder="Opmerking"></textarea></br>
 
 				<input type="submit" name="verstuur" value="Verstuur">
 			</form>
-
+</div>
 		</div>
 		<div class="col-lg-6">
-		</br>
+		</br></br></br>
 
 			<ul style="">
 		<li><img src="phone.png" alt="phone" width="50" height="50"> 050-1232234 </li></br>
@@ -84,4 +76,4 @@ echo "<h2>Uw invoergegegevens:</h2>";
 
 	
 </div>
-</html>
+<?php include_once('footer.php');?>
