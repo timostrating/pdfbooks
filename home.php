@@ -1,15 +1,23 @@
 <?php include_once('header.php'); ?>
-    <!DOCTYPE HTML>
-    <html>
-    <head>
-        <title>Home</title>
-        <link rel="stylesheet" type="text/css" href="searchbar.css">
-    </head>
-    <body>
-    <form class="search-container">
-        <input type="text" id="search-bar" placeholder="Zoek PDF">
-        <a href="#"><img class="search-icon" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a>
-    </form>
-    </body>
-    </html>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4"><h3>Populair</h3><br>
+            <img src="https://i.mgtbk.nl/boeken/9789001875275-480x600.jpg?_=iC%2Fv05wR" height="380" width="300">
+        </div>
+        <div class="col-lg-4"><h3>Nieuw</h3><br>
+            <img src="https://s.s-bol.com/imgbase0/imagebase3/large/FC/1/7/4/2/9200000035782471.jpg" height="380" width="300">
+        </div>
+        <div class="col-lg-4"><h3>Per vak</h3><br>
+            <img src="https://s.s-bol.com/imgbase0/imagebase3/large/FC/4/7/9/6/1001004007136974.jpg" height="380" width="300">
+        </div>
+    </div>
+
+    <h5>Dit is een test</h5>
+    <ul class="categorie" style="border: 1px solid black" style="border-width: 5px;">
+        <li>Talen</li>
+        <li>Economisch</li>
+        <li>Bèta vakken</li>
+    </ul>
+    </div>
 <?php include_once('footer.php'); ?>
