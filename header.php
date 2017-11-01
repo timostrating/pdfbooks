@@ -1,11 +1,34 @@
 <!doctype html>
 <html>
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title><?= isset($PageTitle) ? $PageTitle : "Standaard titel"?></title>
-    <h1>Dit is de header</h1>
-    <?php if (function_exists('customPageHeader')){
-      customPageHeader();
-    }?>
-  </head>
-  <body>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title><?= isset($PageTitle) ? $PageTitle : "pdfbooks"?></title>
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	<body>
+
+
+	<nav class="navbar navbar-default">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">Project name</a>
+		</div>
+		<div id="navbar" class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="#">TODO</a></li>
+				<li><a href="#">TODO</a></li>
+				<li><a href="#">TODO</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+			<li class="active"><a href="login.php">login</a></li>
+			</ul>
+		</div><!--/.nav-collapse -->
+	</nav>

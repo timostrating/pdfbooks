@@ -1,3 +1,4 @@
-<footer>
-  Dit is de footer en dit werkt
-</footer>
+	<footer>
+	  Dit is de footer en dit werkt
+	</footer>
+</html>

@@ -1,9 +1,7 @@
-<?php
+<?php include_once('header.php'); ?>
 
-$PageTitle="Blablabla";
 
-function customPageHeader(){?>
-<?php }
-include_once('header.php');
-include_once('footer.php');
-?>
+<!-- hier tussen komt de html voor de pagina -->
+
+
+<?php include_once('footer.php'); ?>
