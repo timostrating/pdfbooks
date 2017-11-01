@@ -24,9 +24,9 @@
 		</div>
 		<div class="col-md-6">
 			<ul style="">
-				<li><img src="phone.png" alt="phone" width="50" height="50"> 050-1232234 </li> <br/>
-				<li><img src="email.png" alt="phone" width="50" height="50">  Pdf@books.nl </li> <br/>
-				<li><img src="map.png" alt="map" width="50" height="50">  PO adres: 123 Kerkstraat </li> <br/>
+				<li><img src="http://www.endlessicons.com/wp-content/uploads/2012/12/iphone-5-icon-614x460.png" alt="phone" width="60" height="50"> 050-1232234 </li> <br/>
+				<li><img src="http://www.endlessicons.com/wp-content/uploads/2012/12/email-icon-614x460.png" alt="phone" width="60" height="50">  Pdf@books.nl </li> <br/>
+				<li><img src="http://www.endlessicons.com/wp-content/uploads/2012/12/pin-map-icon-2-614x460.png" alt="map" width="60" height="50">  PO adres: 123 Kerkstraat </li> <br/>
 			</ul>
 		</div>
 	</div>
