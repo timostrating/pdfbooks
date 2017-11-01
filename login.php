@@ -2,7 +2,7 @@
 
 <?php
 //login
-//require('header.php');
+include('header.php');
 ?>
 
 <html>
@@ -27,7 +27,7 @@
             </table>
         </form>
 <?php
-//require('footer.php');
+include('footer.php');
 ?>
     </body>
 </html>

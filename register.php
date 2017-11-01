@@ -2,7 +2,7 @@
 
 <?php
 //register
-//require('header.php');
+include('header.php');
 SESSION_START();
 ?>
 
@@ -53,7 +53,7 @@ if(isset($_POST['submit'])){
 ?>
     </table>
 <?php
-//require('footer.php');
+include('footer.php');
 ?>
     </body>
 </html>
