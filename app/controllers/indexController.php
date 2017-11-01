@@ -1,11 +1,10 @@
 <?php
 
-class IndexController extends BaseController{
+class IndexController extends BaseController {
 
     # GET /products
     function index() { 
-        $results = User::all();
-        var_dump($results);        
+        User::test();      
 
         $this->view->display('home_index.php');
     }
@@ -28,10 +27,10 @@ class IndexController extends BaseController{
 
     # POST /products
     function create() { 
-        User::create([
-            'name' => "test",
-            'email' => "test@hanze.nl"
-        ]);
+        // User::create([
+        //     'name' => "test",
+        //     'email' => "test@hanze.nl"
+        // ]);
     }
 
     # PATCH/PUT /products/1
@@ -41,6 +40,6 @@ class IndexController extends BaseController{
 
     # DELETE /products/1
     function destroy($id) {
-        User::destroy($id);
+        // User::destroy($id);
     }
 }

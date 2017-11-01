@@ -1,11 +1,9 @@
 <?php 
 
-use Illuminate\Database\Eloquent\Model as Eloquent;
-
-class User extends Eloquent {
+class User extends baseModel {
     public $name;
 
-    public $incrementing = true;
-
-    protected $fillable = ['name', 'email'];
+    public static function test() {
+        echo "TEST";
+    }
 }

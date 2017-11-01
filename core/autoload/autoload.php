@@ -38,8 +38,9 @@ class Autoload {
         $name = strtolower($name);
         $filepath = ROOTPATH.'/core/'.$name.'/'.$name.'.php';
         $filepath = $this->platformSlashes($filepath);
-        var_dump($filepath);
-        echo("<br/>");
+        
+        echo("AUTOLOAD->LOAD: ".$filepath."<br/>");
+
         if( !empty($this->autoloadable[$name]) ) {
             return $this->autoloadable[$name]($name);
         }

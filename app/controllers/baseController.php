@@ -8,8 +8,7 @@ class BaseController {
         );
     }
 
-    public function model($model) {
-        require_once( ROOTPATH."/app/models/" . $model . ".php");
-        return new $model();
-    }
+    // TODO: maybe we should have a model and view function here to handle them
+    //       Models - are now static
+    //       Views - are now loaded in the controller
 }
