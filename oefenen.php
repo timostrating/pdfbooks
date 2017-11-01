@@ -13,7 +13,7 @@
   <br/>
   
  <div  align="center"> 
-     <a href="index.php">
+<a href="http://www.pdfbooks.nl/">
     <button>Ik accepteer de cookies</button>
 </div> 
 </a>

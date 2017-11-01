@@ -2,30 +2,24 @@
 
 <?php
 //login
+SESSION_START();
 include('header.php');
 ?>
-
-<html>
-    <head>
-    <header align="center">
-        <h1>Login</h1>
-    </header>
-        <title>Login</title>
-    </head>
-    <body>
-        <form method="post" action="actionpage.php">
-              <table align="center">
-                  <tr>
-                      <td><input type="text" name="uname" placeholder="Username"></td>
-                  </tr>
-                  <tr>
-                      <td><input type="password" name="psw" placeholder="Password"></td>
-                  </tr>
-                  <tr>
-                      <td colspan="2" align="center"><input type="submit" name="submit" value="Login"></td>
-                  </tr>
-            </table>
-        </form>
+<h1 align="center">Login</h1>
+<br>
+<form style="width: 300px; position: relative; margin: 0 auto; text-align: center;" method="post" action="actionpage.php">
+  <div class="form-group">
+    <input type="text" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Username/Email" required>
+  </div>
+  <div class="form-group">
+    <input type="password" name="psw" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
+  </div>
+  <div class="form-check">
+    <label class="form-check-label">
+    </label>
+  </div>
+  <button type="submit" class="btn btn-primary">Login</button>
+</form>
 <?php
 include('footer.php');
 ?>

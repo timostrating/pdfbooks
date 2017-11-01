@@ -8,12 +8,12 @@
    background-color: #f9f9f9;
    color: #333;
    border-style: solid;
-   border-width: 1px;
+   border-top-width: 3px;
    border-color: #e7e7e7;
    text-align: center;
 </style>
 <div class="footer">
-    <a href="contact.php">Contact</a>
+    <a href="contactpagina.php">Contact</a>
 	</footer>
 </body>
 </html>

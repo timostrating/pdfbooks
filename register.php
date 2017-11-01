@@ -7,32 +7,28 @@ SESSION_START();
 ?>
 
 <html>
-    <head>
-    <header align="center">
-        <h1>Register</h1>
-    </header>
-        <title>Register</title>
-    </head>
-    <body>
-        <form method="post">
-            <table align="center">
-                <tr>
-                    <td><input type="text" name="uname" value="<?php if(isset($_POST['submit'])){ echo $_POST['uname']; }?>" placeholder="Username" min="3" max="15" required></td>
-                </tr>
-                <tr>
-                    <td><input type="email" name="email" value="<?php if(isset($_POST['submit'])){ echo $_POST['email']; }?>" placeholder="Email" min="7" required></td>
-                </tr>
-                <tr>
-                    <td><input type="password" name="psw1" placeholder="Password" required></td>
-                </tr>
-                <tr>
-                    <td><input type="password" name="psw2" placeholder="Password check" required></td>
-                </tr>
-                <tr>
-                    <td align="center"><input type="submit" name="submit" value="Register"</td>
-                </tr>
-            </table>
-        </form>
+
+    <h1 align="center">Register</h1>
+<br>
+<form style="width: 300px; position: relative; margin: 0 auto; text-align: center;" method="post" action="actionpage.php">
+  <div class="form-group">
+    <input type="text" name="uname" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Username" required>
+  </div>
+    <div class="form-group">
+    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email" required>
+  </div>
+  <div class="form-group">
+    <input type="password" name="psw" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
+  </div>
+    <div class="form-group">
+    <input type="password" name="psw1" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
+  </div>
+  <div class="form-check">
+    <label class="form-check-label">
+    </label>
+  </div>
+  <button type="submit" class="btn btn-primary">Register</button>
+</form>
     <table align="center">
 
 <?php
