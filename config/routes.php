@@ -12,3 +12,8 @@ $router->add('/edit', 'IndexController#edit');
 $router->add('/create', 'IndexController#create');
 $router->add('/update', 'IndexController#update');
 $router->add('/destroy', 'IndexController#destroy');
+
+
+
+$router->add('/seeds', 'Database#seed');
+

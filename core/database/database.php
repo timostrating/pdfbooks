@@ -27,40 +27,73 @@ class Database {
 
 
     public function __construct() {
-        // example  "mysql:host=127.0.0.1;dbname=pdfbooks;charset=utf8"        
-        $dsn = $this->dbtype.":host=".$this->host.";dbname=".$this->db.";charset=".$this->charset;
-        try {
-            $this->db_handler = new PDO($dsn, $this->user, $this->pass, $this->PDO_options);
-        } catch (PDOException $e) {
-            echo "WE CAN NOT CONNECT TO YOUR CONFIGURED DATABASE";
-            $this->createDB();
-            $this->buildDB();
-            $this->fillDB();
-        }
+        $this->connect();
     }
 
 
-    public function createDB() {
+    private function connect() {
         try {
-            $this->db_handler = new PDO("mysql:host=".$this->host, $this->user, $this->pass);
-            $this->db_handler->exec("CREATE DATABASE `".$this->db."`;") or die(print_r($this->db_handler->errorInfo(), true));
+            $dsn = $this->dbtype.":host=".$this->host.";dbname=".$this->db.";charset=".$this->charset;            
+            $this->db_handler = new PDO($dsn, $this->user, $this->pass, $this->PDO_options);                    
+        } catch (PDOException $e) {
+
+            echo "YOUR SELECTED DATABASE DOES NOT EXIST <br/>";
+            
+            try {
+                $this->db_handler = new PDO("mysql:host=".$this->host, $this->user, $this->pass);                                    
+            } catch (PDOException $e) {
+                echo "WE CAN NOT CONNECT TO MYSQL <br/>";                
+            }
+        }
+    }
+
+    public function dropDB() {
+        echo "drop <br/>";
+        
+        try {
+            $this->db_handler->exec("DROP DATABASE `".$this->db."`;");
+            $this->connect();            
+        } catch (PDOException $e) {
+            die("DB ERROR: ". $e->getMessage());
+        }
+    }
+
+    public function createDB() {
+        echo "create <br/>";
+        try {
+            $this->db_handler->exec("CREATE DATABASE `".$this->db."`;");
+            $this->connect();
         } catch (PDOException $e) {
             die("DB ERROR - could not create database: ". $e->getMessage());
         }
     }
 
-    public function buildDB() {
-        // TODO
+    public function seed() {
+        $DB = $this;
+        require_once(ROOTPATH."/config/seeds.php");
+        echo "The seeds have grown to plants, let's start framing";        
     }
 
-    public function fillDB() {
-        // TODO
-    }
 
-    public function query($queryString, $array) {
+    public function query($queryString, $array=[]) {
         return $this->db_handler->query($queryString, $array);
         // while ($row = $stmt->fetch()) {
         //     echo $row['name'] . "\n";
         // }
+    }
+
+    public function execute($queryString) {
+        try {
+            $this->db_handler->exec($queryString);
+        } catch (PDOException $e) {
+            die("DB ERROR - execute on database went wrong: ". $e->getMessage());
+        }
+    }
+
+
+
+    public static function insert($id, $columns = array('*')) {  
+        $instance = new QueryBuilder;
+        return $instance->select($id, $columns);
     }
 }
