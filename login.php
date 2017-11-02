@@ -8,7 +8,7 @@ include('header.php');
 <br>
 <form style="width: 300px; position: relative; margin: 0 auto; text-align: center;" method="post" action="actionpage.php">
   <div class="form-group">
-    <input type="text" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Username/Email" required>
+    <input type="text" name="uname" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Username/Email" required>
   </div>
   <div class="form-group">
     <input type="password" name="psw" class="form-control" id="exampleInputPassword1" placeholder="Password" required>

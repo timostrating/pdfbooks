@@ -37,7 +37,7 @@ SESSION_START();
 		<div id="navbar" class="navbar-collapse collapse">
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="webshop.php">Webshop</a></li>
-				<li><a href="contactpagina.php">Contact</a></li>
+				<li><a href="contact.php">Contact</a></li>
 			</ul>
             <form class="search-container" method="post" action="webshop.php">
                 <input type="text" style="border-radius: 25px;" name="search" id="search-bar" placeholder="Zoek PDF">
@@ -56,7 +56,7 @@ if(!isset($_SESSION['test'])){
         <li align="center"><a href="register.php">Register</a></li>
 <?php
 }
-elseif(isset($_SESSION['test'])){
+elseif($_SESSION['test'] = true){
 ?>
         <li align="center"><a href="profile.php">Profile</a></li>
         <li align="center"><a href="logout.php">Logout</a></li>
