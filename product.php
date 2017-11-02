@@ -33,10 +33,11 @@ $pdo = new PDO($dsn, $user, $pass, $opt);
 ?>
 
 
-<?php include_once('header.php'); ?>
+<?php include_once('header.php');
 
 
-<?php $stmt = $pdo->query('SELECT * FROM products');
+
+$stmt = $pdo->query('SELECT * FROM products');
 while ($row = $stmt->fetch())
 {
     echo "<img src=\"" . $row['plaatje'] . "\">";

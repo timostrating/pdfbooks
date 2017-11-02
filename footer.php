@@ -13,7 +13,7 @@
    text-align: right;
 </style>
 <div class="footer">
-    <a href="contactpagina.php">Contact</a>
+    <a href="contact.php">Contact</a>
 	</footer>
 </body>
 </html>
