@@ -1,6 +1,6 @@
 
 <html>
-<h1> Pagina niet gevonden!<h1>
-        <a href="home.php"><img src="assets/helaas.png" width="1000" height="1000" title="404 Pagina niet gevonden" alt="404"></a>
+    <title>Kapot</title>
+        <a href="home.php"><img src="assets/helaas.png" style="width: 100%; height: 100%; left: 0px;"></a>
 
 </html>
