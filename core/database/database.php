@@ -73,14 +73,21 @@ class Database {
         require_once(ROOTPATH."/config/seeds.php");
         echo "The seeds have grown to plants, let's start framing";        
     }
-
-
-    public function query($queryString, $array=[]) {
-        return $this->db_handler->query($queryString, $array);
-        // while ($row = $stmt->fetch()) {
-        //     echo $row['name'] . "\n";
-        // }
+    
+    function runQuery($query) {
+                $result = $this->db_handler->query($query, $array);
+                while($row = $result->fetch()) {
+                        $resultset[] = $row;
+                }
+                if(!empty($resultset))
+                        return $resultset;
     }
+        
+    function numRows($query) {
+                $result  = mysqli_query($this->conn,$query);
+                $rowcount = mysqli_num_rows($result);
+                return $rowcount;       
+        }
 
     public function execute($queryString) {
         try {
@@ -89,8 +96,6 @@ class Database {
             die("DB ERROR - execute on database went wrong: ". $e->getMessage());
         }
     }
-
-
 
     public static function insert($id, $columns = array('*')) {  
         $instance = new QueryBuilder;
