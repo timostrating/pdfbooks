@@ -39,7 +39,7 @@ class Autoload {
         $filepath = ROOTPATH.'/core/'.$name.'/'.$name.'.php';
         $filepath = $this->platformSlashes($filepath);
         
-        echo("AUTOLOAD->LOAD: ".$filepath."<br/>");
+        console_log("AUTOLOAD->LOAD: ".$filepath."<br/>");
 
         if( !empty($this->autoloadable[$name]) ) {
             return $this->autoloadable[$name]($name);

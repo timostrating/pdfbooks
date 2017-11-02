@@ -4,24 +4,22 @@ class IndexController extends BaseController {
 
     # GET /products
     function index() { 
-        User::test();      
-
-        $this->view->display('home_index.php');
+        $this->view->display('home/home_index.php');
     }
 
     # GET /products/1
     function show($id) { 
-        $this->view->display('home_show.php');
+        $this->view->display('home/home_show.php');
     }
 
     # GET /products/new
     function new() { 
-        $this->view->display('home_new.php');
+        $this->view->display('home/home_new.php');
     }
 
     # GET /products/1/edit
     function edit($id) { 
-        $this->view->display('home_edit.php');
+        $this->view->display('home/home_edit.php');
     }
 
 

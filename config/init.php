@@ -28,7 +28,5 @@ $autoloader->registerFolder(ROOTPATH.'/app/models');
 // require(ROOTPATH.'/app/controllers/indexController.php'); 
 
 
-
-
 $view = new View( new ViewLoader(platformSlashes(ROOTPATH.'/app/views/')) );
 $router = new Router();
