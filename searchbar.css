@@ -1,6 +1,6 @@
 .search-container{
   display: block;
-  position: absolute;
+  position: relative;
   top: 5px;
   left: 38%;
   width: 300px;
@@ -13,7 +13,7 @@ input#search-bar{
   padding: 0 20px;
   font-size: 2  rem;
   border: 1px solid #D0CFCE;
-  outline: none
+  outline: none;
 }
 
 .search-icon{
