@@ -4,7 +4,7 @@ CREATE TABLE `gebruiker` (
 	`wachtwoord` TEXT(64) NOT NULL,
 	`email` TEXT(64) NOT NULL UNIQUE,
 	`laatste_login` TIMESTAMP NOT NULL,
-	`aanmaakdatum` TIMESTAMP NOT NULL DEFAULT 'current_timestamp',
+	`aanmaakdatum` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	`type` char(1) NOT NULL,
 	PRIMARY KEY (`gebruiker_id`)
 );
@@ -49,7 +49,7 @@ CREATE TABLE `factuur` (
 	`status` char(1) NOT NULL DEFAULT 'N',
 	`opmerking` TEXT NOT NULL,
 	`betaaldatum` TIMESTAMP NOT NULL,
-	`aanmaakdatum` TIMESTAMP NOT NULL DEFAULT 'current_timestamp',
+	`aanmaakdatum` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	`totaalbedrag` FLOAT NOT NULL,
 	PRIMARY KEY (`factuur_id`)
 );
