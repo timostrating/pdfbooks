@@ -16,4 +16,8 @@ $router->add('/destroy', 'IndexController#destroy');
 
 
 $router->add('/seeds', 'Database#seed');
-
+// Crud
+$router->add('/product/index', 'ProductController#index');
+$router->add('/product/show',  'ProductController#show');
+$router->add('/product/new',   'ProductController#new');
+$router->add('/product/edit',  'ProductController#edit');

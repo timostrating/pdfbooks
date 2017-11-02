@@ -1,21 +1,33 @@
 <?php 
 
 
-
 $DB->dropDB();
 $DB->createDB();
 
 
-$DB->execute("CREATE TABLE users(
+// USER_TYPES
+$DB->execute("CREATE TABLE user_types(
+    ID INT( 11 ) AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR( 100 ) NOT NULL);");  
+$DB->execute("INSERT INTO user_types (name) VALUES ('user')");
+$DB->execute("INSERT INTO User_types (name) VALUES ('admin')");
+
+
+// USERS
+$DB->execute("CREATE TABLE Users(
     ID INT( 11 ) AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR( 100 ) NOT NULL,
-    email VARCHAR( 255 ) NOT NULL, 
-    password VARCHAR( 255 ) NOT NULL);");
-$DB->execute("INSERT INTO users (username, email,  password) 
-                VALUES  ('timo', 'pdfbooks@guster.com', 'lol123')");
-    
+    email VARCHAR( 255 ) NOT NULL,
+    password VARCHAR( 255 ) NOT NULL,
+    user_type_id INT(8) NOT NULL, 
+    CONSTRAINT `fk_User_profile_User_status`
+        FOREIGN KEY (`user_type_id`)
+        REFERENCES `user_types` (`id`) );");
+$DB->execute("INSERT INTO users (username, email, password, user_type_id) 
+                VALUES  ('timo', 'pdfbooks@guster.com', 'lol123', '1')");
 
-$DB->execute("CREATE TABLE products (
+// PRODUCTS
+$DB->execute("CREATE TABLE Products (
     ID INT( 11 ) AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR( 100 ) NOT NULL,
     description VARCHAR( 255 ) NOT NULL, 
