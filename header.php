@@ -32,7 +32,7 @@ SESSION_START();
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-                    <a class="navbar-brand" src="assets/logo2.png" href="home.php">PDFBooks</a>
+                    <a class="navbar-brand" href="home.php"><img  src="assets/logo2.png" style="position: relative; width: 55px; height: 50px; left: -10px; top: -10px;"></a>
 		</div>
 		<div id="navbar" class="navbar-collapse collapse">
 			<ul class="nav navbar-nav">
@@ -40,7 +40,7 @@ SESSION_START();
 				<li><a href="contact.php">Contact</a></li>
 			</ul>
             <form class="search-container" method="post" action="webshop.php">
-                <input type="text" style="border-radius: 25px;" name="search" id="search-bar" placeholder="Zoek PDF">
+                <input type="text" style="border-radius: 9px;" name="search" id="search-bar" placeholder="Zoek PDF">
                 <img class="search-icon" name="searchButton" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png">
             </form>
     <ul class="nav navbar-nav navbar-right">
