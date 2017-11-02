@@ -1,3 +1,5 @@
+# pdfbooks.nl
+
 ## Project structure
 <!-- You can not trust tabs here for a correct result so we use spaces instead -->
 <pre>
@@ -6,9 +8,12 @@
     - model/                -- Our MVC Model
     - view/                 -- Our MVC Views 
     - contollers/           -- Our MVC Controllers 
+- config/               -- All our config files goe in here
+    - config.php            -- General personal configuration for your installation
+    - init.php              -- This links the public/index.php to the framework
+    - routes.php            -- This file links a url to a function in a controller
+    ...
 - public/               -- This wil be the root of our application
     - assets/               -- Contains all assets for the web-application
-    - head.php              -- Setups all requires to make the framework work
     - index.php             -- Root file
-- vendor/               -- All our 3rd party stuff is kept here
 </pre>
