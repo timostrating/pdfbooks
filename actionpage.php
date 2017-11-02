@@ -18,7 +18,7 @@ $gebruiker = mysqli_real_escape_string($db, $_POST['uname']);
 $wachtwoord = mysqli_real_escape_string($db, $_POST['psw']); 
 $query = "SELECT * FROM users WHERE username ='$gebruiker' AND password ='$wachtwoord'"; 
 $result = mysqli_query($db, $query);
-var_dump($result);
+
 if (mysqli_num_rows($result) > 0){ // gebruikersnaam gevonden, registreer gegevens in session 
     $_SESSION["test"] = true;
     $_SESSION["timeout"] = time() + 120; 
