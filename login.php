@@ -2,7 +2,6 @@
 
 <?php
 //login
-SESSION_START();
 include('header.php');
 ?>
 <h1 align="center">Login</h1>

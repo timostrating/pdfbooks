@@ -14,7 +14,7 @@
     </div>
 
     <h5>Dit is een test</h5>
-    <ul class="categorie" style="border: 1px solid black" style="border-width: 5px;">
+    <ul class="categorie" style="width: 180px; border: 5px; background-color: #e7e7e7; border-width: 1px;">
         <li>Talen</li>
         <li>Economisch</li>
         <li>Bèta vakken</li>

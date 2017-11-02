@@ -10,7 +10,7 @@
    border-style: solid;
    border-top-width: 3px;
    border-color: #e7e7e7;
-   text-align: center;
+   text-align: right;
 </style>
 <div class="footer">
     <a href="contactpagina.php">Contact</a>

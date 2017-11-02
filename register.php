@@ -3,7 +3,6 @@
 <?php
 //register
 include('header.php');
-SESSION_START();
 ?>
 
 <html>
