@@ -1,6 +1,4 @@
-<?php
-include('header.php');
-?>
+<?php include('header.php'); ?>
 <style>
     .titel{
         background-color: #f9f9f9;
@@ -12,6 +10,7 @@ include('header.php');
         padding-left: 40px;
         width: 200px;     
     }
+    
     .body{
         background-color: #f9f9f9;
         border-color: #e7e7e7;
@@ -40,12 +39,10 @@ include('header.php');
 </div>
 <br>
 <form action="update.php">
-<input type="submit" name="update" class="btn btn-primary" style="position: absolute; background-color: #f9f9f9; color: #333; border-color: #e7e7e7; left: 40px; width: 100px;" value="Aanpassen">
+    <input type="submit" name="update" class="btn btn-primary" style="position: absolute; background-color: #f9f9f9; color: #333; border-color: #e7e7e7; left: 40px; width: 100px;" value="Aanpassen">
 </form>
 <form action="logout.php">
-<input type="submit" name="delete" class="btn btn-primary" style="position: absolute; background-color: #f9f9f9; color: #333; border-color: #e7e7e7; left: 140px; width: 100px;" value="Verwijderen">
+    <input type="submit" name="delete" class="btn btn-primary" style="position: absolute; background-color: #f9f9f9; color: #333; border-color: #e7e7e7; left: 140px; width: 100px;" value="Verwijderen">
 </form>
-<?php
 
-include('footer.php');
-?>
+<?php include('footer.php'); ?>

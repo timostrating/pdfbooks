@@ -1,25 +1,20 @@
-<!DOCTYPE>
+<?php include('header.php'); ?>
 
-<?php
-//register
-include('header.php');
-?>
-
-<html>
-
-    <h1 align="center">Register</h1>
+<h1 align="center">Register</h1>
 <br>
 <form style="width: 300px; position: relative; margin: 0 auto; text-align: center;" method="post" action="actionpage.php">
   <div class="form-group">
-    <input type="text" name="uname" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Username" required>
+    <input type="text" name="uname" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Username"
+      required>
   </div>
-    <div class="form-group">
-    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email" required>
+  <div class="form-group">
+    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email"
+      required>
   </div>
   <div class="form-group">
     <input type="password" name="psw" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
   </div>
-    <div class="form-group">
+  <div class="form-group">
     <input type="password" name="psw1" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
   </div>
   <div class="form-check">
@@ -28,9 +23,9 @@ include('header.php');
   </div>
   <button type="submit" class="btn btn-primary">Register</button>
 </form>
-    <table align="center">
+<table align="center">
 
-<?php
+  <?php
 if(isset($_POST['submit'])){
     if($_POST['psw1'] == $_POST['psw2']){
          $_SESSION['uname'] = $_POST['uname'];
@@ -46,9 +41,5 @@ if(isset($_POST['submit'])){
 }
 
 ?>
-    </table>
-<?php
-include('footer.php');
-?>
-    </body>
-</html>
+</table>
+<?php include('footer.php'); ?>

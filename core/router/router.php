@@ -8,6 +8,7 @@ class Router {
     public function __construct() {
         $this->notFound = function($url) {
             echo "404 - $url was not found!";
+            echo '<a href="/"><img src="assets/helaas.png" width="1000" height="1000" title="404 Pagina niet gevonden" alt="404"></a>';
         };
     }
 

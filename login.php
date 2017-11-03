@@ -1,9 +1,5 @@
-<!DOCTYPE html>
+<?php include('header.php'); ?>
 
-<?php
-//login
-include('header.php');
-?>
 <h1 align="center">Login</h1>
 <br>
 <form style="width: 300px; position: relative; margin: 0 auto; text-align: center;" method="post" action="actionpage.php">
@@ -19,8 +15,5 @@ include('header.php');
   </div>
   <button type="submit" class="btn btn-primary">Login</button>
 </form>
-<?php
-include('footer.php');
-?>
-    </body>
-</html>
+
+<?php include('footer.php'); ?>
