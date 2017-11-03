@@ -32,30 +32,31 @@
 	</div>
 
 
+<?php   
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbconnect = "pfdbooks";
 
-<?php
-function test_input($data) { 
-	$data = trim($data); 	
-	$data = stripslashes($data); 
-	$data = htmlspecialchars($data); 	 		
-	return $data; 
-}
+if(isset($_POST['verstuur'])){
+	$naam = $_POST['naam'];
+	$email = $_POST['email'];
+	$commentaar = $_POST['commentaar'];
 
-if (isset($_POST['verstuur'])) { 	
-	echo "<h2>Uw invoergegegevens:</h2>"; 
-	echo test_input($_POST["naam"]); ; 
-	echo "<br/>"; 
-	echo test_input($_POST["email"]); 
-	echo "<br/>"; 
-	echo test_input($_POST["commentaar"]); 
-	echo "<br/>"; 
-	echo "<br/>"; 
-	echo "<br/>"; 
-	echo "<br/>"; 
-	echo "<br/>"; 
+// Create connection
+$conn = new mysqli($servername, $username, $password , $dbconnect);
 
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+echo "Bericht verzonden!";
+
+$query= ("INSERT INTO reacties(naam, email, commentaar)" . "VALUES ('$naam', '$email', '$commentaar')");
+$homomiet = mysqli_query($conn, $query);
 }
 ?> 
+
 
 </div>
 <?php include_once('footer.php');?>
