@@ -38,7 +38,7 @@ SESSION_START();
 		<div id="navbar" class="navbar-collapse collapse">
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="webshop.php">Webshop</a></li>
-				<li><a href="contact.php">Contact</a></li>
+				<li><a href="contactpagina.php">Contact</a></li>
 			</ul>
             <form class="search-container" method="post" action="search.php">
                 <input type="text" style="border-radius: 6px;" name="search" id="search-bar" placeholder="Zoek PDF">
