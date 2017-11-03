@@ -11,11 +11,14 @@
     if ($db->connect_error) {
         die("Connection failed: " . $db->connect_error);
     }
-    echo "Connected successfully<br />";
 
+    if(isset($_POST['search'])){
+    
     $search_value = $_POST["search"];
+     }
     $query = "SELECT * FROM products WHERE name LIKE \"%$search_value%\" OR description LIKE \"%$search_value%\";";
     $result = mysqli_query($db, $query);
+    
     if (!$result) {
         die("Er zijn geen resultaten.");
     }
@@ -32,6 +35,7 @@
 
         <?php
             }
+   
         ?>
     </ul>
 

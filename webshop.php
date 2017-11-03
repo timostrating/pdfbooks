@@ -1,17 +1,12 @@
 <?php
 include('header.php');
 $pageNumber = 1;
-if (isset($_GET['id'])) {
-    $pageNumber = $_GET['id'];
+if (isset($_GET['page'])) {
+    $pageNumber = $_GET['page'];
 }
 $pageID = ($pageNumber * 10) - 10;
 
-if (isset($_POST['search'])) {
-    $_SESSION['search'] = $_POST['search'];
-    ?>
-    Er zijn geen boeken gevonden met uw zoek opdracht. <?php
-    echo $_SESSION['search'];
-} else {
+
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -37,7 +32,7 @@ if (isset($_POST['search'])) {
                 <?php
                 for ($x = 1; $x <= $nummer; $x++) {
                     ?>
-                    <li><a href="?id=<?php echo $x; ?>"><?php echo $x; ?></a></li>
+                    <li><a href="?page=<?php echo $x; ?>"><?php echo $x; ?></a></li>
                     <?php
                 }
                 ?>
@@ -45,7 +40,7 @@ if (isset($_POST['search'])) {
         </div>
         <?php
     }
-}
+
 include('footer.php');
 
 //INSERT INTO catogorien (ID, name)
