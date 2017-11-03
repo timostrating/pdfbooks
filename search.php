@@ -1,22 +1,39 @@
 <?php
-include('header.php');
-$servername = "localhost";
-$username = "root";
-$password = "";
-$mydb = "pdfbooks";
-// Create connection
-$db = new mysqli($servername, $username, $password, $mydb);
+    include('header.php');
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $mydb = "pdfbooks";
+    // Create connection
+    $db = new mysqli($servername, $username, $password, $mydb);
 
-// Check connection
-if ($db->connect_error) {
-    die("Connection failed: " . $db->connect_error);
-}
-echo "Connected successfully";
+    // Check connection
+    if ($db->connect_error) {
+        die("Connection failed: " . $db->connect_error);
+    }
+    echo "Connected successfully<br />";
 
-$query = "SELECT name FROM products WHERE name LIKE \"K%\";";
-$result = mysqli_query($db, $query);
-var_dump($result);
-echo "<br />";
-$row = mysqli_fetch_assoc($result);
-var_dump($row);
+    $search_value = $_POST["search"];
+    $query = "SELECT * FROM products WHERE name LIKE \"%$search_value%\" OR description LIKE \"%$search_value%\";";
+    $result = mysqli_query($db, $query);
+    if (!$result) {
+        die("Er zijn geen resultaten.");
+    }
 ?>
+
+    <ul>
+        <?php
+            while($row = mysqli_fetch_assoc($result)) {
+                if(isset($row["description"])) {
+                    $row["description"] = $row["name"];
+                }
+        ?>
+                <li><?php echo $row["name"]; ?></li>
+
+        <?php
+            }
+        ?>
+    </ul>
+
+
+
