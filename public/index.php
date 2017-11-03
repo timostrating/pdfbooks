@@ -32,24 +32,24 @@ require('../config/routes.php');
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/">
+        <a class="navbar-brand" href="<?= LOCALHOSTURI ?>">
           <img src="assets/logo2.png" width="50px" length="50px" style="position: relative; top: -17px;">
         </a>
       </div>
 
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li class="active"> <a href="webshop.php">Webshop</a> </li>
-          <li> <a href="contact.php">Contact</a> </li>
+          <li> <a href="webshop">Webshop</a> </li>
+          <li> <a href="contact">Contact</a> </li>
         </ul>
 
-        <form class="search-container" method="post" action="webshop.php">
+        <form class="search-container" method="post" action="webshop">
           <input type="text" style="border-radius: 6px;" name="search" id="search-bar" placeholder="Zoek PDF">
           <img class="search-icon" name="searchButton" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png">
         </form>
 
         <ul class="nav navbar-nav navbar-right">
-          <li> <a href="shoppingCart.php"> <span class="glyphicon glyphicon-shopping-cart" style="width: 20px; font-size: 15px; text-align: center;"></span> </a> </li>
+          <li> <a href="shoppingCart"> <span class="glyphicon glyphicon-shopping-cart" style="width: 20px; font-size: 15px; text-align: center;"></span> </a> </li>
           <li class="dropdown" style="margin-top: 8px;">
             <button class="btn" type="button" data-toggle="dropdown">
               <span class="glyphicon glyphicon-user" style="width: 20px; font-size: 15px; text-align: center;"></span>
@@ -57,11 +57,11 @@ require('../config/routes.php');
             </button>
             <ul class="dropdown-menu">
 <?php if(!isset($_SESSION['test'])){ ?>
-              <li align="center"> <a href="login.php">Login</a> </li>
-              <li align="center"> <a href="register.php">Register</a> </li>
+              <li align="center"> <a href="login">Login</a> </li>
+              <li align="center"> <a href="register">Register</a> </li>
 <?php } elseif($_SESSION['test'] = true){ ?>
-                <li align="center"> <a href="profile.php">Profile</a> </li>
-                <li align="center"> <a href="logout.php">Logout</a> </li>
+                <li align="center"> <a href="profile">Profile</a> </li>
+                <li align="center"> <a href="logout">Logout</a> </li>
 <?php } ?>
             </ul>
           </li> <!-- ./dropdown -->
@@ -73,7 +73,7 @@ require('../config/routes.php');
     <?php $router->run(); ?>
 
     <footer>
-      <a href="contact.php">Contact</a>
+      <a href="contact">Contact</a>
     </footer>
   </body>
 </html>

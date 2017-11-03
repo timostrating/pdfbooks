@@ -1,4 +1,3 @@
-<?php include_once('header.php');?>
 <div class="container">
 
 	<center>	
@@ -34,28 +33,27 @@
 
 
 <?php
-function test_input($data) { 
-	$data = trim($data); 	
-	$data = stripslashes($data); 
-	$data = htmlspecialchars($data); 	 		
-	return $data; 
-}
+// function test_input($data) { 
+// 	$data = trim($data); 	
+// 	$data = stripslashes($data); 
+// 	$data = htmlspecialchars($data); 	 		
+// 	return $data; 
+// }
 
-if (isset($_POST['verstuur'])) { 	
-	echo "<h2>Uw invoergegegevens:</h2>"; 
-	echo test_input($_POST["naam"]); ; 
-	echo "<br/>"; 
-	echo test_input($_POST["email"]); 
-	echo "<br/>"; 
-	echo test_input($_POST["commentaar"]); 
-	echo "<br/>"; 
-	echo "<br/>"; 
-	echo "<br/>"; 
-	echo "<br/>"; 
-	echo "<br/>"; 
+// if (isset($_POST['verstuur'])) { 	
+// 	echo "<h2>Uw invoergegegevens:</h2>"; 
+// 	echo test_input($_POST["naam"]); ; 
+// 	echo "<br/>"; 
+// 	echo test_input($_POST["email"]); 
+// 	echo "<br/>"; 
+// 	echo test_input($_POST["commentaar"]); 
+// 	echo "<br/>"; 
+// 	echo "<br/>"; 
+// 	echo "<br/>"; 
+// 	echo "<br/>"; 
+// 	echo "<br/>"; 
 
-}
+// }
 ?> 
 
 </div>
-<?php include_once('footer.php');?>
