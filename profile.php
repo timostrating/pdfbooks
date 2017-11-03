@@ -42,7 +42,7 @@ include('header.php');
 <form action="update.php">
 <input type="submit" name="update" class="btn btn-primary" style="position: absolute; background-color: #f9f9f9; color: #333; border-color: #e7e7e7; left: 40px; width: 100px;" value="Aanpassen">
 </form>
-<form action="logout.php">
+<form action="delete.php">
 <input type="submit" name="delete" class="btn btn-primary" style="position: absolute; background-color: #f9f9f9; color: #333; border-color: #e7e7e7; left: 140px; width: 100px;" value="Verwijderen">
 </form>
 <?php

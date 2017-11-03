@@ -13,7 +13,7 @@ input#search-bar{
   padding: 0 20px;
   font-size: 2  rem;
   border: 1px solid #D0CFCE;
-  outline: none
+  outline: none;
 }
 
 .search-icon{
