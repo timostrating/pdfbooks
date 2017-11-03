@@ -12,6 +12,7 @@ SESSION_START();
 
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="searchbar.css">
+        <link rel="stylesheet" type="text/css" href="home.css">
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
                 
                 <style>
@@ -19,7 +20,7 @@ SESSION_START();
                         .navbar-nav {
                             text-align: center !important;
                         }
-                
+
                 </style>
 	<body>
 
@@ -32,7 +33,8 @@ SESSION_START();
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-                    <a class="navbar-brand" href="home.php"><img  src="assets/logo2.png" style="position: relative; width: 55px; height: 50px; left: -10px; top: -10px;"></a>
+                    <a class="navbar-brand" href="home.php"><img src="assets/logo2.png" width="50px" length="50px" style="position: relative; top: -17px;"></a>
+
 		</div>
 		<div id="navbar" class="navbar-collapse collapse">
 			<ul class="nav navbar-nav">
@@ -40,7 +42,9 @@ SESSION_START();
 				<li><a href="contact.php">Contact</a></li>
 			</ul>
             <form class="search-container" method="post" action="webshop.php">
-                <input type="text" style="border-radius: 9px;" name="search" id="search-bar" placeholder="Zoek PDF">
+
+                <input type="text" style="border-radius: 6px;" name="search" id="search-bar" placeholder="Zoek PDF">
+
                 <img class="search-icon" name="searchButton" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png">
             </form>
     <ul class="nav navbar-nav navbar-right">
@@ -66,6 +70,6 @@ elseif($_SESSION['test'] = true){
     </ul>
     </li>
     </div>
-        </div>
+
         </nav>
     </head>
