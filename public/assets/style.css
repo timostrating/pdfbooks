@@ -68,3 +68,11 @@ a {
 
 
 
+table, th, td {
+  border: 1px solid black;
+  padding: 5px 10px;
+}
+
+.add { color: green; }
+.edit { color: blue; }
+.delete { color: red;}

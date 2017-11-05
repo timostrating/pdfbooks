@@ -9,6 +9,8 @@
  *      created_at - When we create the row we will fill in the current timestemp
  */
 
+global $connect;
+
 class Database {
 
     private $dbtype = 'mysql';
@@ -24,6 +26,7 @@ class Database {
         PDO::ATTR_EMULATE_PREPARES   => false,
     ];
     private $db_handler;
+    
 
 
     public function __construct() {
@@ -74,21 +77,11 @@ class Database {
         echo "The seeds have grown to plants, let's start framing";        
     }
     
-    function runQuery($query) {
-                $result = $this->db_handler->query($query, $array);
-                while($row = $result->fetch()) {
-                        $resultset[] = $row;
-                }
-                if(!empty($resultset))
-                        return $resultset;
+    function query($query) {
+        $result = $this->db_handler->query($query, $array);
+        return $result->fetchAll();
     }
         
-    function numRows($query) {
-                $result  = mysqli_query($this->conn,$query);
-                $rowcount = mysqli_num_rows($result);
-                return $rowcount;       
-        }
-
     public function execute($queryString) {
         try {
             $this->db_handler->exec($queryString);
