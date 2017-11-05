@@ -1,7 +1,7 @@
 <?php
 
-require('config.php');
 require('../core/frameworkHelpers.php');
+require('config.php');
 require('../core/autoload/autoload.php');
 
 $autoloader = new Autoload();

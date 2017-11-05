@@ -2,7 +2,10 @@
 
 // TODO: if this file grows then it may needs to change 
 
-function console_log($message) {
+
+// TODO: Maybe we should use of add a warning version
+// TODO: A config option for showing logs would be nice
+function console_log($message) {  
     echo str_replace("\\", "/", "<script>console.log(\"".$message."\"); </script> \n");
 }
 
