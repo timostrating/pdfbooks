@@ -9,7 +9,7 @@ $autoloader = new Autoload();
 spl_autoload_register([$autoloader, 'load']);
 
 $autoloader->load('database'); 
-$DB = new Database();
+$DB = new Database;
 
 $autoloader->registerFile('viewloader', ROOTPATH.'/core/view/viewLoader.php');
 $autoloader->registerFile('seeds', ROOTPATH.'/config/seeds.php');

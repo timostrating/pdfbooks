@@ -9,6 +9,10 @@ function console_log($message) {
     echo str_replace("\\", "/", "<script>console.log(\"".$message."\"); </script> \n");
 }
 
+function console_warning($message) {  
+    echo str_replace("\\", "/", "<script>console.warn(\"".$message."\"); </script> \n");
+}
+
 function URL($string) {
     return LOCALHOSTURI.$string;
 }
@@ -25,9 +29,14 @@ function platformSlashes($path, $slash1='/', $slash2='\\') {
     return $path;
 }
 
-function generateField($name, $sqlName, $type ="text", $value="") {
+
+function generateTableField($name, $sqlName, $type ="text", $value="") {
 	echo"<tr>";
 	echo"	<td>".$name.":</td>";
 	echo"	<td><input type=\"".$type."\" name=\"".$sqlName."\" value=\"".$value."\"/></td>";
 	echo"</tr>";
+}
+
+function generateFormField($name, $sqlName, $type ="text", $value="") {
+	echo"<input type=\"".$type."\" name=\"".$sqlName."\" value=\"".$value."\"/></td>";
 }

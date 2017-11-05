@@ -3,11 +3,11 @@
 <form method="post" action="<?= LOCALHOSTURI ?>/products/create">
    <table>
 
-        <?= generateField("Name", "name"); ?>
-        <?= generateField("Description", "description"); ?>
-        <?= generateField("Imgurl", "imgurl"); ?>
-        <?= generateField("Price", "price"); ?>
-        <?= generateField("", "", "submit", "Opslaan"); ?>
+        <?php generateTableField("Name", "name"); ?>
+        <?php generateTableField("Description", "description"); ?>
+        <?php generateTableField("Imgurl", "imgurl"); ?>
+        <?php generateTableField("Price", "price"); ?>
+        <?php generateTableField("", "", "submit", "Opslaan"); ?>
 
    </table>
 </form>	

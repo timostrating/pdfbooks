@@ -1,5 +1,5 @@
 <?php
 
-class page extends baseModel {
+class Page {
     
 }

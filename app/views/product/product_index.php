@@ -14,18 +14,17 @@
         <th> Price </td>
     </tr>
 
-<?php while($row = mysqli_fetch_assoc($result)) { ?>        
+<?php foreach($result as $product) { ?>        
     <tr>
-        <td><?= $row['ID'] ?></td>
-        <td><?= $row['name'] ?></td>
-        <td><?= $row['description'] ?></td>
-        <td><?= $row['imgurl'] ?></td>
-        <td><?= $row['price'] ?></td>
+        <td><a href="<?=LOCALHOSTURI?>/products/<?=$product->ID;?>/show"><?= $product->ID; ?></a></td>
+        <td><?= $product->name; ?></td>
+        <td><?= $product->description; ?></td>
+        <td><?= $product->imgurl; ?></td>
+        <td><?= $product->price; ?></td>
         <td>
-            <a class="edit"  href="<?=LOCALHOSTURI?>/products/<?=$row['ID']?>/edit">Bewerken</a>
-            |
-            <form method="post" action="<?=LOCALHOSTURI?>/products/<?=$row['ID']?>/delete">
-                <?= generateField("", "", "submit", "Verwijderen"); ?>         
+            <a class="edit" href="<?=LOCALHOSTURI?>/products/<?=$product->ID;?>/edit">Bewerken</a>
+            <form id="myForm<?=$product->ID;?>" method="post" action="<?=LOCALHOSTURI?>/products/<?=$product->ID;?>/delete">
+                <a class="delete" href="#" onclick='document.getElementById("myForm<?=$product->ID;?>").submit()'>Verwijderen</a>
             </form>	
         </td>
     </tr>
