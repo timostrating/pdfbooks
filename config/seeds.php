@@ -7,25 +7,29 @@ $DB->createDB();
 
 
 // USER_TYPES
-$DB->execute("CREATE TABLE user_types(
+$DB->execute("CREATE TABLE User_types(
     ID INT( 11 ) AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR( 100 ) NOT NULL);");  
-$DB->execute("INSERT INTO user_types (name) VALUES ('user')");
-$DB->execute("INSERT INTO User_types (name) VALUES ('admin')");
+$DB->execute("INSERT INTO user_types (name) VALUES ('user'), ('admin')");
 
 
 // USERS
 $DB->execute("CREATE TABLE Users(
     ID INT( 11 ) AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR( 100 ) NOT NULL,
+    first_name VARCHAR( 255 ) NOT NULL,
+    last_name VARCHAR( 255 ) NOT NULL,
     email VARCHAR( 255 ) NOT NULL,
     password VARCHAR( 255 ) NOT NULL,
     user_type_id INT(8) NOT NULL, 
     CONSTRAINT `fk_User_profile_User_status`
         FOREIGN KEY (`user_type_id`)
         REFERENCES `user_types` (`id`) );");
-$DB->execute("INSERT INTO users (username, email, password, user_type_id) 
-                VALUES  ('timo', 'pdfbooks@guster.com', 'lol123', '1')");
+$DB->execute("INSERT INTO users (first_name, last_name, email, password, user_type_id) VALUES 
+    ('timo', 'strating', 'pdfbooks@guster.com', 'lol123', '1'),
+    ('kevin', 'strating', 'pdfbooks@guster.com', 'lol123', '1'),
+    ('timo', 'strating', 'pdfbooks@guster.com', 'lol123', '1'),
+    ('timo', 'strating', 'pdfbooks@guster.com', 'lol123', '1'),
+    ('timo', 'strating', 'pdfbooks@guster.com', 'lol123', '1')");
 
 // PRODUCTS
 $DB->execute("CREATE TABLE Products (
@@ -34,8 +38,12 @@ $DB->execute("CREATE TABLE Products (
     description VARCHAR( 255 ) NOT NULL, 
     imgurl VARCHAR( 255 ) NOT NULL, 
     price VARCHAR( 255 ) NOT NULL);");
-$DB->execute("INSERT INTO products (name, description, imgurl, price) 
-                VALUES ('Kokosnoten zijn geen specerijen', 'Een van de grootste boeken ooit', 'https://placeimg.com/640/480', '5.00')");
+$DB->execute("INSERT INTO products (name, description, imgurl, price) VALUES 
+    ('Kokosnoten zijn geen specerijen', 'Een van de grootste boeken ooit', 'http://via.placeholder.com/550x350?text=Kokosnoten', '12.50'),
+    ('Piraten en de 7 dwergen', 'Een spanend avontuur', 'http://via.placeholder.com/350x550?text=Piraten', '5.00'),
+    ('Nederlands', 'Een veel gebruikt boek voor het vak Nederlands', 'https://placeimg.com/500/480?text=Nederlands', '7.25'),
+    ('Engels', 'Een veel gebruikt boek voor het vak Engels', 'https://placeimg.com/700/450?text=Engels', '8,99'),
+    ('Project management', 'Een veel gebruikt boek voor het vak project management', 'https://placeimg.com/600/600?text=Project+managment', '30,00')");
 
 
 // $DB->execute("CREATE TABLE `gebruiker` (

@@ -9,6 +9,8 @@
  *      created_at - When we create the row we will fill in the current timestemp
  */
 
+global $connect;
+
 class Database {
 
     private $dbtype = 'mysql';
@@ -24,14 +26,25 @@ class Database {
         PDO::ATTR_EMULATE_PREPARES   => false,
     ];
     private $db_handler;
+    
 
-
-    public function __construct() {
+    // Private construct so nobody else can instantiate it
+    // see https://stackoverflow.com/questions/203336/creating-the-singleton-design-pattern-in-php5
+    public function __construct() { 
         $this->connect();
     }
 
 
-    private function connect() {
+    public static function Instance() {
+        static $inst = null;
+        if ($inst === null) {
+            $inst = new Database();
+        }
+        return $inst;
+    }
+
+
+    public function connect() {
         try {
             $dsn = $this->dbtype.":host=".$this->host.";dbname=".$this->db.";charset=".$this->charset;            
             $this->db_handler = new PDO($dsn, $this->user, $this->pass, $this->PDO_options);                    
@@ -47,9 +60,9 @@ class Database {
         }
     }
 
+
     public function dropDB() {
         echo "drop <br/>";
-        
         try {
             $this->db_handler->exec("DROP DATABASE `".$this->db."`;");
             $this->connect();            
@@ -57,6 +70,7 @@ class Database {
             die("DB ERROR: ". $e->getMessage());
         }
     }
+
 
     public function createDB() {
         echo "create <br/>";
@@ -67,38 +81,27 @@ class Database {
             die("DB ERROR - could not create database: ". $e->getMessage());
         }
     }
+    
 
     public function seed() {
         $DB = $this;
         require_once(ROOTPATH."/config/seeds.php");
         echo "The seeds have grown to plants, let's start framing";        
     }
-    
-    function runQuery($query) {
-                $result = $this->db_handler->query($query, $array);
-                while($row = $result->fetch()) {
-                        $resultset[] = $row;
-                }
-                if(!empty($resultset))
-                        return $resultset;
-    }
-        
-    function numRows($query) {
-                $result  = mysqli_query($this->conn,$query);
-                $rowcount = mysqli_num_rows($result);
-                return $rowcount;       
-        }
 
-    public function execute($queryString) {
+    
+    public function execute($sql) { return $this->query($sql); }  // TODO: remove this
+    public function query($sql, $array=[], $fetchClass="") {
         try {
-            $this->db_handler->exec($queryString);
+            console_warning("DB QUERY: ".$sql);
+            $dbs = $this->db_handler->prepare($sql);
+            $dbs->execute($array);
+            if (empty($fetchClass) == false) {
+                $dbs->setFetchMode(PDO::FETCH_CLASS, $fetchClass);
+            }
+            return $dbs->fetchAll();
         } catch (PDOException $e) {
             die("DB ERROR - execute on database went wrong: ". $e->getMessage());
         }
-    }
-
-    public static function insert($id, $columns = array('*')) {  
-        $instance = new QueryBuilder;
-        return $instance->select($id, $columns);
     }
 }

@@ -1,23 +1,24 @@
 <?php
 
-$router->add('/', 'IndexController#index');
+// TODO: '/products' and '/products/' are not the same url right now 
 
-// Crud
-$router->add('/index', 'IndexController#index');
-$router->add('/show', 'IndexController#show');
-$router->add('/new', 'IndexController#new');
-$router->add('/edit', 'IndexController#edit');
+$router->get('/', 'PageController#index');
+$router->get('/contact', 'PageController#contact');
 
-// only for testing
-$router->add('/create', 'IndexController#create');
-$router->add('/update', 'IndexController#update');
-$router->add('/destroy', 'IndexController#destroy');
+
+// for testing
+$router->get('/seeds', 'Database#seed');
 
 
 
-$router->add('/seeds', 'Database#seed');
-// Crud
-$router->add('/product/index', 'ProductController#index');
-$router->add('/product/show',  'ProductController#show');
-$router->add('/product/new',   'ProductController#new');
-$router->add('/product/edit',  'ProductController#edit');
+$router->get('/products', 'ProductController#index');
+$router->get('/products/:id/show', 'ProductController#show'); 
+$router->get('/products/new', 'ProductController#new'); 
+$router->get('/products/:id/edit', 'ProductController#edit'); 
+
+$router->post('/products/create', 'ProductController#create'); 
+$router->post('/products/:id/update', 'ProductController#update'); 
+$router->post('/products/:id/delete', 'ProductController#delete'); 
+
+
+
