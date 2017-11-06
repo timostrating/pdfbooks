@@ -7,20 +7,28 @@
     // Create connection
     $db = new mysqli($servername, $username, $password, $mydb);
 
-    // Check connection
+    // Check if connection display any errors
     if ($db->connect_error) {
-        die("Connection failed: " . $db->connect_error);
+        die("Connection failed");
     }
+    
+    
+//  Products
+//     ID 
+//     name
+//     description 
+//     imgurl 
+//     price1
+
 
     if(isset($_POST['search'])){
-    
-    $search_value = $_POST["search"];
+        $search_value = $_POST['search'];
      }
     $query = "SELECT * FROM products WHERE name LIKE \"%$search_value%\" OR description LIKE \"%$search_value%\";";
     $result = mysqli_query($db, $query);
     
     if (!$result) {
-        die("Er zijn geen resultaten.");
+        die("No products found.");
     }
 ?>
 
