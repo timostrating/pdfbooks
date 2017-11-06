@@ -1,18 +1,10 @@
 #!/usr/bin/php
-
-                *****************
-                ** NOFRAMEWORK **
-                *****************
- 
-                       NO
-   ______
-  / ____/___  ____ ___  ____  ____  ________  _____
- / /   / __ \/ __ `__ \/ __ \/ __ \/ ___/ _ \/ ___/
-/ /___/ /_/ / / / / / / /_/ / /_/ (__  )  __/ /
-\____/\____/_/ /_/ /_/ .___/\____/____/\___/_/
-                    /_/
-
-                  JUST PURE PHP
+  _   _       ______                                      _    
+ | \ | |     |  ____|                                    | |   
+ |  \| | ___ | |__ __ _ _ __ ___   _____      _____  _ __| | __
+ | . ` |/ _ \|  __/ _` | '_ ` _ \ / _ \ \ /\ / / _ \| '__| |/ /
+ | |\  | (_) | | | (_| | | | | | |  __/\ V  V / (_) | |  |   < 
+ |_| \_|\___/|_|  \__,_|_| |_| |_|\___| \_/\_/ \___/|_|  |_|\_\
 
 <?php
 
@@ -24,13 +16,35 @@
 
 
 
-generateScaffold("page");
+if (isset($argv[1])) {
+    if($argv[1] === "generate" and isset($argv[2])) {
+        generateScaffold(strtolower($argv[2]));
+    } elseif ($argv[1] === "seed") {
+        seedDB();
+    } else { printHelp(); }
+} else { printHelp(); }
+
+
 echo("\n");
 
 
+
+function printHelp() {
+    echo "you can use the following functions
+    generate [name]     - generates a scaffold 
+    seed                - seeds the database \n";
+}
+
+
+
+
+function seedDB() {
+    var_dump($name);
+}
+
 // Create the full MVC package
 function generateScaffold($name) {
-    // echo($name);
+    // var_dump($name);
     generateModel($name);
     generateController($name);
     generateViews($name);
@@ -40,54 +54,54 @@ function generateScaffold($name) {
 
 // Create a new class in the /app/models folder.
 function generateModel($name) {
-    $file = file_get_contents(__DIR__."/noframework/generateModel.txt.php");   
-    $string = eval("return \"".$file."\";");  // pure meta programming right here
-    createFile("/app/models/".$name.".php", $string); 
+    createFile("/noframework/generateModel.txt.php", "/app/models/".$name.".php", $name); 
 }
 
 
 // Create a new Controller width the INDEX, SHOW, NEW, EDIT functions in the /app/models folder.
 function generateController($name) {
-    $file = file_get_contents(__DIR__."/noframework/generateController.txt.php");
-    $string = eval("return \"".$file."\";");  // pure meta programming right here
-    createFile("/app/controllers/".$name."Controller.php", $string); 
+    createFile("/noframework/generateController.txt.php", "/app/controllers/".$name."Controller.php", $name); 
 }
 
 
 // Create new INDEX, SHOW, NEW, EDIT views in a sepparate folder in /app/views.
 function generateViews($name) {
     mkdir(__DIR__."/app/views/".$name, 0755);
-
-    $file = file_get_contents(__DIR__."/noframework/generateViewIndex.txt.php");
-    createFile("/app/views/".$name."/".$name."_index.php", $file); 
-
-    $file = file_get_contents(__DIR__."/noframework/generateViewShow.txt.php");
-    createFile("/app/views/".$name."/".$name."_show.php", $file); 
-
-    $file = file_get_contents(__DIR__."/noframework/generateViewNew.txt.php");
-    createFile("/app/views/".$name."/".$name."_new.php", $file); 
-
-    $file = file_get_contents(__DIR__."/noframework/generateViewEdit.txt.php");
-    createFile("/app/views/".$name."/".$name."_edit.php", $file); 
+    createFile("/noframework/generateViewIndex.txt.php", "/app/views/".$name."/".$name."_index.php", $name); 
+    createFile("/noframework/generateViewShow.txt.php", "/app/views/".$name."/".$name."_show.php", $name); 
+    createFile("/noframework/generateViewNew.txt.php", "/app/views/".$name."/".$name."_new.php", $name); 
+    createFile("/noframework/generateViewEdit.txt.php", "/app/views/".$name."/".$name."_edit.php", $name); 
 }
 
 
 // Add 4 new routes to our /config/routes.php file 
 function addRoutes($name) {  // TODO: as soon as the resource is implemented in the router we can simply this 
-    $string = "
-// Crud
-\$router->add('/$name/index', '".ucfirst($name)."Controller#index');
-\$router->add('/$name/show',  '".ucfirst($name)."Controller#show');
-\$router->add('/$name/new',   '".ucfirst($name)."Controller#new');
-\$router->add('/$name/edit',  '".ucfirst($name)."Controller#edit');";
+    $Name = ucfirst($name);
+    $names = $name."s";
+    
+    $string = " \n
+// ".$Name." crud
+\$router->get('/$names', '".$Name."Controller#index');
+\$router->get('/$names/:id/show',  '".$Name."Controller#show');
+\$router->get('/$names/new',   '".$Name."Controller#new');
+\$router->get('/$names/:id/edit',  '".$Name."Controller#edit');
 
-    echo "\t + NEW ROUTES \n"; 
+\$router->post('/$names/create', '".$Name."Controller#create');
+\$router->post('/$names/:id/update',  '".$Name."Controller#update');
+\$router->post('/$names/:id/delete',   '".$Name."Controller#delete');";
+
+    echo "\t \e[32m + NEW ROUTES \e[0m \n"; 
     file_put_contents(__DIR__."/config/routes.php", $string, FILE_APPEND); 
 }
 
 
 // Create a new file at the given $URI that has the text from $text inside of it
-function createFile($URI, $text) {
-    echo "\t + ".$URI." \n";    
-    file_put_contents(__DIR__.$URI, $text);     
+function createFile($fromURL, $toURL, $name) { 
+    $Name = ucfirst($name);
+    $names = $name."s";
+
+    echo "\t \e[32m +  ".$toURL." \e[0m \n";  
+    $file = file_get_contents(__DIR__.$fromURL);
+    $string = eval("return '".$file."';");   // pure meta programming right here
+    file_put_contents(__DIR__.$toURL, $string);     
 }
