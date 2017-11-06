@@ -27,6 +27,9 @@ class '.ucfirst($name).'Controller extends baseController {
 		$result = $this->DB->query($sql, $array, "'.ucfirst($name).'");
         $this->view->display("'.$name.'/'.$name.'_edit.php", $result);                		
     }
+
+
+    /**********************************************************/
     
 
     function create() {  # POST /'.$name.'s

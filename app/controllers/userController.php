@@ -2,11 +2,13 @@
 
 class UserController extends baseController {
 
-    function login() {  # GET /users
+
+    function login() {  # GET /users/login
         $this->view->display("user/user_login.php");        
     }
 
-    function logout() {  # GET /users
+
+    function logout() {  # GET /users/logout
         session_unset();
         session_destroy();
         header("location: ".LOCALHOSTURI); 
@@ -14,7 +16,7 @@ class UserController extends baseController {
     }
 
 
-    function show() {  # GET /users/1/show
+    function show() {  # GET /users/profile
         if(isset($_SESSION["USER_ID"])) {
             $sql = "SELECT * FROM users WHERE ID=:id";
             $array = [ ":id" => $_SESSION["USER_ID"] ];
@@ -25,12 +27,12 @@ class UserController extends baseController {
     }
 
 
-    function new() {  # GET /users/new
+    function new() {  # GET /users/register
         $this->view->display("user/user_new.php");                		
 	}
     
 
-    function edit() {  # GET /users/1/edit
+    function edit() {  # GET /users/update
         if(isset($_SESSION["USER_ID"])) {
             $sql = "SELECT * FROM users WHERE ID=:id";
             $array = [":id" => $_SESSION["USER_ID"]];
@@ -39,10 +41,12 @@ class UserController extends baseController {
         } 
         else { header("location: ".LOCALHOSTURI); exit; }                 		
     }
+
     
     /**********************************************************/
 
-    function create_session() {  # POST /users
+
+    function create_session() {  # POST /users/create_session
         $sql = "SELECT * FROM users WHERE email=:email AND password=:password"; 
         $array = [":email" => $_POST['email'], ":password" => $_POST['password']];
         $result = $this->DB->query($sql, $array, "User");
@@ -58,7 +62,7 @@ class UserController extends baseController {
     }
 
 
-    function create() {  # POST /users
+    function create() {  # POST /users/create
         $sql = "INSERT INTO users (name, email, password) VALUES (?,?,?);";
         $array = [$_POST["name"], $_POST["email"], $_POST["password"]];
         $result = $this->DB->query($sql, $array);
@@ -74,7 +78,7 @@ class UserController extends baseController {
     }
 
 
-    function update() {  # POST /users/1/update
+    function update() {  # POST /users/update
         if(isset($_SESSION["USER_ID"])) {
             $sql = "UPDATE users SET name=:name WHERE ID=:id;";
             $array = [

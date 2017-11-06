@@ -25,7 +25,7 @@ $router->get('/users/login', 'UserController#login');
 $router->get('/users/logout', 'UserController#logout');
 $router->get('/users/profile',  'UserController#show');
 $router->get('/users/register',   'UserController#new');
-$router->get('/users/update',  'UserController#edit');
+$router->get('/users/edit',  'UserController#edit');
 
 $router->post('/users/create_session', 'UserController#create_session');
 $router->post('/users/create', 'UserController#create');

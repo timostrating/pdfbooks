@@ -1,7 +1,5 @@
 <?php
 
-global $connect;
-
 class productController extends baseController {
    
 
@@ -31,6 +29,9 @@ class productController extends baseController {
         $this->view->display('product/product_edit.php', $result);                		
     }
     
+
+    /**********************************************************/
+
 
     function create() {  # POST /products
         $sql = "INSERT INTO products (name, description, imgurl, price) VALUES  (?,?,?,?);";
