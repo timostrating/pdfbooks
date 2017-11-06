@@ -1,6 +1,6 @@
 <?php
 
-require('../config/init.php');
+require('../config/app.php');
 require('../config/routes.php');
 
 SESSION_START();
