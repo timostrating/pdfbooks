@@ -1,5 +1,6 @@
 <?php
     include('header.php');
+
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -13,39 +14,49 @@
     }
     
     
-//  Products
-//     ID 
-//     name
-//     description 
-//     imgurl 
-//     price1
+    //  Products
+    //     ID
+    //     name
+    //     description
+    //     imgurl
+    //     price1
 
 
     if(isset($_POST['search'])){
-        $search_value = $_POST['search'];
+        $search_value = strtolower($_POST['search']);
      }
-    $query = "SELECT * FROM products WHERE name LIKE \"%$search_value%\" OR description LIKE \"%$search_value%\";";
+    $query = "SELECT * FROM products WHERE lower(name) LIKE \"%$search_value%\" OR description LIKE \"%$search_value%\";";
     $result = mysqli_query($db, $query);
-    
-    if (!$result) {
-        die("No products found.");
-    }
 ?>
+<div class="container">
+<table class="table table-striped table-hover ">
+    <caption class="title"><h2>Resultaten</h2></caption>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php
+    while($row = mysqli_fetch_assoc($result)) {
+        echo '<tr>
+					<td>'.$row['name'].'</td>
+					<td>'.$row['description'].'</td>
+					<td>'."&euro; ".$row['price'].'</td>
+				</tr>';
+    }
+    ?>
+    </tbody>
+</table>
+    <?php
 
-    <ul>
-        <?php
-            while($row = mysqli_fetch_assoc($result)) {
-                if(isset($row["description"])) {
-                    $row["description"] = $row["name"];
-                }
-        ?>
-                <li><?php echo $row["name"]; ?></li>
+    if($result->num_rows === 0) {
+        echo "No products found.";
+    }
 
-        <?php
-            }
-   
-        ?>
-    </ul>
-
+    ?>
+</div>
 
 
