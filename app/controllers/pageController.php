@@ -1,6 +1,6 @@
 <?php
 
-class PageController extends baseController {
+class PageController extends BaseController {
 
     function index() {
         $this->view->display('page/page_index.php');        

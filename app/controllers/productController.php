@@ -1,7 +1,5 @@
 <?php
 
-global $connect;
-
 class productController extends baseController {
    
 
@@ -20,17 +18,20 @@ class productController extends baseController {
 
 
     function new() {  # GET /products/new
-        $this->view->display('product/product_new.php', $result);                		
+        $this->view->display('product/product_new.php');                		
 	}
     
 
     function edit($id) {  # GET /products/1/edit
         $sql = "SELECT * FROM products WHERE ID=:id";
-        $array = ["id" => $id];
+        $array = [":id" => $id];
 		$result = $this->DB->query($sql, $array, "Product");
         $this->view->display('product/product_edit.php', $result);                		
     }
     
+
+    /**********************************************************/
+
 
     function create() {  # POST /products
         $sql = "INSERT INTO products (name, description, imgurl, price) VALUES  (?,?,?,?);";

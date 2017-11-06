@@ -1,5 +1,5 @@
 <?php
 
-class $name extends baseModel {
-    
+class '.ucfirst($name).' {
+    public $name;
 }

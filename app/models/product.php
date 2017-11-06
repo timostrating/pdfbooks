@@ -2,8 +2,8 @@
 
 class Product {
     public $ID;
-    public $Name;
-    public $Description;
-    public $Imgurl;
-    public $Price;
+    public $name;
+    public $description;
+    public $imgurl;
+    public $price;
 }

@@ -43,12 +43,8 @@ switch($_GET["action"]) {
 }
 }
 ?>
-<HTML>
-<HEAD>
-<TITLE>Simple PHP Shopping Cart</TITLE>
-<link href="style.css" type="text/css" rel="stylesheet" />
-</HEAD>
-<BODY>
+
+
 <div id="shopping-cart">
 <div class="txt-heading">Shopping Cart <a id="btnEmpty" href="index.php?action=empty">Empty Cart</a></div>
 <?php
@@ -65,7 +61,7 @@ if(isset($_SESSION["cart_item"])){
 <th style="text-align:center;"><strong>Action</strong></th>
 </tr>	
 <?php		
-    foreach ($_SESSION["cart_item"] as $item){
+    foreach ($_SESSION["cart_item"] as $item) {
 		?>
 				<tr>
 				<td style="text-align:left;border-bottom:#F0F0F0 1px solid;"><strong><?php echo $item["name"]; ?></strong></td>
@@ -109,5 +105,3 @@ if(isset($_SESSION["cart_item"])){
 	}
 	?>
 </div>
-</BODY>
-</HTML>
