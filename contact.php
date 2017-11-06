@@ -1,6 +1,5 @@
 <?php include_once('header.php');?>
 <div class="container">
-
 	<center>	
 		<h1>Contact</h1>
 		<p> Beste klant u bevindt zich op onze contactpagina hier kunt u ons contacteren<br/> 
@@ -36,7 +35,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbconnect = "pfdbooks";
+$dbconnect = "pdfbooks";
 
 if(isset($_POST['verstuur'])){
 	$naam = $_POST['naam'];

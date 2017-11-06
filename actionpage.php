@@ -40,11 +40,12 @@ if (mysqli_num_rows($result) > 0){ // gebruikersnaam gevonden, registreer gegeve
     
 }
 else{
-    echo "Je username/wachtwoord is verkeerd";?> click <a hefr='login.php'>hier</a> om het opnieuw te proberen!
+    echo "Je username/wachtwoord is verkeerd";?> click <a href='login.php'>hier</a> om het opnieuw te proberen!
 <?php
 }
 }
 elseif(empty($_POST)){
     header('location: 404.php');
+    die("");
 }
 include('footer.php');
