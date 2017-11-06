@@ -13,7 +13,6 @@
             <?php generateTableField("", "", "submit", "Opslaan"); ?>
 
        </table>
-       <input type="hidden" name="ID" value="<?=$product->ID;?>" />
     </form>		
 
 <?php } else { die("Geen gegevens gevonden"); }

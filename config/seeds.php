@@ -16,20 +16,20 @@ $DB->execute("INSERT INTO user_types (name) VALUES ('user'), ('admin')");
 // USERS
 $DB->execute("CREATE TABLE Users(
     ID INT( 11 ) AUTO_INCREMENT PRIMARY KEY,
-    first_name VARCHAR( 255 ) NOT NULL,
-    last_name VARCHAR( 255 ) NOT NULL,
-    email VARCHAR( 255 ) NOT NULL,
-    password VARCHAR( 255 ) NOT NULL,
-    user_type_id INT(8) NOT NULL, 
+    name VARCHAR( 255 ),
+    last_name VARCHAR( 255 ),
+    email VARCHAR( 255 ),
+    password VARCHAR( 255 ),
+    user_type_id INT(8), 
     CONSTRAINT `fk_User_profile_User_status`
         FOREIGN KEY (`user_type_id`)
         REFERENCES `user_types` (`id`) );");
-$DB->execute("INSERT INTO users (first_name, last_name, email, password, user_type_id) VALUES 
-    ('timo', 'strating', 'pdfbooks@guster.com', 'lol123', '1'),
-    ('kevin', 'strating', 'pdfbooks@guster.com', 'lol123', '1'),
-    ('timo', 'strating', 'pdfbooks@guster.com', 'lol123', '1'),
-    ('timo', 'strating', 'pdfbooks@guster.com', 'lol123', '1'),
-    ('timo', 'strating', 'pdfbooks@guster.com', 'lol123', '1')");
+$DB->execute("INSERT INTO users (name, last_name, email, password, user_type_id) VALUES 
+    ('user', 'Veenstra', 'user@pdfbooks.nl', 'lol123', '1'),
+    ('admin', 'Baans', 'admin@pdfbooks.nl', 'lol123', '2'),
+    ('Jan', 'Duin', 'jan@pdfbooks.nl', 'lol123', '1'),
+    ('Willem', 'Oranje', 'willem@pdfbooks.nl', 'lol123', '1'),
+    ('Henk', 'Beer', 'henk@pdfbooks.nl', 'lol123', '1')");
 
 // PRODUCTS
 $DB->execute("CREATE TABLE Products (

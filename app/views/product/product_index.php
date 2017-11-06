@@ -23,8 +23,8 @@
         <td><?= $product->price; ?></td>
         <td>
             <a class="edit" href="<?=LOCALHOSTURI?>/products/<?=$product->ID;?>/edit">Bewerken</a>
-            <form id="myForm<?=$product->ID;?>" method="post" action="<?=LOCALHOSTURI?>/products/<?=$product->ID;?>/delete">
-                <a class="delete" href="#" onclick='document.getElementById("myForm<?=$product->ID;?>").submit()'>Verwijderen</a>
+            <form id="myform<?=$product->ID;?>" method="post" action="<?=LOCALHOSTURI?>/products/<?=$product->ID;?>/delete">
+                <a class="delete" href="#" onclick="document.getElementById('myform<?=$product->ID;?>').submit();">Verwijderen</a>
             </form>	
         </td>
     </tr>

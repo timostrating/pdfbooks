@@ -3,7 +3,7 @@
 require('../config/init.php');
 require('../config/routes.php');
 
-// SESSION_START();
+SESSION_START();
 
 ?>
 
@@ -39,11 +39,11 @@ require('../config/routes.php');
 
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li> <a href="webshop">Webshop</a> </li>
-          <li> <a href="contact">Contact</a> </li>
+          <li> <a href="<?= LOCALHOSTURI ?>/webshop">Webshop</a> </li>
+          <li> <a href="<?= LOCALHOSTURI ?>/contact">Contact</a> </li>
         </ul>
 
-        <form class="search-container" method="post" action="webshop">
+        <form class="search-container" method="post" action="<?= LOCALHOSTURI ?>/webshop"> <!-- TODO -->
           <input type="text" style="border-radius: 6px;" name="search" id="search-bar" placeholder="Zoek PDF">
           <img class="search-icon" name="searchButton" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png">
         </form>
@@ -56,12 +56,12 @@ require('../config/routes.php');
               <span class="caret"></span>
             </button>
             <ul class="dropdown-menu">
-<?php if(!isset($_SESSION['test'])){ ?>
-              <li align="center"> <a href="login">Login</a> </li>
-              <li align="center"> <a href="register">Register</a> </li>
-<?php } elseif($_SESSION['test'] = true){ ?>
-                <li align="center"> <a href="profile">Profile</a> </li>
-                <li align="center"> <a href="logout">Logout</a> </li>
+<?php if(isset($_SESSION['USER_ID']) == false){ ?>
+              <li align="center"> <a href="<?= LOCALHOSTURI ?>/users/login">Login</a> </li>
+              <li align="center"> <a href="<?= LOCALHOSTURI ?>/users/register">Register</a> </li>
+<?php } else { ?>
+                <li align="center"> <a href="<?= LOCALHOSTURI ?>/users/profile">Profile</a> </li>
+                <li align="center"> <a href="<?= LOCALHOSTURI ?>/users/logout">Logout</a> </li> <!-- TODO -->
 <?php } ?>
             </ul>
           </li> <!-- ./dropdown -->
