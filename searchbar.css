@@ -1,6 +1,6 @@
 .search-container{
   display: block;
-  position: relative;
+  position: absolute;
   top: 5px;
   left: 38%;
   width: 300px;

@@ -42,13 +42,13 @@ include('header.php');
 }
 </style>
 <div class="titel">
-    <form method="post">
-    <h1><input type="text" name="uname" value="<?php echo $_SESSION['uname']; ?>"></h1>
+    <form method="post" action="updateaction.php">
+    <h1><?php echo $_SESSION['uname']; ?></h1>
 </div>
 <div class="body">
     <li>Naam: <input type="text1" name="fname" value="<?php echo $_SESSION['fname']; ?>"></li>
-    <li>achternaam: <input type="text1" name="lname" value="<?php echo $_SESSION['lname']; ?>"></li>
-    <li>Email: <input type="email" name="email" value="<?php echo $_SESSION['email']; ?>"></li>
+    <li>Achternaam: <input type="text1" name="lname" value="<?php echo $_SESSION['lname']; ?>"></li>
+    <li>Email: <input type="email" name="email" value="<?php echo $_SESSION['email']; ?>" required></li>
     <li>Geslacht: <input type="text1" name="gen" value="<?php echo $_SESSION['gen']; ?>"></li>
     <li>Land: <input type="text1" name="country" value="<?php echo $_SESSION['country']; ?>"></li>
     <li>Provincie: <input type="text1" name="state" value="<?php echo $_SESSION['state']; ?>"></li>
@@ -61,22 +61,5 @@ include('header.php');
 <input type="submit" name="check" class="btn btn-primary" style="position: absolute; background-color: #f9f9f9; color: #333; border-color: #e7e7e7; left: 260px; width: 100px;" value="Aanpassen">
 </form>
 <?php
-if(isset($_POST['check'])){
-    $_SESSION['uname'] = $_POST['uname'];
-    $_SESSION['fname'] = $_POST['fname'];
-    $_SESSION['lname'] = $_POST['lname']; 
-    $_SESSION['email'] = $_POST['email'];
-    $_SESSION['gen'] = $_POST['gen']; 
-    $_SESSION['country'] = $_POST['country'];
-    $_SESSION['state'] = $_POST['state'];
-    $_SESSION['city'] = $_POST['city'];
-    $_SESSION['streetname'] = $_POST['streetname'];
-    $_SESSION['streetnum'] = $_POST['streetnum'];
-    $_SESSION['zip'] = $_POST['zip'];
-?>
-    <form action="profile.php">
-<input type="submit" class="btn btn-primary" style="position: absolute; background-color: #f9f9f9; color: #333; border-color: #e7e7e7; left: 40px; width: 100px;" value="Terug">
-    </form>
-<?php
-}
+
 include('footer.php');
