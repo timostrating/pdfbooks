@@ -1,12 +1,15 @@
 <?php
 include('header.php');
 $pageNumber = 1;
+if(!isset($_GET['id']) AND !isset($_GET['idnr'])){
 $catnr = 1;
+}
 if (isset($_GET['id'])) {
     $pageNumber = $_GET['id'];
     $_SESSION['id'] = $_GET['id'];
-    }
     $catnr = $_SESSION['id'];
+    }
+
 
 if (isset($_GET['src'])) {
     $pageNumber = $_GET['src'];
@@ -22,7 +25,8 @@ $db = new mysqli($servername, $username, $password, $mydb);
 
 if ($db->connect_error) {
     die("Connection failed: " . $db->connect_error);
-} if (isset($catnr)) {
+} if (isset($_GET['id']) OR isset($_GET['idnr'])) {
+    $catnr = $_SESSION['id'];
     $que = ("SELECT * FROM catogorien WHERE ID = '$catnr';") or die(mysqli_error());
     $res = mysqli_query($db, $que);
     $cat = mysqli_fetch_assoc($res);
