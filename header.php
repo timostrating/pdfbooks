@@ -72,8 +72,10 @@
             </div>
 
         </nav>
-        <?php if(isset($_GET["error"])) : ?>
+
+    </head>
+            <?php if(isset($_GET["error"])) : ?>
    <div class="alert alert-warning">
   <strong>Oeps</strong> <?= $_GET["error"] ?>
 <?php endif; ?>
-    </head>
+   </div>
