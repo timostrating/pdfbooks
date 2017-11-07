@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * This Controller is responsible for all individual pages.
+ */
+
 class PageController extends BaseController {
 
     function index() {
@@ -11,6 +15,6 @@ class PageController extends BaseController {
     }
 
     function test() {
-        // dump(getenv());
+        echo "text";
     }
 }

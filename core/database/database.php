@@ -1,15 +1,13 @@
 <?php 
 
 /**
- *  We assume some IMPORTANT things about our database
+ *  This class is responsible for handeling everything that has to do with the database.
  * 
- *  1. Every tabel will have these standard columns
- *      ID - We always have the primary key on this field
+ *  TODO: add 'updated_at' and 'created_at'
  *      updated_at - When any data is change in the row we will fill in the current timestemp
  *      created_at - When we create the row we will fill in the current timestemp
+ *  TODO: add the database options to the config file.
  */
-
-global $connect;
 
 class Database {
 
@@ -97,7 +95,7 @@ class Database {
             $dbs = $this->db_handler->prepare($sql);
             $dbs->execute($array);
             if (empty($fetchClass) == false) {
-                $dbs->setFetchMode(PDO::FETCH_CLASS, $fetchClass);
+                $dbs->setFetchMode(PDO::FETCH_CLASS, $fetchClass); // We return them as there model class
             }
             return $dbs->fetchAll();
         } catch (PDOException $e) {

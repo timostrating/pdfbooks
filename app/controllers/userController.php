@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * This Controller is responsible for the CRUD of the Users
+ */
+
 class UserController extends baseController {
 
 

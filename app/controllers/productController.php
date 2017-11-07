@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * This Controller is responsible for the CRUD of the products
+ */
+
 class productController extends baseController {
    
 

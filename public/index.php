@@ -33,7 +33,7 @@ SESSION_START();
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="<?= LOCALHOSTURI ?>">
-          <img src="assets/logo2.png" width="50px" length="50px" style="position: relative; top: -17px;">
+          <img src="<?= LOCALHOSTURI ?>/assets/logo2.png" width="50px" length="50px" style="position: relative; top: -17px;">
         </a>
       </div>
 
@@ -61,7 +61,7 @@ SESSION_START();
               <li align="center"> <a href="<?= LOCALHOSTURI ?>/users/register">Register</a> </li>
 <?php } else { ?>
                 <li align="center"> <a href="<?= LOCALHOSTURI ?>/users/profile">Profile</a> </li>
-                <li align="center"> <a href="<?= LOCALHOSTURI ?>/users/logout">Logout</a> </li> <!-- TODO -->
+                <li align="center"> <a href="<?= LOCALHOSTURI ?>/users/logout">Logout</a> </li>
 <?php } ?>
             </ul>
           </li> <!-- ./dropdown -->

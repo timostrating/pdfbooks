@@ -1,9 +1,11 @@
 <?php 
 
+/**
+ *  This is responsible for building a testable database
+ */
 
 $DB->dropDB();
 $DB->createDB();
-
 
 
 // USER_TYPES
