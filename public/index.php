@@ -68,7 +68,10 @@ SESSION_START();
         </div> <!-- ./navbar-collapse -->
       </div> <!-- ./navbar-header -->
     </nav>
-
+<?php if(isset($_GET["error"])) : ?>
+   <div class="alert alert-warning">
+  <strong>Oeps</strong> <?= $_GET["error"] ?>
+<?php endif; ?>
     <div class="container">
       <?php $router->run(); ?>  
     </div>
