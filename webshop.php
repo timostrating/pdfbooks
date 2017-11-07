@@ -1,6 +1,7 @@
 <?php
 include('header.php');
 $pageNumber = 1;
+$catnr = 1;
 if (isset($_GET['id'])) {
     $pageNumber = $_GET['id'];
     $_SESSION['id'] = $_GET['id'];

@@ -17,7 +17,7 @@ if (isset($_SESSION['items'])) {
         $result = mysqli_query($db, $query);
         $row = mysqli_fetch_assoc($result);
         if ($count[$row['ID']] > 1) {
-            ?> <li><?php echo $count[$row['ID']] . "| | | |" . $row['ID'] . "| | | |" . $row['name'] . "| | | |" . ($count[$row['ID']] * $row['cost']); ?><a href="?plus=<?php echo $row['ID']; ?>">+</a><a href="?min=<?php echo $row['ID']; ?>">-</a></li>
+            ?> <li text-align="center"><?php echo $count[$row['ID']] . "| | | |" . $row['ID'] . "| | | |" . $row['name'] . "| | | |" . ($count[$row['ID']] * $row['cost']); ?><a href="?plus=<?php echo $row['ID']; ?>">+</a><a href="?min=<?php echo $row['ID']; ?>">-</a></li>
             <?php
             $count[$row['ID']] = $count[$row['ID']] - $count[$row['ID']];
         } if ($count[$row['ID']] != 0 AND $count[$row['ID']] == 1) {
