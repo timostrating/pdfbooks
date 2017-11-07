@@ -150,13 +150,12 @@ if ($db->connect_error) {
                         if (!isset($_POST['search'])) {
                             ?>
                             <table class="table table-striped table-hover">
-                                <tr><th>Alles</th>
-                                    <td>
+                                <tr><th><h2>Alle boeken</h2></th>
                             <?php
                             $a = 1;
                             while ($row = mysqli_fetch_assoc($result)) {
                                 ?>
-                                <tr><td><?php echo "$a. "; ?><a href="/pdfbooks/item.php?id=<?php echo $row["ID"]; ?>"><?php echo ucfirst($row['name']); ?></a>
+                                <tr><td><?php // echo "$a. "; ?><a href="/pdfbooks/item.php?id=<?php echo $row["ID"]; ?>"><?php echo ucfirst($row['name']); ?></a>
 
                                 </td></tr>
                                 <?php
