@@ -149,16 +149,21 @@ if ($db->connect_error) {
                         $result = mysqli_query($db, $query);
                         if (!isset($_POST['search'])) {
                             ?>
-                            <li class="list-group-item" style="background-color: #ccc;">Alles</li>
+                            <table class="table table-striped table-hover">
+                                <tr><th>Alles</th>
+                                    <td>
                             <?php
                             $a = 1;
                             while ($row = mysqli_fetch_assoc($result)) {
                                 ?>
-                                <li class="list-group-item"><?php echo "$a. "; ?><a href="/pdfbooks/item.php?id=<?php echo $row["ID"]; ?>"><?php echo ucfirst($row['name']); ?></a></li>
+                                <tr><td><?php echo "$a. "; ?><a href="/pdfbooks/item.php?id=<?php echo $row["ID"]; ?>"><?php echo ucfirst($row['name']); ?></a>
+
+                                </td></tr>
                                 <?php
                                 $a++;
                             }
                             ?>
+                            </table>
                     </div>
                     <?php
                     if (!isset($_GET['src']) AND isset($_GET['page'])) {

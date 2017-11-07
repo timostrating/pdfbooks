@@ -43,7 +43,7 @@
                     <li><a href="contact.php">Contact</a></li>
                 </ul>
 
-                <form class="search-container" method="post" action="webshop.php?src=1">
+                <form class="search-container" style="padding-top: 10px;" method="post" action="webshop.php?src=1">
 
                     <input type="text" style="border-radius: 9px;" name="search" id="search-bar" placeholder="Zoek PDF">
                     <input class="search-icon" type="image" name="submit" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png" alt="Submit"/>
