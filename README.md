@@ -1,24 +1,9 @@
 # pdfbooks.nl
 
-## Nice too have 
-- [ ] Admin backend.
-- [ ] Asset pipeline - We could minify all assets and place them afterwards in the plubic forlder.
-- [ ] A better way to handle / and \ difference.
-- [ ] A better way to handle Links. Maybe we can use the routes to generate static variables.
-- [ ] More comments - Every class should at least be explained somewhere.
-- [ ] Docblocks could also help.
-- [ ] Generators that support model variables.
-- [ ] Router that supports a resource function to loads the default crud urls.
-- [ ] Router that supports prefixes.
-- [ ] Router that supports subdomains.
-- [ ] Maybe migrations ???
-- [ ] A database that lets you query without writing SQL.
-- [ ] A database that automaticly detects PDO:FETCHCLASS options.
-- [ ] An ORM that works from the models and that lets you query them.
-- [ ] A documented git flow.
-- [ ] Multi language support.
-- [ ] Git documentation.
-- [ ] Our own frontend framework.
+# Setup
+
+todo
+
 
 ## Project structure
 <!-- You can not trust tabs here for a correct result so we use spaces instead -->
@@ -41,3 +26,24 @@
 index.html             -- Tells you to go to the public folder
 noframework.php        -- $ php ./noframework.php  for more info about this tool
 </pre>
+
+
+## Nice too have 
+- [ ] Admin backend.
+- [ ] Asset pipeline - We could minify all assets and place them afterwards in the plubic forlder.
+- [ ] A better way to handle / and \ difference.
+- [ ] A better way to handle Links. Maybe we can use the routes to generate static variables.
+- [ ] More comments - Every class should at least be explained somewhere.
+- [ ] Docblocks could also help.
+- [ ] Generators that support model variables.
+- [ ] Router that supports a resource function to loads the default crud urls.
+- [ ] Router that supports prefixes.
+- [ ] Router that supports subdomains.
+- [ ] Maybe migrations ???
+- [ ] A database that lets you query without writing SQL.
+- [ ] A database that automaticly detects PDO:FETCHCLASS options.
+- [ ] An ORM that works from the models and that lets you query them.
+- [ ] A documented git flow.
+- [ ] Multi language support.
+- [ ] Git documentation.
+- [ ] Our own frontend framework.
