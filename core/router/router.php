@@ -15,6 +15,7 @@ class Router {
     private $post_routes = [];
     private $notFound;
 
+    const TEST = 'constant value';
 
 
     public function __construct() {
@@ -27,13 +28,38 @@ class Router {
     
     /** Mark url as valid for GET requests */
     public function get($url, $action) {
-        $this->get_routes[LOCALHOSTURI.$url] = $action;
+        $this->generateGlobalConstant($url, $action);
+        $this->get_routes[ROOT_PATH.$url] = $action;
     }
 
 
     /** Mark url as valid for POST requests */
     public function post($url, $action) {
-        $this->post_routes[LOCALHOSTURI.$url] = $action;
+        $this->generateGlobalConstant($url, $action);        
+        $this->post_routes[ROOT_PATH.$url] = $action;
+    }
+
+
+    /** 
+     * This is a internall function that will generate a superglobal based on a route defined in the routes 
+     * 
+     *                                     |||||||          _||||  + _PATH
+     * $router->get('/products/:ID/show', 'ProductController#show');
+     *                      $url                   $action  
+     * 
+     * define(PRODUCT_SHOW_PATH , $url);
+     */
+        //  
+    private function generateGlobalConstant($url, $action) {
+        if (GENERATE_SUPERGLOBAL_ROUTES) {
+            // # are seen as comments so we can not use them
+            $globalConstantName = str_replace('#', '_', strtoupper($action));  
+            $globalConstantName = str_replace('CONTROLLER', '', $globalConstantName) . "_PATH";
+            $globalConstantURL = ROOT_PATH.$url;
+
+            // Too get our superglobals at a global scope we must hack it in there
+            eval("define('".$globalConstantName."',  '".$globalConstantURL."');");  
+        }
     }
     
 

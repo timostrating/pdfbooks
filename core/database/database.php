@@ -48,19 +48,19 @@ class Database {
             $this->db_handler = new PDO($dsn, $this->user, $this->pass, $this->PDO_options);                    
         } catch (PDOException $e) {
 
-            echo "YOUR SELECTED DATABASE DOES NOT EXIST <br/>";
+            console_warning("DB WARNING: your selected database does not exist, trying general connection");
             
             try {
                 $this->db_handler = new PDO("mysql:host=".$this->host, $this->user, $this->pass);                                    
             } catch (PDOException $e) {
-                echo "WE CAN NOT CONNECT TO MYSQL <br/>";                
+                die("DB ERROR: CAN NOT CONNECT TO MYSQL");                
             }
         }
     }
 
 
     public function dropDB() {
-        echo "drop <br/>";
+        console_error("DATABASE DROP");
         try {
             $this->db_handler->exec("DROP DATABASE `".$this->db."`;");
             $this->connect();            
@@ -71,7 +71,7 @@ class Database {
 
 
     public function createDB() {
-        echo "create <br/>";
+        console_error("DATABASE CREATE");
         try {
             $this->db_handler->exec("CREATE DATABASE `".$this->db."`;");
             $this->connect();
@@ -83,7 +83,7 @@ class Database {
 
     public function seed() {
         $DB = $this;
-        require_once(ROOTPATH."/config/seeds.php");
+        require_once(ROOT."/config/seeds.php");
         echo "The seeds have grown to plants, let's start framing";        
     }
 

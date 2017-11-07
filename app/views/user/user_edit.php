@@ -2,13 +2,12 @@
 
     <h1>User bewerken</h1>
     
-    <form method="post" action="<?=LOCALHOSTURI?>/users/update">
+    <form method="post" action="<?= USER_UPDATE_PATH; ?>">
        <table>
 
             <tr> <td>ID:</td>  <td><?=$user->ID;?></td></tr>
             <?php generateTableField("Naam", "name", "text", $user->name); ?>
             <?php generateTableField("", "", "submit", "Opslaan"); ?>
-
 
        </table>
     </form>		

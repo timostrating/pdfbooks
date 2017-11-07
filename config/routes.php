@@ -35,7 +35,7 @@ $router->get('/contact', 'PageController#contact');
 
 
 $router->get('/webshop', 'ProductController#index');
-$router->get('/products', 'ProductController#index');
+// $router->get('/products', 'ProductController#index');
 $router->get('/products/:ID/show', 'ProductController#show'); 
 $router->get('/products/new', 'ProductController#new'); 
 $router->get('/products/:ID/edit', 'ProductController#edit'); 
@@ -48,7 +48,7 @@ $router->post('/products/:ID/delete', 'ProductController#delete');
 $router->get('/users/login', 'UserController#login');
 $router->get('/users/logout', 'UserController#logout');
 $router->get('/users/profile',  'UserController#show');
-$router->get('/users/register',   'UserController#new');
+$router->get('/users/register',   'UserController#register');
 $router->get('/users/edit',  'UserController#edit');
 
 $router->post('/users/create_session', 'UserController#create_session');

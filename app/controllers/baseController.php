@@ -12,7 +12,7 @@ class BaseController {
 
     public function __construct() {
         $this->view = new View(
-            new ViewLoader(platformSlashes(ROOTPATH.'/app/views/'))
+            new ViewLoader(platformSlashes(ROOT.'/app/views/'))
         );
 
         $this->DB = Database::Instance();

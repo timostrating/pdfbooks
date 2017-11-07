@@ -16,6 +16,16 @@
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
-define('ROOTPATH', __DIR__.'\..');   // TODO: this is not the ideal URI
-define('LOCALHOSTURI', '/pdfbooks/public');  // TODO this is a terrible name
-define('DEVELOPMENT', true);  // TODO this is a terrible name
+
+// NoFramework paths
+define('ROOT', __DIR__.'\..');
+define('ROOT_PATH', '/pdfbooks/public');  
+
+
+// Route options
+define('GENERATE_SUPERGLOBAL_ROUTES', true);
+
+
+// Development options
+define('DEVELOPMENT', true);
+define('CONSOLE_MESSAGES_ON', DEVELOPMENT);

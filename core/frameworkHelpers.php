@@ -4,17 +4,19 @@
 
 
 // TODO: A config option for showing logs would be nice
-function console_log($message) {  
-    echo str_replace("\\", "/", "<script>console.log(\"".$message."\"); </script> \n");
+function console_log($message)      {  console_messsage($message, "log"); }
+function console_warning($message)  {  console_messsage($message, "warn"); }
+function console_error($message)    {  console_messsage($message, "error"); }
+
+function console_messsage($message, $type) { 
+    if(CONSOLE_MESSAGES_ON) { 
+        echo str_replace("\\", "/", "<script>console.$type(\"".str_replace(PHP_EOL, "", $message)."\"); </script> \n");
+    }
 }
 
-function console_warning($message) {  
-    echo str_replace("\\", "/", "<script>console.warn(\"".$message."\"); </script> \n");
-}
 
-
-function URL($string) {
-    return LOCALHOSTURI.$string;
+function URL($string, $value) {
+    return str_replace(":ID", $value, $string); // TODO: Make this genaric for any :VARIABLE
 }
 
 function dump($var) {

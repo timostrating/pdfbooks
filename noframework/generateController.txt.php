@@ -37,7 +37,7 @@ class '.ucfirst($name).'Controller extends baseController {
         $array = [$_POST["name"]];
 		$result = $this->DB->query($sql, $array);
         
-        header("location: ".LOCALHOSTURI."/'.$name.'s");  // terug naar de index
+        header("location: ".ROOT_PATH."/'.$name.'s");  // terug naar de index
         exit();
     }
 
@@ -50,7 +50,7 @@ class '.ucfirst($name).'Controller extends baseController {
         ];
         $result = $this->DB->query($sql, $array);
         
-        header("location: ".LOCALHOSTURI."/'.$name.'s");  // terug naar de index
+        header("location: ".ROOT_PATH."/'.$name.'s");  // terug naar de index
         exit();
     }
 
@@ -60,7 +60,7 @@ class '.ucfirst($name).'Controller extends baseController {
         $array = [":id" => $id];
         $result = $this->DB->query($sql, $array);
         
-        header("location: ".LOCALHOSTURI."/'.$name.'s");  // terug naar de index
+        header("location: ".ROOT_PATH."/'.$name.'s");  // terug naar de index
         exit();
 	}
 }

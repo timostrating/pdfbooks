@@ -5,8 +5,8 @@
     <p><b> ID: </b> <?= $'.$name.'->ID; ?></p>
     <p><b> Name: </b> <?= $'.$name.'->name; ?></p>
 
-    <a class="edit" href="<?=LOCALHOSTURI?>/'.$names.'/<?=$'.$name.'->ID;?>/edit">Bewerken</a>
-    <form id="myform<?=$'.$name.'->ID;?>" method="post" action="<?=LOCALHOSTURI?>/'.$names.'/<?=$'.$name.'->ID;?>/delete">
+    <a class="edit" href="<?=ROOT_PATH?>/'.$names.'/<?=$'.$name.'->ID;?>/edit">Bewerken</a>
+    <form id="myform<?=$'.$name.'->ID;?>" method="post" action="<?=ROOT_PATH?>/'.$names.'/<?=$'.$name.'->ID;?>/delete">
         <a class="delete" href="#" onclick="document.getElementById(\'myform<?=$user->ID;?>\').submit();">Verwijderen</a>
     </form>	
 

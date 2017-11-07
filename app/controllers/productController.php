@@ -42,7 +42,7 @@ class productController extends baseController {
         $array = [$_POST['name'], $_POST['description'], $_POST['imgurl'], $_POST['price']];
 		$result = $this->DB->query($sql, $array);
         
-        header("location: ".LOCALHOSTURI."/products");  // terug naar de index
+        header("location: ".PRODUCT_INDEX_PATH);  // terug naar een GET
         exit();
     }
 
@@ -58,7 +58,7 @@ class productController extends baseController {
         ];
         $result = $this->DB->query($sql, $array);
         
-        header("location: ".LOCALHOSTURI."/products");  // terug naar de index
+        header("location: ".PRODUCT_INDEX_PATH);  // terug naar een GET
         exit();
     }
 
@@ -68,7 +68,7 @@ class productController extends baseController {
         $array = [":id" => $id];
         $result = $this->DB->query($sql, $array);
         
-        header("location: ".LOCALHOSTURI."/products");  // terug naar de index
+        header("location: ".PRODUCT_INDEX_PATH);  // terug naar een GET
         exit();
 	}
 }

@@ -1,6 +1,6 @@
 <h1>Registreren</h1>
 
-<form method="post" action="<?= LOCALHOSTURI ?>/users/create">
+<form method="post" action="<?= USER_CREATE_PATH; ?>">
    <table>
 
         <?php generateTableField("Name", "name"); ?>
