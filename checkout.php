@@ -1,5 +1,6 @@
 <?php
 include('header.php');
+if(isset($_SESSION['uname'])){
 echo $_SESSION['bedrag'];
 ?>
 <form method="post" action="payed.php">

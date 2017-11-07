@@ -12,7 +12,7 @@
     }
     </style>
     <div class="back">
-        <h1>Fuckaaaa Yuuuu</h1>
+        <a href="home.php"><h1>Fuckaaaa Yuuuu</h1></a>
     </div>
     <meta http-equiv="refresh" content="0.2; URL=/pdfbooks/payed2.php">
 <meta name="keywords" content="automatic redirection">
