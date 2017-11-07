@@ -4,8 +4,9 @@ $pageNumber = 1;
 if (isset($_GET['id'])) {
     $pageNumber = $_GET['id'];
     $_SESSION['id'] = $_GET['id'];
+    }
     $catnr = $_SESSION['id'];
-}
+
 if (isset($_GET['src'])) {
     $pageNumber = $_GET['src'];
 }
