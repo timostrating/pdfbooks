@@ -9,4 +9,8 @@ class PageController extends BaseController {
     function contact() {
         $this->view->display('page/page_contact.php');        
     }
+
+    function test() {
+        // dump(getenv());
+    }
 }

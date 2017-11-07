@@ -18,7 +18,7 @@
         <td>
             <a class="edit" href="<?=LOCALHOSTURI?>/'.$names.'/<?=$'.$name.'->ID;?>/edit">Bewerken</a>
             <form id="myform<?=$'.$name.'->ID;?>" method="post" action="<?=LOCALHOSTURI?>/'.$names.'/<?=$'.$name.'->ID;?>/delete">
-                <a class="delete" href="#" onclick="document.getElementById(\'myform<?=$user->ID;?>\').submit();">Verwijderen</a>
+                <a class="delete" href="#" onclick="document.getElementById(\'myform<?=$'.$name.'->ID;?>\').submit();">Verwijderen</a>
             </form>	
         </td>
     </tr>

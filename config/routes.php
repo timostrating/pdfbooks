@@ -4,6 +4,7 @@
 
 $router->get('/', 'PageController#index');
 $router->get('/contact', 'PageController#contact');
+$router->get('/test', 'PageController#test');
 
 
 // for testing
@@ -12,6 +13,7 @@ $router->get('/seeds', 'Database#seed');
 
 
 $router->get('/webshop', 'ProductController#index');
+$router->get('/products', 'ProductController#index');
 $router->get('/products/:id/show', 'ProductController#show'); 
 $router->get('/products/new', 'ProductController#new'); 
 $router->get('/products/:id/edit', 'ProductController#edit'); 
@@ -30,4 +32,4 @@ $router->get('/users/edit',  'UserController#edit');
 $router->post('/users/create_session', 'UserController#create_session');
 $router->post('/users/create', 'UserController#create');
 $router->post('/users/update',  'UserController#update');
-$router->post('/users/delete',   'UserController#delete'); 
+$router->post('/users/delete',   'UserController#delete');   

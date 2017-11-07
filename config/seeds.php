@@ -13,6 +13,12 @@ $DB->execute("CREATE TABLE User_types(
 $DB->execute("INSERT INTO user_types (name) VALUES ('user'), ('admin')");
 
 
+$DB->execute("CREATE TABLE Items(
+    ID INT( 11 ) AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR( 100 ) NOT NULL);");  
+$DB->execute("INSERT INTO Items (name) VALUES ('user'), ('admin')");
+
+
 // USERS
 $DB->execute("CREATE TABLE Users(
     ID INT( 11 ) AUTO_INCREMENT PRIMARY KEY,
