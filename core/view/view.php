@@ -1,5 +1,9 @@
 <?php
 
+/**
+ *  This class is responsible for displaying a View.
+ */
+
 class View {
 
     public function __construct($viewLoader) {

@@ -39,7 +39,7 @@ function printHelp() {
 
 
 function seedDB() {
-    var_dump($name);
+    var_dump($name); // TODO
 }
 
 // Create the full MVC package

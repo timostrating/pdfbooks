@@ -1,26 +1,48 @@
-<?php
+<?php 
+/**
+ * This is the place where all allowed urls are kept in combination to there ececution function.
+ * 
+ * It is responsible for managing all application level resources.
+ *      - require'ing files and Marking files for autoloading are examples of this.
+ * 
+ * TODO: Make a -sample version and make it work together.
+ * TODO: Add this file to the .gitignore.
+ * TODO: '/products' and '/products/' are not the same url right now.
+ */
+?>
 
-// TODO: '/products' and '/products/' are not the same url right now 
+
+<?php
+if(DEVELOPMENT) { $router->get('/seeds', 'Database#seed'); }  // for testing
+
+
+/**
+ * $router->get('/products/:ID/edit', 'ProductController#edit'); 
+ *           1            2                        3
+ * 
+ * 1 - get    mark as Allowed to send   GET  request to this url 
+ *   - post   mark as Allowed to send  POST  request to this url 
+ *
+ * 2 - URL  if you use :VARIABLE_NAME the router will pass whatever number a users enters in this part of the url to the function.
+ * 
+ * 3 - "CLASS_NAME # FUNCTION_NAME"  this gets called by the router
+ */
+
+
 
 $router->get('/', 'PageController#index');
 $router->get('/contact', 'PageController#contact');
-$router->get('/test', 'PageController#test');
-
-
-// for testing
-$router->get('/seeds', 'Database#seed');
-
 
 
 $router->get('/webshop', 'ProductController#index');
 $router->get('/products', 'ProductController#index');
-$router->get('/products/:id/show', 'ProductController#show'); 
+$router->get('/products/:ID/show', 'ProductController#show'); 
 $router->get('/products/new', 'ProductController#new'); 
-$router->get('/products/:id/edit', 'ProductController#edit'); 
+$router->get('/products/:ID/edit', 'ProductController#edit'); 
 
 $router->post('/products/create', 'ProductController#create'); 
-$router->post('/products/:id/update', 'ProductController#update'); 
-$router->post('/products/:id/delete', 'ProductController#delete');  
+$router->post('/products/:ID/update', 'ProductController#update'); 
+$router->post('/products/:ID/delete', 'ProductController#delete');  
 
 // User crud
 $router->get('/users/login', 'UserController#login');

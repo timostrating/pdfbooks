@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * This is the Controller that gets inherited in every other Controller.
+ * 
+ * It is responsible for all resources that the parents require.
+ *      - the MVC structure and database are examples of this.
+ */
+
 class BaseController {
     public $DB;
 
@@ -11,8 +18,4 @@ class BaseController {
         $this->DB = Database::Instance();
         $this->DB->connect();
     }
-
-    // TODO: maybe we should have a model and view function here to handle them
-    //       Models - are now static
-    //       Views - are now loaded in the controller
 }

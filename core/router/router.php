@@ -1,11 +1,19 @@
 <?php
 
+/**
+ *  This class is responsible for handeling everything that has to do with the database.
+ * 
+ *  TODO: add 'updated_at' and 'created_at'
+ *      updated_at - When any data is change in the row we will fill in the current timestemp
+ *      created_at - When we create the row we will fill in the current timestemp
+ *  TODO: add the database options to the config file.
+ */
+
 class Router {
 
     private $get_routes = [];
     private $post_routes = [];
     private $notFound;
-
 
 
 
@@ -16,22 +24,26 @@ class Router {
         };
     }
 
-
+    
+    /** Mark url as valid for GET requests */
     public function get($url, $action) {
         $this->get_routes[LOCALHOSTURI.$url] = $action;
     }
 
 
+    /** Mark url as valid for POST requests */
     public function post($url, $action) {
         $this->post_routes[LOCALHOSTURI.$url] = $action;
     }
+    
 
-
+    /** set the 404 function */
     public function setNotFound($action) {
         $this->notFound = $action;
     }
 
     
+    /** Handle The request the user send and serve it */
     public function run() {
         console_log("ROUTER ".$_SERVER['REQUEST_METHOD'].": ".$_SERVER['REQUEST_URI']);        
 
@@ -54,7 +66,8 @@ class Router {
                 for ($i=0; $i < count($request); $i++) { 
                     if (empty($url[$i]) == false and $url[$i][0] === ":") {
                         // If we find a : in the routes URL we store it and later pass it on
-                        array_push($args, $request[$i]);  
+                        // We assume the generic part of the url can only be a number
+                        array_push($args, intval($request[$i]));   
                     } elseif ($request[$i] === $url[$i]) {
                         continue;
                     } else { 

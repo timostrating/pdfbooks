@@ -1,5 +1,9 @@
 <?php
 
+/**
+ *  This class is responsible for parsing a view. 
+ */
+
 class ViewLoader {
 
     public function __construct($path) {
