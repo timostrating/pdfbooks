@@ -22,7 +22,7 @@ while($row = $query->fetch_object()) {
 
 		<div class="product">
 			<h3><a href="product.php?id=<?php echo $product->id; ?>"><?php echo $product->title; ?></h3>
-			<div class="product-rating">Rating: x/5</div>
+			<div class="product-rating">Rating: "<?php round($product->rating); ?>"/5</div>
 		</div>
 
 	
