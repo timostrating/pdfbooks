@@ -71,6 +71,7 @@ SESSION_START();
 <?php if(isset($_GET["error"])) : ?>
    <div class="alert alert-warning">
   <strong>Oeps</strong> <?= $_GET["error"] ?>
+    </div>
 <?php endif; ?>
     <div class="container">
       <?php $router->run(); ?>  
