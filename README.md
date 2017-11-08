@@ -2,7 +2,7 @@
 
 # Setup
 
-There is no setup required just place the folder pdfbooks on your server and go to [loclhost/pdfbooks](localhost/pdfbooks).
+There is no setup required just place the folder pdfbooks on your server and go to [localhost/pdfbooks](localhost/pdfbooks).
 
 
 ## Project structure
@@ -30,11 +30,12 @@ noframework.php        -- $ php ./noframework.php  for more info about this tool
 
 ## Nice too have 
 - [ ] Admin backend.
-- [ ] Asset pipeline - We could minify all assets and place them afterwards in the plubic forlder.
-- [ ] A better way to handle / and \ difference.
-- [ ] A better way to handle Links. Maybe we can use the routes to generate static variables.
-- [ ] More comments - Every class should at least be explained somewhere.
-- [ ] Docblocks could also help.
+- [ ] Our own frontend framework.
+- [ ] Asset pipeline - We could minify all assets and place them afterwards in the folder /public/assets/.
+- [x] A better way to handle / and \ difference.
+- [x] A better way to handle Links. Maybe we can use the routes to generate static variables.
+- [x] More comments - Every class should at least be explained somewhere.
+- [x] Docblocks could also help.
 - [ ] Generators that support model variables.
 - [ ] Router that supports a resource function to loads the default crud urls.
 - [ ] Router that supports prefixes.
@@ -46,4 +47,3 @@ noframework.php        -- $ php ./noframework.php  for more info about this tool
 - [ ] A documented git flow.
 - [ ] Multi language support.
 - [ ] Git documentation.
-- [ ] Our own frontend framework.

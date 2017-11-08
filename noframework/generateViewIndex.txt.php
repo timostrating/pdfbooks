@@ -1,4 +1,4 @@
-<h1>'.$Name.'</h1>
+<h1>'.$Names.'</h1>
 
 <br/>
 <a class="add" href="<?='.$NAME.'_NEW_PATH?>" value="'.$Name.' toevoegen"> New '.$name.' </a>

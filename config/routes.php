@@ -44,24 +44,23 @@ $router->post('/products/create', 'ProductController#create');
 $router->post('/products/:ID/update', 'ProductController#update'); 
 $router->post('/products/:ID/delete', 'ProductController#delete');  
 
+
 // User crud
-$router->get('/users/login', 'UserController#login');
+$router->get('/login', 'UserController#login');
 $router->get('/users/logout', 'UserController#logout');
-$router->get('/users/profile',  'UserController#show');
 $router->get('/users/register',   'UserController#register');
+$router->get('/users/profile',  'UserController#show');
 $router->get('/users/edit',  'UserController#edit');
 
 $router->post('/users/create_session', 'UserController#create_session');
 $router->post('/users/create', 'UserController#create');
 $router->post('/users/update',  'UserController#update');
-$router->post('/users/delete',   'UserController#delete');     
+$router->post('/users/delete',   'UserController#delete');         
 
-// Item crud
-$router->get('/items', 'ItemController#index');
-$router->get('/items/:ID/show',  'ItemController#show');
-$router->get('/items/new',   'ItemController#new');
-$router->get('/items/:ID/edit',  'ItemController#edit');
 
-$router->post('/items/create', 'ItemController#create');
-$router->post('/items/:ID/update',  'ItemController#update');
-$router->post('/items/:ID/delete',   'ItemController#delete');
+// Cart
+$router->get('/shoppingcart', 'CartController#index');
+
+$router->post('/shoppingcart/:ID/add',  'CartController#add');
+$router->post('/shoppingcart/:ID/subtract',  'CartController#subtract');
+$router->post('/shoppingcart/:ID/delete',   'CartController#delete');

@@ -5,6 +5,8 @@
 <br/>
 <br/>
 
+<?php if(empty($result)) { echo "Er zijn geen resultaten"; return; }?>
+
 <table>
     <tr>
         <th> ID </td>

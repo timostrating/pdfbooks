@@ -5,10 +5,13 @@
  */
 
 class productController extends baseController {
-   
+    
 
     function index() {  # GET /products
-        $result = $this->DB->query("SELECT * FROM Products", [], "Product");
+        $search_value = (isset($_GET["search"]))? $_GET["search"] : "";
+        $sql = "SELECT * FROM Products WHERE lower(name) LIKE ? OR lower(description) LIKE ?;";
+        $array = ["%".$search_value."%", "%".$search_value."%"];
+		$result = $this->DB->query($sql, $array, "Product");
         $this->view->display("product/product_index.php", $result);        
     }
 

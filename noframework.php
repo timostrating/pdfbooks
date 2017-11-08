@@ -53,10 +53,13 @@ function showRoutes() {
 
 function seedDB() {
     eval("
+        define('CONSOLE_MESSAGES_ON', false);
         require(__DIR__.'/config/config.php'); 
         require(__DIR__.'/core/frameworkHelpers.php');      
         require(__DIR__.'/core/database/database.php');  
         \$DB = new Database();
+
+        echo' ^^ Ignore what you see here ^^\n\n';
         \$DB->seed();
         echo'\n';
     ");
@@ -65,11 +68,12 @@ function seedDB() {
 
 // Create the full MVC package
 function generateScaffold($name) {
-    // var_dump($name);
     generateModel($name);
     generateController($name);
     generateViews($name);
     addRoutes($name);
+    addSeeds($name);
+    seedDB();
 }
 
 
@@ -102,7 +106,7 @@ function addRoutes($name) {  // TODO: as soon as the resource is implemented in 
     $names = $name."s";
     $Names = $Name."s";
     
-    $string = " \n
+    $string = " \n \n
 // ".$Name." crud
 \$router->get('/$names', '".$Name."Controller#index');
 \$router->get('/$names/:ID/show',  '".$Name."Controller#show');
@@ -115,6 +119,24 @@ function addRoutes($name) {  // TODO: as soon as the resource is implemented in 
 
     echo "\t \e[32m + NEW ROUTES \e[0m \n"; 
     file_put_contents(__DIR__."/config/routes.php", $string, FILE_APPEND); 
+}
+
+
+// Add a new Table to our seeds file and add some test data.
+function addSeeds($name) {
+    $Name = ucfirst($name);
+    $NAME = strtoupper($name);
+    $names = $name."s";
+    $Names = $Name."s";
+
+    $string = "\n
+\$DB->execute(\"CREATE TABLE ".$Names."(
+    ID INT( 11 ) AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR( 100 ) NOT NULL);\");  
+\$DB->execute(\"INSERT INTO ".$Names." (name) VALUES ('test1'), ('test2')\");";
+    
+    echo "\t \e[32m + NEW SEEDS \e[0m \n"; 
+    file_put_contents(__DIR__."/config/seeds.php", $string, FILE_APPEND); 
 }
 
 
