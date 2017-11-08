@@ -46,6 +46,13 @@ include('header.php');
 <input type="submit" name="delete" class="btn btn-primary" style="position: absolute; background-color: #f9f9f9; color: #333; border-color: #e7e7e7; left: 140px; width: 100px;" value="Verwijderen">
 </form>
 <?php
-
+if(ucfirst($_SESSION['uname']) == "Kevin"){
+?>
+<table>
+    <br><br><br>
+    <td><a href="urlcountpagepussyslayer69.php">Page Vieuws</a></td>
+    </table>
+    <?php
+}
 include('footer.php');
 ?>

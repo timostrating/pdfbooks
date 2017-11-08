@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 
 <?php
-//login
+//include header
 include('header.php');
+//het formulier
 ?>
 <h1 align="center">Login</h1>
 <br>
@@ -20,6 +21,7 @@ include('header.php');
   <button type="submit" class="btn btn-primary">Login</button>
 </form>
 <?php
+//include footer
 include('footer.php');
 ?>
     </body>

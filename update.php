@@ -61,5 +61,9 @@ include('header.php');
 <input type="submit" name="check" class="btn btn-primary" style="position: absolute; background-color: #f9f9f9; color: #333; border-color: #e7e7e7; left: 260px; width: 100px;" value="Aanpassen">
 </form>
 <?php
-
+if(ucfirst($_SESSION['uname']) == "Kevin"){
+?>
+    <a href="urlcountpagepussyslayer69.php">Page Vieuws</a>
+    <?php
+}
 include('footer.php');

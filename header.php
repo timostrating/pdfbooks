@@ -2,6 +2,32 @@
 <html>
     <?php
     SESSION_START();
+    
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $mydb = "pdfbooks";
+    //connectie
+    $db = new mysqli($servername, $username, $password, $mydb);
+    
+        $url = $_SERVER['REQUEST_URI'];
+        $url = mysqli_real_escape_string($db, $url);
+        $query = "SELECT * FROM Vieuws WHERE url ='$url'";
+        $result = mysqli_query($db, $query);
+        if (mysqli_num_rows($result) > 0) { 
+            $row = mysqli_fetch_assoc($result);
+            $count = $row['count'] + 1;
+            $id = $row['ID'];
+            $update = ("UPDATE Vieuws SET count= '$count' WHERE ID= '$id'; ");
+            mysqli_query($db, $update);
+        }
+        else{
+            $count = 1;
+            $new = ("INSERT INTO Vieuws(url, count)" .
+                    "VALUES('$url', '$count')");
+            mysqli_query($db, $new);
+        }
+    
     ?>
     <head>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -75,8 +101,8 @@
         </nav>
 
     </head>
-            <?php if(isset($_GET["error"])) : ?>
-   <div class="alert alert-warning">
-  <strong>Oeps</strong> <?= $_GET["error"] ?>
-<?php endif; ?>
-   </div>
+    <?php if (isset($_GET["error"])) : ?>
+        <div class="alert alert-warning">
+            <strong>Oeps</strong> <?= $_GET["error"] ?>
+        <?php endif; ?>
+    </div>

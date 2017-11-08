@@ -22,12 +22,15 @@ if (isset($_SESSION['items'])) {
     if (isset($_GET['plus'])) {
         array_push($_SESSION['items'], $_GET['plus']);
         ?>
-<audio style="display: none;" autoplay="true" src="assets/money.mp3"></audio>
+        <audio style="display: none;" autoplay="true" src="assets/money.mp3"></audio>
         <?php
     }
     if (isset($_GET['min'])) {
         $search = array_search($_GET['min'], $_SESSION['items']);
         unset($_SESSION['items'][$search]);
+        ?>
+        <audio style="display: none;" autoplay="true" src="assets/boo.mp3"></audio>
+        <?php
     }
     $count = array_count_values($_SESSION['items']);
     ?>
@@ -49,8 +52,8 @@ if (isset($_SESSION['items'])) {
                     if ($count[$row['ID']] > 1) {
                         ?> <tr><td><?= $count[$row['ID']]; ?></td><td><?= $row['ID']; ?></td><td><?= ($count[$row['ID']] * $row['cost']); ?></td><td><a class="btn btn-success" href="?plus=<?php echo $row['ID']; ?>">+</a></td><td><a class="btn btn-danger" href="?min=<?php echo $row['ID']; ?>">-</a></td>
                         </tr><?php
-            $count[$row['ID']] = $count[$row['ID']] - $count[$row['ID']];
-        } if ($count[$row['ID']] != 0 AND $count[$row['ID']] == 1) {
+                        $count[$row['ID']] = $count[$row['ID']] - $count[$row['ID']];
+                    } if ($count[$row['ID']] != 0 AND $count[$row['ID']] == 1) {
                         ?> <tr><td><?php echo $count[$row['ID']]; ?></td><td><?= $row['ID']; ?></td><td><?= ($count[$row['ID']] * $row['cost']); ?></td><td><a class="btn btn-success" href="?plus=<?php echo $row['ID']; ?>">+</a></td><td><a class="btn btn-danger" href="?min=<?php echo $row['ID']; ?>">-</a></td>
                         </tr>
                         <?php
