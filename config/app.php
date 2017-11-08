@@ -27,12 +27,12 @@ spl_autoload_register([$autoloader, 'load']);
 $autoloader->load('database'); 
 $DB = new Database;
 
-$autoloader->registerFile('viewloader', ROOTPATH.'/core/view/viewLoader.php');
-$autoloader->registerFile('seeds', ROOTPATH.'/config/seeds.php');
-$autoloader->registerFolder(ROOTPATH.'/app/controllers');
-$autoloader->registerFolder(ROOTPATH.'/app/models');
+$autoloader->registerFile('viewloader', ROOT.'/core/view/viewLoader.php');
+$autoloader->registerFile('seeds', ROOT.'/config/seeds.php');
+$autoloader->registerFolder(ROOT.'/app/controllers');
+$autoloader->registerFolder(ROOT.'/app/models');
 
 
 // mvc
-$view = new View( new ViewLoader(platformSlashes(ROOTPATH.'/app/views/')) );
+$view = new View( new ViewLoader(platformSlashes(ROOT.'/app/views/')) );
 $router = new Router();

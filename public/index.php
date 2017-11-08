@@ -8,8 +8,8 @@ SESSION_START();
 ?>
 
 
-<?php require ROOTPATH."/app/views/header.php"; ?>
-<?php require ROOTPATH."/app/views/navbar.php"; ?>
+<?php require ROOT."/app/views/header.php"; ?>
+<?php require ROOT."/app/views/navbar.php"; ?>
 
 <div class="container">
   <?php if(isset($_GET["error"])) : ?>
@@ -21,4 +21,4 @@ SESSION_START();
   <?php $router->run(); ?>  
 </div>
 
-<?php require ROOTPATH."/app/views/footer.php"; ?>
+<?php require ROOT."/app/views/footer.php"; ?>

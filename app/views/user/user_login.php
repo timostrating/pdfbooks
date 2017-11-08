@@ -1,6 +1,6 @@
 <h1>Inloggen</h1>
 
-<form method="post" action="<?= LOCALHOSTURI ?>/users/create_session">
+<form method="post" action="<?= USER_CREATE_SESSION_PATH ?>">
    <table>
 
         <?php generateTableField("Email", "email", "email"); ?>

@@ -49,7 +49,7 @@ class Autoload {
     public function load($name) {
         $name = strtolower($name);
         // We assume that for example the database.php is in the folder /core/database
-        $filepath = ROOTPATH.'/core/'.$name.'/'.$name.'.php'; 
+        $filepath = ROOT.'/core/'.$name.'/'.$name.'.php'; 
         $filepath = $this->platformSlashes($filepath);
         
         // console_log("AUTOLOAD->LOAD: ".$filepath);

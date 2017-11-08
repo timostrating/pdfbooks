@@ -2,7 +2,7 @@
 
 # Setup
 
-todo
+There is no setup required just place the folder pdfbooks on your server and go to [loclhost/pdfbooks](localhost/pdfbooks).
 
 
 ## Project structure

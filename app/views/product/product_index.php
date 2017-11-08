@@ -1,7 +1,7 @@
 <h1>Producten</h1>
 
 <br/>
-<a class="add" href="<?=LOCALHOSTURI?>/products/new" value="Product toevoegen"> New product </a>
+<a class="add" href="<?= PRODUCT_NEW_PATH ?>" value="Product toevoegen"> New product </a>
 <br/>
 <br/>
 
@@ -16,14 +16,14 @@
 
 <?php foreach($result as $product) { ?>        
     <tr>
-        <td><a href="<?=LOCALHOSTURI?>/products/<?=$product->ID;?>/show"><?= $product->ID; ?></a></td>
+        <td><a href="<?= URL(PRODUCT_SHOW_PATH, $product->ID); ?>"><?= $product->ID; ?></a></td>
         <td><?= $product->name; ?></td>
         <td><?= $product->description; ?></td>
         <td><?= $product->imgurl; ?></td>
         <td><?= $product->price; ?></td>
         <td>
-            <a class="edit" href="<?=LOCALHOSTURI?>/products/<?=$product->ID;?>/edit">Bewerken</a>
-            <form id="myform<?=$product->ID;?>" method="post" action="<?=LOCALHOSTURI?>/products/<?=$product->ID;?>/delete">
+            <a class="edit" href="<?= URL(PRODUCT_EDIT_PATH, $product->ID); ?>">Bewerken</a>
+            <form id="myform<?=$product->ID;?>" method="post" action="<?= URL(PRODUCT_DELETE_PATH, $product->ID); ?>">
                 <a class="delete" href="#" onclick="document.getElementById('myform<?=$product->ID;?>').submit();">Verwijderen</a>
             </form>	
         </td>

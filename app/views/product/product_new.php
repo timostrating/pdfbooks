@@ -1,6 +1,6 @@
 <h1>Product toevoegen</h1>
 
-<form method="post" action="<?= LOCALHOSTURI ?>/products/create">
+<form method="post" action="<?= PRODUCT_CREATE_PATH; ?>">
    <table>
 
         <?php generateTableField("Name", "name"); ?>

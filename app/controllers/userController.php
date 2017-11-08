@@ -15,7 +15,7 @@ class UserController extends baseController {
     function logout() {  # GET /users/logout
         session_unset();
         session_destroy();
-        header("location: ".LOCALHOSTURI); 
+        header("location: ".ROOT_PATH); 
         exit();       
     }
 
@@ -27,11 +27,12 @@ class UserController extends baseController {
             $result = $this->DB->query($sql, $array, "User");
             $this->view->display("user/user_show.php", $result); 
         } 
-        else { header("location: ".LOCALHOSTURI); exit; }        
+        else { header("location: ".USER_LOGIN_PATH); exit; }        
     }
 
 
-    function new() {  # GET /users/register
+    // I renamed this from 'new' to 'register' to make it more readable when the path is used
+    function register() {  # GET /users/register
         $this->view->display("user/user_new.php");                		
 	}
     
@@ -43,7 +44,7 @@ class UserController extends baseController {
             $result = $this->DB->query($sql, $array, "User");
             $this->view->display("user/user_edit.php", $result); 
         } 
-        else { header("location: ".LOCALHOSTURI); exit; }                 		
+        else { header("location: ".USER_LOGIN_PATH); exit; }                 		
     }
 
     
@@ -57,10 +58,10 @@ class UserController extends baseController {
         
         if(empty($result) == false) {
             $_SESSION["USER_ID"] = $result[0]->ID;
-            header("location: ".LOCALHOSTURI."/users/profile"); 
+            header("location: ".USER_PROFILE_PATH); 
             exit();
         } else {
-            header("location: ".LOCALHOSTURI."/users/login"); 
+            header("location: ".USER_LOGIN_PATH."?error=de+ingevulde+gegevens+zijn+niet+correct."); 
             exit();
         }
     }
@@ -77,7 +78,7 @@ class UserController extends baseController {
 
         $_SESSION["USER_ID"] = $result[0]->ID;
         
-        header("location: ".LOCALHOSTURI."/users/profile"); 
+        header("location: ".USER_PROFILE_PATH); 
         exit();
     }
 
@@ -92,7 +93,7 @@ class UserController extends baseController {
             $result = $this->DB->query($sql, $array);
         }
         
-        header("location: ".LOCALHOSTURI."/users/profile");
+        header("location: ".USER_PROFILE_PATH);
         exit();
     }
 
@@ -103,7 +104,7 @@ class UserController extends baseController {
             $array = [":id" => $_SESSION["USER_ID"]];
             $result = $this->DB->query($sql, $array);
         }
-        header("location: ".LOCALHOSTURI);  
+        header("location: ".ROOT_PATH);  
         exit();
 	}
 }

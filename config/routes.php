@@ -35,7 +35,7 @@ $router->get('/contact', 'PageController#contact');
 
 
 $router->get('/webshop', 'ProductController#index');
-$router->get('/products', 'ProductController#index');
+// $router->get('/products', 'ProductController#index');
 $router->get('/products/:ID/show', 'ProductController#show'); 
 $router->get('/products/new', 'ProductController#new'); 
 $router->get('/products/:ID/edit', 'ProductController#edit'); 
@@ -48,10 +48,20 @@ $router->post('/products/:ID/delete', 'ProductController#delete');
 $router->get('/users/login', 'UserController#login');
 $router->get('/users/logout', 'UserController#logout');
 $router->get('/users/profile',  'UserController#show');
-$router->get('/users/register',   'UserController#new');
+$router->get('/users/register',   'UserController#register');
 $router->get('/users/edit',  'UserController#edit');
 
 $router->post('/users/create_session', 'UserController#create_session');
 $router->post('/users/create', 'UserController#create');
 $router->post('/users/update',  'UserController#update');
-$router->post('/users/delete',   'UserController#delete');   
+$router->post('/users/delete',   'UserController#delete');     
+
+// Item crud
+$router->get('/items', 'ItemController#index');
+$router->get('/items/:ID/show',  'ItemController#show');
+$router->get('/items/new',   'ItemController#new');
+$router->get('/items/:ID/edit',  'ItemController#edit');
+
+$router->post('/items/create', 'ItemController#create');
+$router->post('/items/:ID/update',  'ItemController#update');
+$router->post('/items/:ID/delete',   'ItemController#delete');

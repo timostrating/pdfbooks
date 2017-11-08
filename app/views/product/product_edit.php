@@ -2,7 +2,7 @@
 
     <h1>Product bewerken</h1>
     
-    <form method="post" action="<?=LOCALHOSTURI?>/products/<?=$product->ID;?>/update">
+    <form method="post" action="<?= URL(PRODUCT_UPDATE_PATH, $product->ID); ?>">
        <table>
 
             <tr> <td>ID:</td>  <td><?=$product->ID;?></td></tr>
