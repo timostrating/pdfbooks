@@ -9,9 +9,9 @@
 <?php
 
 /**
- * This script is used te generate code for you.
- *   -  We have generate... functions. These create files for you.
- *   -  We have add... functions. These alter currently existing files.
+ * This script is used to generate code for you.
+ *   -  We have generated... functions. These create files for you.
+ *   -  We have added... functions. These alter currently existing files.
  */
 
 
@@ -19,7 +19,7 @@
 if (isset($argv[1])) {
     $input = strtolower($argv[1]);
     switch($input) {
-        case "generate":    if(isset($argv[2])) { generateScaffold(lcfirst($argv[2])); } // AdminProduct could be the input, soo only lower the first character.
+        case "generate":    if(isset($argv[2])) { generateScaffold(lcfirst($argv[2])); } // AdminProduct could be the input, so only lowercase for the first character.
                             else { echo" [name] ook graag opgeven \n"; } break;
         case "seed":        seedDB(); break;
         case "routes":      showRoutes(); break;
@@ -27,7 +27,7 @@ if (isset($argv[1])) {
     }
 } else { printHelp(); }
 
-echo("\n");  // To fix the layout we just add an enter on the end.
+echo("\n");  // To fix the layout we just add an enter at the end.
 
 
 
@@ -53,10 +53,13 @@ function showRoutes() {
 
 function seedDB() {
     eval("
+        define('CONSOLE_MESSAGES_ON', false);
         require(__DIR__.'/config/config.php'); 
         require(__DIR__.'/core/frameworkHelpers.php');      
         require(__DIR__.'/core/database/database.php');  
         \$DB = new Database();
+
+        echo' ^^ Ignore what you see here ^^\n\n';
         \$DB->seed();
         echo'\n';
     ");
@@ -65,11 +68,12 @@ function seedDB() {
 
 // Create the full MVC package
 function generateScaffold($name) {
-    // var_dump($name);
     generateModel($name);
     generateController($name);
     generateViews($name);
     addRoutes($name);
+    addSeeds($name);
+    seedDB();
 }
 
 
@@ -79,13 +83,13 @@ function generateModel($name) {
 }
 
 
-// Create a new Controller width the INDEX, SHOW, NEW, EDIT functions in the /app/models folder.
+// Create a new Controller with the INDEX, SHOW, NEW, EDIT functions in the /app/models folder.
 function generateController($name) {
     createFile("/noframework/generateController.txt.php", "/app/controllers/".$name."Controller.php", $name); 
 }
 
 
-// Create new INDEX, SHOW, NEW, EDIT views in a sepparate folder that is then placed in /app/views/.
+// Create a new INDEX, SHOW, NEW, EDIT views in a sepparate folder that is then placed in /app/views/.
 function generateViews($name) {
     mkdir(__DIR__."/app/views/".$name, 0755);
     createFile("/noframework/generateViewIndex.txt.php", "/app/views/".$name."/".$name."_index.php", $name); 
@@ -96,13 +100,13 @@ function generateViews($name) {
 
 
 // Add our crud routes to the /config/routes.php file 
-function addRoutes($name) {  // TODO: as soon as the resource is implemented in the router we can simply this 
+function addRoutes($name) {  // TODO: as soon as the resource is implemented in the router we can simply do this 
     $Name = ucfirst($name);
     $NAME = strtoupper($name);
     $names = $name."s";
     $Names = $Name."s";
     
-    $string = " \n
+    $string = " \n \n
 // ".$Name." crud
 \$router->get('/$names', '".$Name."Controller#index');
 \$router->get('/$names/:ID/show',  '".$Name."Controller#show');
@@ -118,7 +122,25 @@ function addRoutes($name) {  // TODO: as soon as the resource is implemented in 
 }
 
 
-// Create a new file at the given $URI that has the text from $text inside of it
+// Add a new Table to our seeds file and add some test data.
+function addSeeds($name) {
+    $Name = ucfirst($name);
+    $NAME = strtoupper($name);
+    $names = $name."s";
+    $Names = $Name."s";
+
+    $string = "\n
+\$DB->execute(\"CREATE TABLE ".$Names."(
+    ID INT( 11 ) AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR( 100 ) NOT NULL);\");  
+\$DB->execute(\"INSERT INTO ".$Names." (name) VALUES ('test1'), ('test2')\");";
+    
+    echo "\t \e[32m + NEW SEEDS \e[0m \n"; 
+    file_put_contents(__DIR__."/config/seeds.php", $string, FILE_APPEND); 
+}
+
+
+// Create a new file at the given $URI whom has the text from $text inside of it
 function createFile($fromURL, $toURL, $name) { 
     $Name = ucfirst($name);
     $NAME = strtoupper($name);
