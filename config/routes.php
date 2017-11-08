@@ -13,7 +13,7 @@
 
 
 <?php
-if(DEVELOPMENT) { $router->get('/seeds', 'Database#seed'); }  // for testing
+if(DEVELOPMENT) { $router->both('/seeds', 'Database#seed'); }  // for testing
 
 
 /**

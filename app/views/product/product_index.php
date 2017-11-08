@@ -25,9 +25,7 @@
         <td><?= $product->price; ?></td>
         <td>
             <a class="edit" href="<?= URL(PRODUCT_EDIT_PATH, $product->ID); ?>">Bewerken</a>
-            <form id="myform<?=$product->ID;?>" method="post" action="<?= URL(PRODUCT_DELETE_PATH, $product->ID); ?>">
-                <a class="delete" href="#" onclick="document.getElementById('myform<?=$product->ID;?>').submit();">Verwijderen</a>
-            </form>	
+            <a class="delete" method="post" href="<?= URL(PRODUCT_DELETE_PATH, $product->ID); ?>">Verwijderen<a>
         </td>
     </tr>
 <?php } ?>

@@ -13,8 +13,10 @@
     <script>
     (function($) {
       $(document).ready(function () {
-        $('a[method="post"]').on('click', function(e) {
-          alert(this);
+        $('a[method="post"]').on('click', function(event) {
+          event.preventDefault();
+          $.post(this);
+          location.reload();
         });
       });
     })(jQuery)

@@ -20,7 +20,7 @@
 
     <form class="search-container" action="<?= PRODUCT_INDEX_PATH ?>"> <!-- TODO -->
         <input type="text" style="border-radius: 6px;" name="search" id="search-bar" placeholder="Zoek PDF">
-        <img class="search-icon" name="searchButton" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png">
+        <input class="search-icon" type="image" name="submit" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png" alt="Submit"/>
     </form>
 
     <ul class="nav navbar-nav navbar-right">
