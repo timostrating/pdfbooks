@@ -14,7 +14,7 @@ if ($db->connect_error) {
     die("Connection failed: " . $db->connect_error);
 } 
 
-
+if($_POST['psw'] == $_POST['psw1']){
 if($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST)) {
 //Formulier uitgevoerd - e-mail genereren en meldingen weergeven 
 //HTML- en PHP-tags uit de invoervelden verwijderen
@@ -46,6 +46,10 @@ if(strlen($gebruikersnaam)<3){
         $query = ("INSERT INTO users (username, password, email) "
                 . "VALUES('$gebruikersnaam','$wachtwoord','$email')") or die (mysqli_error()); 
                 $result = mysqli_query($db, $query);
-echo("De gegevens zijn succesvol opgeslagen in de database:<br>\n");
-echo("<hr> <a href=\"login.php\">Naar het inlogscherm</a>");
-} 
+echo("<hr> U bent succesvol geregistreerd</hr>");
+echo("<hr> <a href=\"login.php\">Naar het inlogscherm</a></hr>");
+} } else {
+    echo ("<hr> De wachtwoorden zijn verschillend</hr>");
+    echo ("<hr> <a href=\"register.php\">Naar het registreer pagina</a></hr>");
+}
+    

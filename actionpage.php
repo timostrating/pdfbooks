@@ -12,7 +12,7 @@ if ($db->connect_error) {
     die("Connection failed: " . $db->connect_error);
 } 
 
-if (!empty($_POST)){ 
+if (isset($_POST)){ 
 $gebruiker = mysqli_real_escape_string($db, $_POST['uname']);  
 $wachtwoord = mysqli_real_escape_string($db, $_POST['psw']); 
 $query = "SELECT * FROM users WHERE username ='$gebruiker' AND password ='$wachtwoord'"; 
@@ -36,7 +36,7 @@ if (mysqli_num_rows($result) > 0){ // gebruikersnaam gevonden, registreer gegeve
         $_SESSION['streetname'] = $row["streetname"];
         $_SESSION['streetnum'] = $row["streetnumber"];
         $_SESSION['zip'] = $row["zip"]; 
-        header("location: home.php");
+        header("location: profile.php");
     
 }
 else{
