@@ -17,30 +17,37 @@
 
 
 if (isset($argv[1])) {
-    if($argv[1] === "generate" and isset($argv[2])) {
-        generateScaffold(strtolower($argv[2]));
-    } elseif ($argv[1] === "seed") {
-        seedDB();
-    } else { printHelp(); }
+    $input = strtolower($argv[1]);
+    switch($input) {
+        case "generate":    if(isset($argv[2])) { generateScaffold(strtolower($argv[2])); } break;
+        case "seed":        seedDB(); break;
+        case "routes":      showRoutes(); break;
+        default:            printHelp();
+    }
 } else { printHelp(); }
 
-
-echo("\n");
+echo("\n");  // To fix the layout we just add an enter on the end.
 
 
 
 function printHelp() {
     echo "you can use the following functions
     generate [name]     - generates a scaffold 
-    seed                - seeds the database \n";
+    seed                - seeds the database
+    routes              - shows all SuperGlobal route paths \n";
 }
 
 
+
+function showRoutes() {
+    var_dump("showRoutes()"); // TODO
+}
 
 
 function seedDB() {
-    var_dump($name); // TODO
+    var_dump("seedDB()"); // TODO
 }
+
 
 // Create the full MVC package
 function generateScaffold($name) {

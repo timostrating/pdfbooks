@@ -77,7 +77,8 @@ class Router {
         // We only handle GET and POST requests. All other requests will be seen as POST request.
         // to make other requests like PATCH and DELETE work you should rewrite them as POST requests.
         $routes = ($_SERVER['REQUEST_METHOD'] === 'GET')? $this->get_routes : $this->post_routes;  
-        $request = explode('/', $_SERVER['REQUEST_URI']);        
+        $request = explode('?', $_SERVER['REQUEST_URI'])[0];        
+        $request = explode('/', $request );        
 
 
         foreach ($routes as $url => $action) {

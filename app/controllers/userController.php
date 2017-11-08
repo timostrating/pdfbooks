@@ -27,7 +27,7 @@ class UserController extends baseController {
             $result = $this->DB->query($sql, $array, "User");
             $this->view->display("user/user_show.php", $result); 
         } 
-        else { header("location: ".ROOT_PATH); exit; }        
+        else { header("location: ".USER_LOGIN_PATH); exit; }        
     }
 
 
@@ -44,7 +44,7 @@ class UserController extends baseController {
             $result = $this->DB->query($sql, $array, "User");
             $this->view->display("user/user_edit.php", $result); 
         } 
-        else { header("location: ".ROOT_PATH); exit; }                 		
+        else { header("location: ".USER_LOGIN_PATH); exit; }                 		
     }
 
     
@@ -58,10 +58,10 @@ class UserController extends baseController {
         
         if(empty($result) == false) {
             $_SESSION["USER_ID"] = $result[0]->ID;
-            header("location: ".ROOT_PATH."/users/profile"); 
+            header("location: ".USER_PROFILE_PATH); 
             exit();
         } else {
-            header("location: ".ROOT_PATH."/users/login"); 
+            header("location: ".USER_LOGIN_PATH."?error=de+ingevulde+gegevens+zijn+niet+correct."); 
             exit();
         }
     }
@@ -78,7 +78,7 @@ class UserController extends baseController {
 
         $_SESSION["USER_ID"] = $result[0]->ID;
         
-        header("location: ".ROOT_PATH."/users/profile"); 
+        header("location: ".USER_PROFILE_PATH); 
         exit();
     }
 
@@ -93,7 +93,7 @@ class UserController extends baseController {
             $result = $this->DB->query($sql, $array);
         }
         
-        header("location: ".ROOT_PATH."/users/profile");
+        header("location: ".USER_PROFILE_PATH);
         exit();
     }
 

@@ -32,11 +32,11 @@
             </button>
             <ul class="dropdown-menu">
 <?php if(isset($_SESSION['USER_ID']) == false){ ?>
-                <li align="center"> <a href="<?= USER_LOGIN_PATH ?>">Login</a> </li>
-                <li align="center"> <a href="<?= USER_REGISTER_PATH ?>">Register</a> </li>
+                <li align="center"> <a href="<?= USER_LOGIN_PATH ?>">Inloggen</a> </li>
+                <li align="center"> <a href="<?= USER_REGISTER_PATH ?>">Registreren</a> </li>
 <?php } else { ?>
-                <li align="center"> <a href="<?= USER_PROFILE_PATH ?>">Profile</a> </li>
-                <li align="center"> <a href="<?= USER_LOGOUT_PATH ?>">Logout</a> </li>
+                <li align="center"> <a href="<?= USER_PROFILE_PATH ?>">Profiel</a> </li>
+                <li align="center"> <a href="<?= USER_LOGOUT_PATH ?>">Uitloggen</a> </li>
 <?php } ?>
             </ul>
         </li> <!-- ./dropdown -->
