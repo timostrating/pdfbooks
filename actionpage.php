@@ -13,8 +13,15 @@ if ($db->connect_error) {
 } 
 
 if (isset($_POST)){ 
+$password = $_POST['psw'];
+$password = $password . "pdfbooks.nl";
+$hashed_password = hash('md5', '$password');
+$hashed_password = $hashed_password . "randomshit";
+$hashed_password = hash('sha256', '$hashed_password');
+$hashed_password = $hashed_password . "ikhebgisterkfcgehad";
+$hashed_password = hash('sha512', '$hashed_password');
 $gebruiker = mysqli_real_escape_string($db, $_POST['uname']);  
-$wachtwoord = mysqli_real_escape_string($db, $_POST['psw']); 
+$wachtwoord = mysqli_real_escape_string($db, $hashed_password); 
 $query = "SELECT * FROM users WHERE username ='$gebruiker' AND password ='$wachtwoord'"; 
 $result = mysqli_query($db, $query);
 

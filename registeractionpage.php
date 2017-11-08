@@ -9,7 +9,7 @@ $mydb = "pdfbooks";
 // Create connection
 $db = new mysqli($servername, $username, $password, $mydb);
 
-// Check connection
+// controleert de connectie
 if ($db->connect_error) {
     die("Connection failed: " . $db->connect_error);
 } 
@@ -17,10 +17,19 @@ if ($db->connect_error) {
 if($_POST['psw'] == $_POST['psw1']){
 if($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST)) {
 //Formulier uitgevoerd - e-mail genereren en meldingen weergeven 
-//HTML- en PHP-tags uit de invoervelden verwijderen
+
 $error_msg = ""; 
+$password = $_POST['psw'];
+$password = $password . "pdfbooks.nl";
+$hashed_password = hash('md5', '$password');
+$hashed_password = $hashed_password . "randomshit";
+$hashed_password = hash('sha256', '$hashed_password');
+$hashed_password = $hashed_password . "ikhebgisterkfcgehad";
+$hashed_password = hash('sha512', '$hashed_password');
+
+//HTML- en PHP-tags uit de invoervelden verwijderen
 $gebruikersnaam = mysqli_real_escape_string($db, $_POST['uname']);
-$wachtwoord = mysqli_real_escape_string($db,$_POST['psw']);
+$wachtwoord = mysqli_real_escape_string($db, $hashed_password);
 $email = mysqli_real_escape_string($db, $_POST['email']); 
 }
 if(strlen($gebruikersnaam)<3){ 
