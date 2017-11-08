@@ -1,5 +1,5 @@
 <?php
 
-class '.$Name.' {
+class Item {
     public $name;
 }

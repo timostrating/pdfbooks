@@ -19,7 +19,8 @@
 if (isset($argv[1])) {
     $input = strtolower($argv[1]);
     switch($input) {
-        case "generate":    if(isset($argv[2])) { generateScaffold(strtolower($argv[2])); } break;
+        case "generate":    if(isset($argv[2])) { generateScaffold(lcfirst($argv[2])); } // AdminProduct could be the input, soo only lower the first character.
+                            else { echo" [name] ook graag opgeven \n"; } break;
         case "seed":        seedDB(); break;
         case "routes":      showRoutes(); break;
         default:            printHelp();
@@ -40,12 +41,25 @@ function printHelp() {
 
 
 function showRoutes() {
-    var_dump("showRoutes()"); // TODO
+    $string = file_get_contents(__DIR__."/config/routes.php");
+    var_dump(eval("
+        require(__DIR__.'/config/config.php');  
+        require(__DIR__.'/core/router/router.php');
+        \$router = new Router();
+        \$router->echoGenerateGlobalConstant = true;
+    ?>".$string));
 }
 
 
 function seedDB() {
-    var_dump("seedDB()"); // TODO
+    eval("
+        require(__DIR__.'/config/config.php'); 
+        require(__DIR__.'/core/frameworkHelpers.php');      
+        require(__DIR__.'/core/database/database.php');  
+        \$DB = new Database();
+        \$DB->seed();
+        echo'\n';
+    ");
 }
 
 
@@ -71,7 +85,7 @@ function generateController($name) {
 }
 
 
-// Create new INDEX, SHOW, NEW, EDIT views in a sepparate folder in /app/views.
+// Create new INDEX, SHOW, NEW, EDIT views in a sepparate folder that is then placed in /app/views/.
 function generateViews($name) {
     mkdir(__DIR__."/app/views/".$name, 0755);
     createFile("/noframework/generateViewIndex.txt.php", "/app/views/".$name."/".$name."_index.php", $name); 
@@ -81,21 +95,23 @@ function generateViews($name) {
 }
 
 
-// Add 4 new routes to our /config/routes.php file 
+// Add our crud routes to the /config/routes.php file 
 function addRoutes($name) {  // TODO: as soon as the resource is implemented in the router we can simply this 
     $Name = ucfirst($name);
+    $NAME = strtoupper($name);
     $names = $name."s";
+    $Names = $Name."s";
     
     $string = " \n
 // ".$Name." crud
 \$router->get('/$names', '".$Name."Controller#index');
-\$router->get('/$names/:id/show',  '".$Name."Controller#show');
+\$router->get('/$names/:ID/show',  '".$Name."Controller#show');
 \$router->get('/$names/new',   '".$Name."Controller#new');
-\$router->get('/$names/:id/edit',  '".$Name."Controller#edit');
+\$router->get('/$names/:ID/edit',  '".$Name."Controller#edit');
 
 \$router->post('/$names/create', '".$Name."Controller#create');
-\$router->post('/$names/:id/update',  '".$Name."Controller#update');
-\$router->post('/$names/:id/delete',   '".$Name."Controller#delete');";
+\$router->post('/$names/:ID/update',  '".$Name."Controller#update');
+\$router->post('/$names/:ID/delete',   '".$Name."Controller#delete');";
 
     echo "\t \e[32m + NEW ROUTES \e[0m \n"; 
     file_put_contents(__DIR__."/config/routes.php", $string, FILE_APPEND); 
@@ -105,7 +121,9 @@ function addRoutes($name) {  // TODO: as soon as the resource is implemented in 
 // Create a new file at the given $URI that has the text from $text inside of it
 function createFile($fromURL, $toURL, $name) { 
     $Name = ucfirst($name);
+    $NAME = strtoupper($name);
     $names = $name."s";
+    $Names = $Name."s";
 
     echo "\t \e[32m +  ".$toURL." \e[0m \n";  
     $file = file_get_contents(__DIR__.$fromURL);

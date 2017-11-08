@@ -15,7 +15,7 @@ class Router {
     private $post_routes = [];
     private $notFound;
 
-    const TEST = 'constant value';
+    public $echoGenerateGlobalConstant = false;
 
 
     public function __construct() {
@@ -59,6 +59,8 @@ class Router {
 
             // Too get our superglobals at a global scope we must hack it in there
             eval("define('".$globalConstantName."',  '".$globalConstantURL."');");  
+            
+            if($this->echoGenerateGlobalConstant) { echo sprintf("%-30s %s \n", $globalConstantName, $globalConstantURL);  if(strpos($globalConstantName, "DELETE") !== false) { echo"\n"; } }
         }
     }
     

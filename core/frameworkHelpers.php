@@ -16,7 +16,7 @@ function console_messsage($message, $type) {
 
 
 function URL($string, $value) {
-    return str_replace(":ID", $value, $string); // TODO: Make this genaric for any :VARIABLE
+    return str_replace(":ID", $value, $string);  // TODO: Make this genaric for any :VARIABLE
 }
 
 function dump($var) {

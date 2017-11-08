@@ -2,7 +2,7 @@
 
     <h1>'.$Name.' bewerken</h1>
     
-    <form method="post" action="<?=ROOT_PATH?>/'.$names.'/<?=$'.$name.'->ID;?>/update">
+    <form method="post" action="<?= URL('.$NAME.'_UPDATE_PATH, $'.$name.'->ID); ?>">
        <table>
 
             <tr> <td>ID:</td>  <td><?=$'.$name.'->ID;?></td></tr>

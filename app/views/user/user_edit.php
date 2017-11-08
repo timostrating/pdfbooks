@@ -2,7 +2,7 @@
 
     <h1>User bewerken</h1>
     
-    <form method="post" action="<?= USER_UPDATE_PATH; ?>">
+    <form method="post" action="<?= URL(USER_UPDATE_PATH, $user->ID); ?>">
        <table>
 
             <tr> <td>ID:</td>  <td><?=$user->ID;?></td></tr>
