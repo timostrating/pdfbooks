@@ -7,5 +7,6 @@
     <p><b> Description: </b> <?= $product->description; ?></p>
     <p><b> Imgurl: </b> <?= $product->imgurl; ?></p>
     <p><b> Price: </b> <?= $product->price; ?></p>
+    <a class="add" method="post" href="<?= URL( CART_ADD_PATH, $product->ID); ?>">In de winkelwagen</a>
 
 <?php } else { die("Product niet gevonden"); }

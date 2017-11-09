@@ -15,6 +15,7 @@
     <div id="navbar" class="navbar-collapse collapse">
     <ul class="nav navbar-nav">
         <li> <a href="<?= PRODUCT_INDEX_PATH ?>">Webshop</a> </li>
+        <li> <a href="<?= BLOG_INDEX_PATH ?>">Blog</a> </li>
         <li> <a href="<?= PAGE_CONTACT_PATH ?>">Contact</a> </li>
     </ul>
 

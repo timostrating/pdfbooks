@@ -151,3 +151,12 @@ $DB->execute("CREATE TABLE Carts(
     ID INT( 11 ) AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR( 100 ) NOT NULL);");  
 $DB->execute("INSERT INTO Carts (name) VALUES ('test1'), ('test2')");
+
+$DB->execute("CREATE TABLE Blogs(
+    ID INT( 11 ) AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR( 100 ) NOT NULL,  
+    description TEXT NOT NULL,
+    imgurl VARCHAR( 255 ) );");  
+$DB->execute("INSERT INTO Blogs (title, description, imgurl) VALUES 
+    ('test1', 'Dit is de eerste text', 'http://via.placeholder.com/550x350?text=Tes1'), 
+    ('test2', 'Dit is een Iets langere text', 'http://via.placeholder.com/550x350?text=Test2')");

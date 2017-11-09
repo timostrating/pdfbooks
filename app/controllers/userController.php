@@ -20,7 +20,7 @@ class UserController extends baseController {
     }
 
 
-    function show() {  # GET /users/profile
+    function profile() {  # GET /users/profile
         if(isset($_SESSION["USER_ID"])) {
             $sql = "SELECT * FROM users WHERE ID=:id";
             $array = [ ":id" => $_SESSION["USER_ID"] ];
@@ -72,7 +72,7 @@ class UserController extends baseController {
         $array = [$_POST["name"], $_POST["email"], $_POST["password"]];
         $result = $this->DB->query($sql, $array);
 
-        $sql = "SELECT * FROM users WHERE email=:email' AND password=:password'"; 
+        $sql = "SELECT * FROM users WHERE email=:email AND password=:password"; 
         $array = [":email" => $_POST['email'], ":password" => $_POST['password']];
         $result = $this->DB->query($sql, $array, "User");
 
