@@ -9,9 +9,9 @@
 <?php
 
 /**
- * This script is used te generate code for you.
- *   -  We have generate... functions. These create files for you.
- *   -  We have add... functions. These alter currently existing files.
+ * This script is used to generate code for you.
+ *   -  We have generated... functions. These create files for you.
+ *   -  We have added... functions. These alter currently existing files.
  */
 
 
@@ -27,7 +27,7 @@ if (isset($argv[1])) {
     }
 } else { printHelp(); }
 
-echo("\n");  // To fix the layout we just add an enter on the end.
+echo("\n");  // To fix the layout we just add an enter at the end.
 
 
 
@@ -102,12 +102,12 @@ function generateViews($name) {
 
 
 /** Add our crud routes to the /config/routes.php file  */
-function addRoutes($name) {  // TODO: as soon as the resource is implemented in the router we can simply this 
+function addRoutes($name) {  // TODO: as soon as the resource is implemented in the router we can simply do this 
     $Name = ucfirst($name);
     $names = $name."s";
     
     $string = " \n \n
-/** ".$Name." crud */
+// ".$Name." crud
 \$router->get('/$names', '".$Name."Controller#index');
 \$router->get('/$names/:ID/show',  '".$Name."Controller#show');
 \$router->get('/$names/new',   '".$Name."Controller#new');
