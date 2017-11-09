@@ -48,7 +48,31 @@
             </div>
         </div>
         <div class="col-lg-6" style="padding-left: 40px;"><h4 style="font-family: fantasy;">PDFBooks, DE website waar alle schoolboeken online verkrijgbaar zijn!</h4><br>
-            <p>Bij PDFBooks </p>
+            <style>
+.hoi {
+    background-color: lightblue;
+    width: 500px;
+   
+    padding: 25px;
+    margin: 25px;
+}
+</style>
+<div class="hoi">
+ <p>Waarom zou u voor pdfbooks kiezen?<br>
+Hele goede vraag!<br>
+Wij zijn hier voor U wat betekend dat wij alles doen
+om de website zo gebruikersvriendelijk mogelijk te maken.<br>
+En wij proberen altijd de laagste prijzen te hanteren.<br>
+Doormiddel van pdf's zijn de kosten lager en hoeft U niet telkens<br>
+boeken mee te nemen overal.<br>
+
+Onze visie is om een milieu-vriendelijke leeromgeving te zijn <br>
+doormiddel van pdf's (natuurlijk bieden wij ook normale boeken aan). <br>
+Voor hulp kunt U ons bereiken via telefoon, email, post of laat een <br>
+berichtje achter, al onze contact gegevens staan op onze contactpagina.<br>
+Wij proberen U zo snel en goed mogelijk te helpen.<br>
+Met vriendelijke groet Pdfbooks. </p>
+</div>
         </div>
         <div class="col-lg-3" style="padding-top: 90px;">
             <div class="voordelen">
