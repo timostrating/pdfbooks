@@ -12,6 +12,6 @@ class View {
 
     public function display($viewName, $result="") {
         console_log("VIEW LOAD: ".$viewName);
-        echo $this->viewLoader->load($viewName, array("result" => $result));
+        echo $this->viewLoader->load($viewName, array("result" => $result));  // TODO take the name of the variable
     }
 }

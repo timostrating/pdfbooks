@@ -1,7 +1,7 @@
 <?php 
 
 /**
- *  This is responsible for building a testable database
+ *  This file is responsible for building a testable database
  */
 
 $DB->dropDB();
@@ -145,3 +145,18 @@ $DB->execute("INSERT INTO products (name, description, imgurl, price) VALUES
 // (1, '3D Camera', '3DcAM01', 'product-images/camera.jpg', 1500.00),
 // (2, 'External Hard Drive', 'USB02', 'product-images/external-hard-drive.jpg', 800.00),
 // (3, 'Wrist Watch', 'wristWear03', 'product-images/watch.jpg', 300.00);"); */
+
+
+$DB->execute("CREATE TABLE Carts(
+    ID INT( 11 ) AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR( 100 ) NOT NULL);");  
+$DB->execute("INSERT INTO Carts (name) VALUES ('test1'), ('test2')");
+
+$DB->execute("CREATE TABLE Blogs(
+    ID INT( 11 ) AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR( 100 ) NOT NULL,  
+    description TEXT NOT NULL,
+    imgurl VARCHAR( 255 ) );");  
+$DB->execute("INSERT INTO Blogs (title, description, imgurl) VALUES 
+    ('test1', 'Dit is de eerste text', 'http://via.placeholder.com/550x350?text=Tes1'), 
+    ('test2', 'Dit is een Iets langere text', 'http://via.placeholder.com/550x350?text=Test2')");

@@ -87,11 +87,24 @@ class Database {
         echo "The seeds have grown to plants, let's start framing";        
     }
 
+
+    private function log_query($sql, $array) {
+        if(LOG_RAW_SQL) {
+            console_warning("DB QUERY: ".$sql);            
+        } else {
+            foreach ($array as $key => $value) {
+                $sql = str_replace($key, $value, $sql);
+            }
+
+            console_warning("DB QUERY: ".$sql);
+        }   
+    }
+
     
     public function execute($sql) { return $this->query($sql); }  // TODO: remove this
     public function query($sql, $array=[], $fetchClass="") {
         try {
-            console_warning("DB QUERY: ".$sql);
+            $this->log_query($sql, $array);
             $dbs = $this->db_handler->prepare($sql);
             $dbs->execute($array);
             if (empty($fetchClass) == false) {

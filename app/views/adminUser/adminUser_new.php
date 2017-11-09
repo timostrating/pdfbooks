@@ -1,6 +1,6 @@
-<h1>Item toevoegen</h1>
+<h1>AdminUser toevoegen</h1>
 
-<form method="post" action="<?= ITEM_CREATE_PATH; ?>">
+<form method="post" action="<?= ADMINUSER_CREATE_PATH; ?>">
    <table>
 
         <?php generateTableField("Name", "name"); ?>

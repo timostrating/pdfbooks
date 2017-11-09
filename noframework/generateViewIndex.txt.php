@@ -1,4 +1,4 @@
-<h1>'.$Name.'</h1>
+<h1>'.$Names.'</h1>
 
 <br/>
 <a class="add" href="<?='.$NAME.'_NEW_PATH?>" value="'.$Name.' toevoegen"> New '.$name.' </a>
@@ -17,9 +17,7 @@
         <td><?= $'.$name.'->name; ?></td>
         <td>
             <a class="edit" href="<?= URL('.$NAME.'_EDIT_PATH, $'.$name.'->ID); ?>">Bewerken</a>
-            <form id="myform<?=$'.$name.'->ID;?>" method="post" action="<?= URL('.$NAME.'_DELETE_PATH, $'.$name.'->ID); ?>">
-                <a class="delete" href="#" onclick="document.getElementById(\'myform<?=$'.$name.'->ID;?>\').submit();">Verwijderen</a>
-            </form>	
+            <a class="delete" method="post" href="<?= URL('.$NAME.'_DELETE_PATH, $'.$name.'->ID); ?>">Verwijderen<a>
         </td>
     </tr>
 <?php } ?>

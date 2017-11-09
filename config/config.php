@@ -29,3 +29,4 @@ define('GENERATE_SUPERGLOBAL_ROUTES', true);
 // Development options
 define('DEVELOPMENT', true);
 define('CONSOLE_MESSAGES_ON', DEVELOPMENT);
+define('LOG_RAW_SQL', false);

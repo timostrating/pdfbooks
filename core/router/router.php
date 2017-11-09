@@ -39,6 +39,13 @@ class Router {
         $this->post_routes[ROOT_PATH.$url] = $action;
     }
 
+    /** Mark url as valid for POST and GET requests */
+    public function both($url, $action) {
+        $this->generateGlobalConstant($url, $action);        
+        $this->get_routes[ROOT_PATH.$url] = $action;
+        $this->post_routes[ROOT_PATH.$url] = $action;
+    }
+
 
     /** 
      * This is a internall function that will generate a superglobal based on a route defined in the routes 
