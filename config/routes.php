@@ -66,12 +66,12 @@ $router->post('/shoppingcart/:ID/subtract',  'CartController#subtract');
 $router->post('/shoppingcart/:ID/delete',   'CartController#delete'); 
  
 
-/** Blog crud */
+// Blog crud
 $router->get('/blogs', 'BlogController#index');
 $router->get('/blogs/:ID/show',  'BlogController#show');
 
 
-/** AdminBlog crud */
+// AdminBlog crud
 $router->get('/admin/blogs', 'AdminBlogController#index');
 $router->get('/admin/blogs/:ID/show',  'AdminBlogController#show');
 $router->get('/admin/blogs/new',   'AdminBlogController#new');
@@ -82,7 +82,7 @@ $router->post('/admin/blogs/:ID/update',  'AdminBlogController#update');
 $router->post('/admin/blogs/:ID/delete',   'AdminBlogController#delete'); 
  
 
-/** AdminUser crud */
+// AdminUser crud
 $router->get('/admin/users', 'AdminUserController#index');
 $router->get('/admin/users/:ID/show',  'AdminUserController#show');
 $router->get('/admin/users/new',   'AdminUserController#new');
