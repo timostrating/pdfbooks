@@ -1,4 +1,27 @@
+<!--Registreer formulier-->
+
+<h1 align="center">Register</h1>
+
+<form style="width: 300px; position: relative; margin: 3px auto; text-align: center; display: block;" method="post" action="actionpage.php">
+    <div class="form-group">
+        <input type="text" name="uname" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Username" required>
+    </div>
+    <div class="form-group">
+        <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email" required>
+    </div>
+    <div class="form-group">
+        <input type="password" name="psw" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
+    </div>
+    <div class="form-group">
+        <input type="password" name="psw1" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Register</button>
+    </div>
+</form>
+
 <?php
+//actionpage.php
 include('header.php');
 
 //variabelen voor de verbinding
@@ -55,7 +78,7 @@ if ($_POST['psw'] == $_POST['psw1']) {
 
 //voert de query uit
     $result = mysqli_query($db, $query);
-    
+
 //controleren of de gebruikersnaam of het wachtwoord is gevonden. zo ja krijgt hij een foutmelding 
     if (mysqli_num_rows($result) > 0) {
         echo("<table align=\"center\">");
@@ -63,7 +86,7 @@ if ($_POST['psw'] == $_POST['psw1']) {
         echo("<tr><td> Klik <a href=\"register.php\">hier</a> om terug te gaan </td></tr>");
         echo("</table>");
     }
-    
+
 //maakt een query aan voor het invoeren van de gegevens na een geslaagde registratie en geeft een melding dat het registreren gelukt is
     else {
         $query = ("INSERT INTO users (username, password, email) "

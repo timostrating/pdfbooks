@@ -82,12 +82,12 @@
                             <span class="caret"></span></button>
                         <ul class="dropdown-menu">
                             <?php
-                            if (!isset($_SESSION['test'])) {
+                            if (!isset($_SESSION['id'])) {
                                 ?>
                                 <li align="center"><a href="login.php">Login</a></li>
                                 <li align="center"><a href="register.php">Register</a></li>
                                 <?php
-                            } elseif ($_SESSION['test'] = true) {
+                            } elseif (isset($_SESSION['id'])) {
                                 ?>
                                 <li align="center"><a href="profile.php">Profile</a></li>
                                 <li align="center"><a href="logout.php">Logout</a></li>

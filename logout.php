@@ -2,19 +2,6 @@
 
 session_start();
 unset($_SESSION['id']);
-unset($_SESSION['uname']);
-unset($_SESSION['fname']);
-unset($_SESSION['lname']);
-unset($_SESSION['email']);
-unset($_SESSION['gen']);
-unset($_SESSION['country']);
-unset($_SESSION['state']);
-unset($_SESSION['city']);
-unset($_SESSION['streetname']);
-unset($_SESSION['streetnum']);
-unset($_SESSION['zip']);
-unset($_SESSION["test"]);
-unset($_SESSION["timeout"]); 
 header("location:home.php");
 exit();
 ?>
