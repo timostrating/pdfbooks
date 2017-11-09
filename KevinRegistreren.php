@@ -1,6 +1,6 @@
 <!--Registreer formulier-->
 
-<h1 align="center">Registreer pagina</h1>
+<h1 align="center">Registreren</h1>
 
 <form style="width: 300px; position: relative; margin: 3px auto; text-align: center; display: block;" method="post" action="actionpage.php">
     <div class="form-group">
