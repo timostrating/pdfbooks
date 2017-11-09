@@ -3,17 +3,16 @@
 <div class="container">
 
   
- <?php  if (strpos($_SERVER['REQUEST_URI'], "contactpagina") !== false){
-	"<div class='alert alert-warning'>
-  <strong>Oeps</strong> Er is iets fout gegaan.";
-	}?>
 
-
-<?php /*if(isset($_GET["error"])) : ?>
+<?php 
+// error message where you can decide what it displays
+if(isset($_GET["error"])) : ?>
    <div class="alert alert-warning">
   <strong>Oeps</strong> <?= $_GET["error"] ?>
-<?php endif; */  ?>
+<?php endif;  ?>
 
+
+<!-- info about contactpage -->
 </div>
 
 		<h1 align="center">Contact</h1>
@@ -27,6 +26,8 @@
 		<br>
 	</center>
 
+	<!-- input fields for name, email, and your comment -->
+
 	<div class="row marketing">
         <div class="col-md-6" style="padding-left: 100px;">
 			<form method="post">          	
@@ -38,6 +39,7 @@
 		</div>
 		<div class="col-md-6" style="padding-left: 100px;">
 			<ul style="">
+				<!-- icons displaying email, adress and phone number -->
 				<li><img src="http://www.endlessicons.com/wp-content/uploads/2012/12/iphone-5-icon-614x460.png" alt="phone" width="60" height="50"> 050-1232234 </li> <br/>
 				<li><img src="http://www.endlessicons.com/wp-content/uploads/2012/12/email-icon-614x460.png" alt="phone" width="60" height="50">  Pdf@books.nl </li> <br/>
 				<li><img src="http://www.endlessicons.com/wp-content/uploads/2012/12/pin-map-icon-2-614x460.png" alt="map" width="60" height="50">  PO adres: 123 Kerkstraat </li> <br/>
@@ -45,7 +47,7 @@
 		</div>
 	</div>
 
-
+<!-- connecting to database and asigning the outputs-->
 <?php   
 $servername = "localhost";
 $username = "root";
