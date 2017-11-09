@@ -108,7 +108,7 @@ if (mysqli_num_rows($result) > 0) {
                                 <input type="submit" name="update" class="btn btn-primary" value="Aanpassen">
                             </form></td>
                         <td><form action="delete.php">
-                                <input type="submit" name="delete" class="btn btn-primary" value="Verwijderen">
+                                <button onclick="myFunction()">Try it</button>
                             </form></td>
                     </tr>
                 </table>
@@ -116,8 +116,18 @@ if (mysqli_num_rows($result) > 0) {
             <div class="col-md-2"></div>
         </div>
     </div>
-    <br>
 
+<script>
+function myFunction() {
+    var txt;
+    if (confirm("Press a button!") == true) {
+        txt = "You pressed OK!";
+    } else {
+        txt = "You pressed Cancel!";
+    }
+    document.getElementById("demo").innerHTML = txt;
+}
+</script>
 
     <?php
 }
