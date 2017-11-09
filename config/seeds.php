@@ -1,9 +1,8 @@
-<?php 
+<?php
 
 /**
  *  This file is responsible for building a testable database
  */
-
 $DB->dropDB();
 $DB->createDB();
 
@@ -11,13 +10,13 @@ $DB->createDB();
 // USER_TYPES
 $DB->execute("CREATE TABLE User_types(
     ID INT( 11 ) AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR( 100 ) NOT NULL);");  
+    name VARCHAR( 100 ) NOT NULL);");
 $DB->execute("INSERT INTO user_types (name) VALUES ('user'), ('admin')");
 
 
 $DB->execute("CREATE TABLE Items(
     ID INT( 11 ) AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR( 100 ) NOT NULL);");  
+    name VARCHAR( 100 ) NOT NULL);");
 $DB->execute("INSERT INTO Items (name) VALUES ('user'), ('admin')");
 
 
@@ -51,7 +50,27 @@ $DB->execute("INSERT INTO products (name, description, imgurl, price) VALUES
     ('Piraten en de 7 dwergen', 'Een spanend avontuur', 'http://via.placeholder.com/350x550?text=Piraten', '5.00'),
     ('Nederlands', 'Een veel gebruikt boek voor het vak Nederlands', 'https://placeimg.com/500/480?text=Nederlands', '7.25'),
     ('Engels', 'Een veel gebruikt boek voor het vak Engels', 'https://placeimg.com/700/450?text=Engels', '8,99'),
-    ('Project management', 'Een veel gebruikt boek voor het vak project management', 'https://placeimg.com/600/600?text=Project+managment', '30,00')");
+    ('Project management', 'Een veel gebruikt boek voor het vak project management', 'https://placeimg.com/600/600?text=Project+managment', '30,00'),
+    ('Gesprekken in organisaties', 'Een veel gebruikt boek voor het vak comminicatieskills', 'https://www.studystore.nl/images/9789001875275/1/1', '7,99'),
+    ('Fundamentals of Business Process Management', 'Het beste boek voor process management', 'https://www.studystore.nl/images/9783642331428/1/1', '3,99'),
+    ('Programmeren in Java met BlueJ', 'Een boek voor de basis van Java', 'https://www.studystore.nl/images/9789043034999/1/1', '4,99'),
+    ('Improving your writing and speaking', 'Een boek voor het van Engels', 'https://www.studystore.nl/images/9789001862602/1/1', '6,99'),
+    ('Security awareness', 'Het leren van beveiliging', 'https://www.studystore.nl/images/9789087537364/1/1', '11,99'),
+    ('Toegepaste wiskunde voor het hoger onderwijs', 'Een boek voor toegepaste wiskunde', 'https://www.studystore.nl/images/9789006144659/1/1', '21,99'),
+    ('Datavisualisatie', 'Een boek voor datavisualisatie', 'https://www.studystore.nl/images/9780970601988/1/1', '4,99'),
+    ('Learning MySQL', 'Een boek waar je dieper in gaat op MySQL', 'https://www.studystore.nl/images/9780596008642/1/1', '12,99'),
+    ('Communicatie', 'Boek boeker boekste boek', 'http://s3.amazonaws.com/libapps/accounts/16833/images/boek-bruin.png', '9,99'),
+    ('Wiskunde-a', 'Boek voor wiskunde', 'https://s.s-bol.com/imgbase0/imagebase3/large/FC/2/1/1/8/1001004005378112.jpg', '2,99'),
+    ('Wiskunde-b', 'Boek voor wiskunde', 'https://s.s-bol.com/imgbase0/imagebase3/large/FC/3/1/1/8/1001004005378113.jpg', '2,99'),
+    ('Wiskunde-c', 'Boek voor wiskunde', 'https://s.s-bol.com/imgbase0/imagebase3/large/FC/5/2/8/5/1001004006295825.jpg', '2,99'),
+    ('Wiskunde-gt', 'Boek voor wiskunde', 'https://s.s-bol.com/imgbase0/imagebase3/large/FC/0/1/3/0/1001004004930310.jpg', '2,99'),
+    ('Praktische Verloskunde', 'Boek over verloskunde', 'https://www.berneboek.com/260715-large_default/praktische-verloskunde.jpg', '4,45'),
+    ('Module Ecologie en soortherkenning', 'Boek over soortherkenning', 'https://s.s-bol.com/imgbase0/imagebase/large/FC/3/4/5/1/1001004010441543.jpg', '12,99'),
+    ('CAD Tooling', 'Boek over CAD Tooling', 'https://www.schandpublishing.com/BookImages/schand-size180/9788121928748.jpg', '2,33'),
+    ('Domein Techniek', 'Boek over domein techniek', 'https://s.s-bol.com/imgbase0/imagebase3/large/FC/2/4/1/5/9200000025535142.jpg', '9,99'),
+    ('Inleiding robotica hardware', 'Inleiding over de hardware van robotica', 'https://s.s-bol.com/imgbase0/imagebase3/large/FC/2/3/9/1/9200000026891932.jpg', '2,12'),
+    ('Inleiding robotica software', 'Inleiding over de software van robotica', 'https://s.s-bol.com/imgbase0/imagebase3/large/FC/0/8/2/8/9200000058338280.jpg', '18,99'),
+    ('Meettechniek', 'Boek over meettechniek', 'https://s.s-bol.com/imgbase0/imagebase3/large/FC/2/4/0/6/1001004005606042.jpg', '12,99');");
 
 
 // $DB->execute("CREATE TABLE `gebruiker` (
@@ -64,7 +83,6 @@ $DB->execute("INSERT INTO products (name, description, imgurl, price) VALUES
 // 	`type` char(1) NOT NULL,
 // 	PRIMARY KEY (`gebruiker_id`)
 // );");
-
 // $DB->execute("CREATE TABLE `adres` (
 // 	`gebruiker_id` int NOT NULL,
 // 	`plaats` TEXT(64) NOT NULL,
@@ -76,7 +94,6 @@ $DB->execute("INSERT INTO products (name, description, imgurl, price) VALUES
 // 	`provincie` TEXT NOT NULL,
 // 	PRIMARY KEY (`gebruiker_id`)
 // );");
-
 // $DB->execute("CREATE TABLE `bestelling` (
 // 	`bestelling_id` int NOT NULL AUTO_INCREMENT,
 // 	`product_id` int NOT NULL,
@@ -87,7 +104,6 @@ $DB->execute("INSERT INTO products (name, description, imgurl, price) VALUES
 // 	`totaalprijs` FLOAT NOT NULL,
 // 	PRIMARY KEY (`bestelling_id`)
 // );");
-
 // $DB->execute("CREATE TABLE `product` (
 // 	`product_id` int NOT NULL AUTO_INCREMENT,
 // 	`naam` TEXT NOT NULL AUTO_INCREMENT,
@@ -97,7 +113,6 @@ $DB->execute("INSERT INTO products (name, description, imgurl, price) VALUES
 // 	`afbeelding` TEXT,
 // 	PRIMARY KEY (`product_id`)
 // );");
-
 // $DB->execute("CREATE TABLE `factuur` (
 // 	`factuur_id` int NOT NULL AUTO_INCREMENT,
 // 	`gebruiker_id` int NOT NULL,
@@ -109,16 +124,14 @@ $DB->execute("INSERT INTO products (name, description, imgurl, price) VALUES
 // 	`totaalbedrag` FLOAT NOT NULL,
 // 	PRIMARY KEY (`factuur_id`)
 // );");
-
 // $DB->execute("CREATE TABLE `bestellingregel` (
 // 	`bestellingregel_id` int NOT NULL AUTO_INCREMENT,
-// 	`bestelling_id` int NOT NULL,
+// 	`bestelling_id` int NOT NULL, 
 // 	`product_id` int NOT NULL,
 // 	`aantal` int NOT NULL,
 // 	`prijs` FLOAT NOT NULL,
 // 	PRIMARY KEY (`bestellingregel_id`)
 // );");
-
 // $DB->execute("ALTER TABLE `adres` ADD CONSTRAINT `adres_fk0` FOREIGN KEY (`gebruiker_id`) REFERENCES `gebruiker`(`gebruiker_id`);");
 // $DB->execute("ALTER TABLE `bestelling` ADD CONSTRAINT `bestelling_fk0` FOREIGN KEY (`product_id`) REFERENCES `product`(`product_id`);");
 // $DB->execute("ALTER TABLE `bestelling` ADD CONSTRAINT `bestelling_fk1` FOREIGN KEY (`gebruiker_id`) REFERENCES `gebruiker`(`gebruiker_id`);");
@@ -127,12 +140,8 @@ $DB->execute("INSERT INTO products (name, description, imgurl, price) VALUES
 // $DB->execute("ALTER TABLE `factuur` ADD CONSTRAINT `factuur_fk1` FOREIGN KEY (`bestelling_id`) REFERENCES `bestelling`(`bestelling_id`);");
 // $DB->execute("ALTER TABLE `bestellingregel` ADD CONSTRAINT `bestellingregel_fk0` FOREIGN KEY (`bestelling_id`) REFERENCES `bestelling`(`bestelling_id`);");
 // $DB->execute("ALTER TABLE `bestellingregel` ADD CONSTRAINT `bestellingregel_fk1` FOREIGN KEY (`product_id`) REFERENCES `product`(`product_id`);");
-
-
-
 // tblproduct is de tabel die gebruikt is in branch backend: public/winkelwagen.php
 // dit moet nog veranderd worden naar tabel product hierboven
-
 // $DB->execute("CREATE TABLE IF NOT EXISTS `tblproduct` (
 //   `id` int(8) NOT NULL AUTO_INCREMENT,
 //   `name` varchar(255) NOT NULL,
@@ -149,14 +158,14 @@ $DB->execute("INSERT INTO products (name, description, imgurl, price) VALUES
 
 $DB->execute("CREATE TABLE Carts(
     ID INT( 11 ) AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR( 100 ) NOT NULL);");  
+    name VARCHAR( 100 ) NOT NULL);");
 $DB->execute("INSERT INTO Carts (name) VALUES ('test1'), ('test2')");
 
 $DB->execute("CREATE TABLE Blogs(
     ID INT( 11 ) AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR( 100 ) NOT NULL,  
     description TEXT NOT NULL,
-    imgurl VARCHAR( 255 ) );");  
+    imgurl VARCHAR( 255 ) );");
 $DB->execute("INSERT INTO Blogs (title, description, imgurl) VALUES 
     ('test1', 'Dit is de eerste text', 'http://via.placeholder.com/550x350?text=Tes1'), 
     ('test2', 'Dit is een Iets langere text', 'http://via.placeholder.com/550x350?text=Test2')");
