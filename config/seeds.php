@@ -90,7 +90,6 @@ $DB->execute("CREATE TABLE Contacts (
 $DB->execute("INSERT INTO Contacts (name, email, description) VALUES 
     ('test1', 'test@pdfbooks.nl', 'Dit is een test berichtje gegenereerd vanuit de seeds file.')");
  
-
  
 // ORDERS
 $DB->execute("CREATE TABLE Orders(
@@ -98,13 +97,6 @@ $DB->execute("CREATE TABLE Orders(
     name VARCHAR( 100 ) NOT NULL,
     user_id INT(8) NOT NULL );");  
 $DB->execute("INSERT INTO Orders (name) VALUES ('test1'), ('test2')");
-
-
-
-$DB->execute("CREATE TABLE ProductsOrders (
-    ID INT( 11 ) AUTO_INCREMENT PRIMARY KEY,
-    order_id INT(8) NOT NULL, 
-    product_id INT(8) NOT NULL );");
  
 
 // CATEGORIES
@@ -120,3 +112,12 @@ $DB->execute("INSERT INTO Categories (name) VALUES
     ('Persoonlijke & professionele ontwikkeling'),
     ('Recht'),
     ('Sociale wetenschappen & gezondheidszorg') ");
+
+
+
+$DB->execute("CREATE TABLE Pageviews (
+    ID INT( 11 ) AUTO_INCREMENT PRIMARY KEY,
+    url VARCHAR(255) NOT NULL, 
+    action INT(255) NOT NULL, 
+    count INT(100) NOT NULL, 
+    valid INT(1) NOT NULL );");

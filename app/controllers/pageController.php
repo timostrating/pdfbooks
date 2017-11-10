@@ -12,6 +12,7 @@ class PageController extends BaseController {
     } 
 
     function admin() {
-        $this->view->display('admin/admin_index.php');
+        $result = $this->DB->query("SELECT * FROM Pageviews ORDER BY count DESC", [], "Pageview");
+        $this->view->display('admin/admin_index.php', $result);
     }
 }
