@@ -1,11 +1,10 @@
-<?php 
+<?php
 
-use Illuminate\Database\Eloquent\Model as Eloquent;
-
-class User extends Eloquent {
+class User {
+    public $ID;
     public $name;
-
-    public $incrementing = true;
-
-    protected $fillable = ['name', 'email'];
+    public $last_name;
+    public $email;
+    public $password;
+    public $user_type_id;
 }
