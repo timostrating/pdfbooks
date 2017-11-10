@@ -6,4 +6,5 @@ class Product {
     public $description;
     public $imgurl;
     public $price;
+    public $categorie_id;
 }

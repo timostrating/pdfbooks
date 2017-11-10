@@ -14,7 +14,7 @@
 <?php
 
 // require
-require('../core/frameworkHelpers.php');
+require('../core/helpers.php');
 require('config.php');
 require('../core/autoload/autoload.php');
 

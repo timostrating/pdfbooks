@@ -1,11 +1,11 @@
-<h1>Inloggen</h1>
+<div class="tc mt50">
+    <h1>Inloggen</h1>
 
-<form method="post" action="<?= USER_CREATE_SESSION_PATH ?>">
-   <table>
+    <form class="smallform" method="post" action="<?= USER_CREATE_SESSION_PATH ?>">
 
-        <?php generateTableField("Email", "email", "email"); ?>
-        <?php generateTableField("Password", "password", "password"); ?>
-        <?php generateTableField("", "", "submit", "Opslaan"); ?>
-
-   </table>
-</form>	
+        <?php generateFormField("Email", "email", "email"); ?>
+        <?php generateFormField("Password", "password", "password"); ?>
+        <button type="submit" class="btn btn-primary">Inloggen</button>
+        
+    </form>	
+</div>

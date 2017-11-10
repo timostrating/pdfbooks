@@ -46,6 +46,18 @@ class Router {
         $this->post_routes[ROOT_PATH.$url] = $action;
     }
 
+    /** Mark all crud urls as valid for there standard scaffold POST and GET requests */
+    public function resource($url, $action) {
+        $this->get($url,                $action."#index");
+        $this->get($url."/:ID/show",    $action."#show");
+        $this->get($url."/new",         $action."#new");
+        $this->get($url."/:ID/edit",    $action."#edit");
+
+        $this->post($url."/create",     $action."#create");
+        $this->post($url."/:ID/update", $action."#update");
+        $this->post($url."/:ID/delete", $action."#delete");;
+    }
+
 
     /** 
      * This is a internall function that will generate a superglobal based on a route defined in the routes 
