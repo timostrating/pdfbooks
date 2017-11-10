@@ -9,27 +9,35 @@ There is no setup required just place the folder pdfbooks on your server and go 
 <!-- You can not trust tabs here for a correct result so we use spaces instead -->
 <pre>
 - app/                  -- All our MVC stuff goes in here
-    - assets/               -- All non optimized assets
-    - model/                -- Our MVC Model
-    - view/                 -- Our MVC Views 
-    - contollers/           -- Our MVC Controllers 
+    - model/              -- Our MVC Model
+    - view/               -- Our MVC Views 
+    - contollers/         -- Our MVC Controllers 
+
 - config/               -- All configuration files
     app.php               -- This links the public/index.php to the framework
     config.php            -- General personal configuration for your installation
     routes.php            -- This file links a url to a function in a controller
     seeds.php             -- This file contains everything to rebuild the database
+
 - core/                 -- Our most important framework files
+    - Autoload/           -- Autoload Class
+    - database/           -- Database Class
+    - router/             -- View / ViewLoader Class
+    helpers.php         -- All helper functions are in here
+
 - nonframework/         -- A collection of files that are used in the generators
+
 - public/               -- The root of our application
-    - assets/               -- Contains all assets for the web-application
+    - assets/             -- Contains all assets for the web-application
     index.php             -- Root file
-index.html             -- Tells you to go to the public folder
-noframework.php        -- $ php ./noframework.php  for more info about this tool
+
+index.html              -- Welcome message
+noframework.php         -- $ php ./noframework.php  for more info about this tool
 </pre>
 
 
 ## Nice too have 
-- [ ] Admin backend.
+- [x] Admin backend.
 - [ ] Our own frontend framework.
 - [ ] Asset pipeline - We could minify all assets and place them afterwards in the folder /public/assets/.
 - [x] A better way to handle / and \ difference.

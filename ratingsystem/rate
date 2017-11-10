@@ -1,0 +1,9 @@
+<?php 
+
+require_once 'databaselink.php'; 
+
+if(isset($_GET['product'], $_GET['rating'])) {
+	
+}
+
+?>

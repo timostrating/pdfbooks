@@ -7,14 +7,12 @@
 class PageController extends BaseController {
 
     function index() {
-        $this->view->display('page/page_index.php');        
+        $result = $this->DB->query("SELECT * FROM Categories", [], "Categorie");
+        $this->view->display('page/page_index.php', $result);        
     } 
-    
-    function contact() {
-        $this->view->display('page/page_contact.php');        
-    }
 
-    function test() {
-        echo "text";
+    function admin() {
+        $result = $this->DB->query("SELECT * FROM Pageviews ORDER BY count DESC", [], "Pageview");
+        $this->view->display('admin/admin_index.php', $result);
     }
 }

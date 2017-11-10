@@ -22,7 +22,7 @@ class CartController extends baseController {
         if(isset($_SESSION["CART"][$id])) {
             $_SESSION["CART"][$id]["count"] += 1;
         } else{
-            $_SESSION["CART"][$id] = ["ID"=> $id, "count"=>1, "name" => $product->name ];            
+            $_SESSION["CART"][$id] = ["ID"=> $id, "count"=>1, "name" => $product->name, "price" => $product->price ];            
         }
         
         header("location: ".CART_INDEX_PATH);  // terug naar een GET

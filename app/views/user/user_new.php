@@ -1,12 +1,13 @@
-<h1>Registreren</h1>
+<div class="tc mt50">
+    <h1>Registreren</h1>
 
-<form method="post" action="<?= USER_CREATE_PATH; ?>">
-   <table>
+    <form class="smallform" method="post" action="<?= USER_CREATE_PATH; ?>">
 
-        <?php generateTableField("Name", "name"); ?>
-        <?php generateTableField("Email", "email", "email"); ?>
-        <?php generateTableField("Password", "password", "password"); ?>
-        <?php generateTableField("", "", "submit", "Opslaan"); ?>
+        <?php generateFormField("Name", "name"); ?>
+        <?php generateFormField("Email", "email", "email"); ?>
+        <?php generateFormField("Password", "password", "password"); ?>
+        <?php generateFormField("Password", "password_again", "password"); ?>
+        <button type="submit" class="btn btn-primary">Register</button>
 
-   </table>
-</form>	
+    </form>	
+</div>

@@ -57,7 +57,7 @@ function seedDB() {
     eval("
         define('CONSOLE_MESSAGES_ON', false);
         require(__DIR__.'/config/config.php'); 
-        require(__DIR__.'/core/frameworkHelpers.php');      
+        require(__DIR__.'/core/helpers.php');      
         require(__DIR__.'/core/database/database.php');  
         \$DB = new Database();
 
@@ -125,11 +125,11 @@ function addRoutes($name) {  // TODO: as soon as the resource is implemented in 
 /** Add a new Table to our seeds file and add some test data. */
 function addSeeds($name) {
     $Name = ucfirst($name);
-    $NAME = strtoupper($name);
-    $names = $name."s";
+    $NAMES = strtoupper($name)."s";
     $Names = $Name."s";
 
-    $string = "\n
+    $string = "\n \n
+// ".$NAMES."
 \$DB->execute(\"CREATE TABLE ".$Names."(
     ID INT( 11 ) AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR( 100 ) NOT NULL);\");  
