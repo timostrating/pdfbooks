@@ -9,7 +9,6 @@ $product = null;
 if(isset($_GET['id']) == false) {
 	die("jammer");
 }
-
 $id = (int)$_GET['id'];
 
 $result = $db->query("
@@ -29,7 +28,7 @@ $row = mysqli_fetch_assoc($result);
 
 <!DOCTYPE html>
 <html>
-<?php //url 'id' fout ?>
+
 	<?php if(empty($row) == false); { ?>
 		<div class="product">
 		Dit is product <?php echo $row["naam"]; ?>.
