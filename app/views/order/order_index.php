@@ -1,9 +1,4 @@
-<h1>Orders</h1>
-
-<br/>
-<a class="add" href="<?=ORDER_NEW_PATH?>" value="Order toevoegen"> New order </a>
-<br/>
-<br/>
+<h1>Orders</h1> <br/>
 
 <table class="table table-striped">
     <tr>

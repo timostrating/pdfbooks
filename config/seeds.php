@@ -17,8 +17,8 @@ $DB->execute("CREATE TABLE User_types (
 $DB->execute("INSERT INTO user_types (name) VALUES ('user'), ('admin')");
 
 
-    name VARCHAR( 100 ) NOT NULL);");
-$DB->execute("INSERT INTO user_types (name) VALUES ('user'), ('admin')");
+    // name VARCHAR( 100 ) NOT NULL);");
+// $DB->execute("INSERT INTO user_types (name) VALUES ('user'), ('admin')");
 
 
 $DB->execute("CREATE TABLE Items(
@@ -100,20 +100,33 @@ $DB->execute("INSERT INTO products (name, description, imgurl, price, categorie_
     ('Meettechniek', 'Boek over meettechniek', 'https://s.s-bol.com/imgbase0/imagebase3/large/FC/2/4/0/6/1001004005606042.jpg', '12,99', '6');");
 
 
-
-$DB->execute("CREATE TABLE Carts(
-    ID INT( 11 ) AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR( 100 ) NOT NULL);");
-$DB->execute("INSERT INTO Carts (name) VALUES ('test1'), ('test2')");
-
 $DB->execute("CREATE TABLE Blogs(
     ID INT( 11 ) AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR( 255 ) NOT NULL,  
     description TEXT NOT NULL,
     imgurl VARCHAR( 255 ) );");
 $DB->execute("INSERT INTO Blogs (title, description, imgurl) VALUES 
-    ('test1', 'Dit is de eerste text', 'http://via.placeholder.com/550x350?text=Tes1'), 
-    ('test2', 'Dit is een Iets langere text', 'http://via.placeholder.com/550x350?text=Test2')");
+    ('Reprehenderit voluptates, dolore voluptatibus maxime perspiciatis.', ' 
+        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit voluptates, dolore voluptatibus maxime perspiciatis, exercitationem a distinctio ea modi esse quis labore veritatis quo odio perferendis non consequatur, laborum at. </p>
+        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit voluptates, dolore voluptatibus maxime perspiciatis, exercitationem a distinctio ea modi esse quis labore veritatis quo odio perferendis non consequatur, laborum at. </p>
+        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit voluptates, dolore voluptatibus maxime perspiciatis, exercitationem a distinctio ea modi esse quis labore veritatis quo odio perferendis non consequatur, laborum at. </p>
+        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit voluptates, dolore voluptatibus maxime perspiciatis, exercitationem a distinctio ea modi esse quis labore veritatis quo odio perferendis non consequatur, laborum at. </p>
+        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit voluptates, dolore voluptatibus maxime perspiciatis, exercitationem a distinctio ea modi esse quis labore veritatis quo odio perferendis non consequatur, laborum at. </p>',
+            'http://via.placeholder.com/550x350?text=Tes1'),
+    ('Lorem ipsum dolor sit amet consectetur adipisicing elit. dolore voluptatibus maxime perspiciatis.', ' 
+        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit voluptates, dolore voluptatibus maxime perspiciatis, exercitationem a distinctio ea modi esse quis labore veritatis quo odio perferendis non consequatur, laborum at. </p>
+        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit voluptates, dolore voluptatibus maxime perspiciatis, exercitationem a distinctio ea modi esse quis labore veritatis quo odio perferendis non consequatur, laborum at. </p>
+        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit voluptates, dolore voluptatibus maxime perspiciatis, exercitationem a distinctio ea modi esse quis labore veritatis quo odio perferendis non consequatur, laborum at. </p>
+        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit voluptates, dolore voluptatibus maxime perspiciatis, exercitationem a distinctio ea modi esse quis labore veritatis quo odio perferendis non consequatur, laborum at. </p>
+        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit voluptates, dolore voluptatibus maxime perspiciatis, exercitationem a distinctio ea modi esse quis labore veritatis quo odio perferendis non consequatur, laborum at. </p>',
+            'http://via.placeholder.com/550x350?text=Tes1'),
+    ('Dolore voluptatibus maxime perspiciatis amet consectetur adipisicing elit.', ' 
+        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit voluptates, dolore voluptatibus maxime perspiciatis, exercitationem a distinctio ea modi esse quis labore veritatis quo odio perferendis non consequatur, laborum at. </p>
+        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit voluptates, dolore voluptatibus maxime perspiciatis, exercitationem a distinctio ea modi esse quis labore veritatis quo odio perferendis non consequatur, laborum at. </p>
+        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit voluptates, dolore voluptatibus maxime perspiciatis, exercitationem a distinctio ea modi esse quis labore veritatis quo odio perferendis non consequatur, laborum at. </p>
+        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit voluptates, dolore voluptatibus maxime perspiciatis, exercitationem a distinctio ea modi esse quis labore veritatis quo odio perferendis non consequatur, laborum at. </p>
+        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit voluptates, dolore voluptatibus maxime perspiciatis, exercitationem a distinctio ea modi esse quis labore veritatis quo odio perferendis non consequatur, laborum at. </p>',
+            'http://via.placeholder.com/550x350?text=Tes1');");
 
 
 // CONTACTS
@@ -148,11 +161,9 @@ $DB->execute("INSERT INTO Categories (name) VALUES
     ('Recht'),
     ('Sociale wetenschappen & gezondheidszorg') ");
 
-
-
 $DB->execute("CREATE TABLE Pageviews (
     ID INT( 11 ) AUTO_INCREMENT PRIMARY KEY,
     url VARCHAR(255) NOT NULL, 
-    action INT(255) NOT NULL, 
+    action VARCHAR(255) NOT NULL, 
     count INT(100) NOT NULL, 
     valid INT(1) NOT NULL );");
