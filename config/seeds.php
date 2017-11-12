@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
  *  This file is responsible for building a testable database
@@ -15,6 +15,16 @@ $DB->execute("CREATE TABLE User_types (
     ID INT( 11 ) AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR( 255 ) NOT NULL);");  
 $DB->execute("INSERT INTO user_types (name) VALUES ('user'), ('admin')");
+
+
+    // name VARCHAR( 100 ) NOT NULL);");
+// $DB->execute("INSERT INTO user_types (name) VALUES ('user'), ('admin')");
+
+
+$DB->execute("CREATE TABLE Items(
+    ID INT( 11 ) AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR( 100 ) NOT NULL);");
+$DB->execute("INSERT INTO Items (name) VALUES ('user'), ('admin')");
 
 
 // USERS
@@ -90,13 +100,11 @@ $DB->execute("INSERT INTO products (name, description, imgurl, price, categorie_
     ('Meettechniek', 'Boek over meettechniek', 'https://s.s-bol.com/imgbase0/imagebase3/large/FC/2/4/0/6/1001004005606042.jpg', '12,99', '6');");
 
 
-
-// BLOGS
-$DB->execute("CREATE TABLE Blogs (
+$DB->execute("CREATE TABLE Blogs(
     ID INT( 11 ) AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR( 255 ) NOT NULL,  
     description TEXT NOT NULL,
-    imgurl VARCHAR( 255 ) );");  
+    imgurl VARCHAR( 255 ) );");
 $DB->execute("INSERT INTO Blogs (title, description, imgurl) VALUES 
     ('Reprehenderit voluptates, dolore voluptatibus maxime perspiciatis.', ' 
         <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit voluptates, dolore voluptatibus maxime perspiciatis, exercitationem a distinctio ea modi esse quis labore veritatis quo odio perferendis non consequatur, laborum at. </p>
