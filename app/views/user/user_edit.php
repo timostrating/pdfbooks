@@ -7,8 +7,8 @@
 
             <tr> <td>ID:</td>  <td><?=$user->ID;?></td></tr>
             <?php generateTableField("Naam", "name", "text", $user->name); ?>
-            <?php generateTableField("", "", "submit", "Opslaan"); ?>
-
+            <tr> <td></td>  <td> <button type="submit" class="btn btn-primary">Opslaan</button> </td> </tr>
+            
        </table>
     </form>		
 

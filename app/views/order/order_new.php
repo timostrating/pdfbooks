@@ -1,4 +1,4 @@
-<h1>Order toevoegen</h1>
+<h1>Onder welke naam wil je de bestelling plaatsen</h1>
 
 <form method="post" action="<?= ORDER_CREATE_PATH; ?>">
    <table>

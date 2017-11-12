@@ -8,7 +8,7 @@
 
     <article>
         <div class="row">
-            <div class="col-md-2">  <a href="#prev">vorige</a> </div>
+            <div class="col-md-2">  </div>
             <div class="col-md-8"> 
 
                 <div class="tc">
@@ -48,7 +48,7 @@
                 </div>
             
             </div>
-            <div class="col-md-2"> <a href="#vervolg">vorige</a> </div>
+            <div class="col-md-2"> </div>
         </div>
     </article>  
 

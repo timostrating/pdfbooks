@@ -103,9 +103,6 @@ $DB->execute("INSERT INTO Blogs (title, description, imgurl) VALUES
         <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit voluptates, dolore voluptatibus maxime perspiciatis, exercitationem a distinctio ea modi esse quis labore veritatis quo odio perferendis non consequatur, laborum at. </p>
         <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit voluptates, dolore voluptatibus maxime perspiciatis, exercitationem a distinctio ea modi esse quis labore veritatis quo odio perferendis non consequatur, laborum at. </p>
         <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit voluptates, dolore voluptatibus maxime perspiciatis, exercitationem a distinctio ea modi esse quis labore veritatis quo odio perferendis non consequatur, laborum at. </p>
-        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit voluptates, dolore voluptatibus maxime perspiciatis, exercitationem a distinctio ea modi esse quis labore veritatis quo odio perferendis non consequatur, laborum at. </p>
-        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit voluptates, dolore voluptatibus maxime perspiciatis, exercitationem a distinctio ea modi esse quis labore veritatis quo odio perferendis non consequatur, laborum at. </p>
-        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit voluptates, dolore voluptatibus maxime perspiciatis, exercitationem a distinctio ea modi esse quis labore veritatis quo odio perferendis non consequatur, laborum at. </p>
         <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit voluptates, dolore voluptatibus maxime perspiciatis, exercitationem a distinctio ea modi esse quis labore veritatis quo odio perferendis non consequatur, laborum at. </p>',
             'http://via.placeholder.com/550x350?text=Tes1'),
     ('Lorem ipsum dolor sit amet consectetur adipisicing elit. dolore voluptatibus maxime perspiciatis.', ' 
@@ -113,15 +110,9 @@ $DB->execute("INSERT INTO Blogs (title, description, imgurl) VALUES
         <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit voluptates, dolore voluptatibus maxime perspiciatis, exercitationem a distinctio ea modi esse quis labore veritatis quo odio perferendis non consequatur, laborum at. </p>
         <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit voluptates, dolore voluptatibus maxime perspiciatis, exercitationem a distinctio ea modi esse quis labore veritatis quo odio perferendis non consequatur, laborum at. </p>
         <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit voluptates, dolore voluptatibus maxime perspiciatis, exercitationem a distinctio ea modi esse quis labore veritatis quo odio perferendis non consequatur, laborum at. </p>
-        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit voluptates, dolore voluptatibus maxime perspiciatis, exercitationem a distinctio ea modi esse quis labore veritatis quo odio perferendis non consequatur, laborum at. </p>
-        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit voluptates, dolore voluptatibus maxime perspiciatis, exercitationem a distinctio ea modi esse quis labore veritatis quo odio perferendis non consequatur, laborum at. </p>
-        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit voluptates, dolore voluptatibus maxime perspiciatis, exercitationem a distinctio ea modi esse quis labore veritatis quo odio perferendis non consequatur, laborum at. </p>
         <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit voluptates, dolore voluptatibus maxime perspiciatis, exercitationem a distinctio ea modi esse quis labore veritatis quo odio perferendis non consequatur, laborum at. </p>',
             'http://via.placeholder.com/550x350?text=Tes1'),
     ('Dolore voluptatibus maxime perspiciatis amet consectetur adipisicing elit.', ' 
-        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit voluptates, dolore voluptatibus maxime perspiciatis, exercitationem a distinctio ea modi esse quis labore veritatis quo odio perferendis non consequatur, laborum at. </p>
-        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit voluptates, dolore voluptatibus maxime perspiciatis, exercitationem a distinctio ea modi esse quis labore veritatis quo odio perferendis non consequatur, laborum at. </p>
-        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit voluptates, dolore voluptatibus maxime perspiciatis, exercitationem a distinctio ea modi esse quis labore veritatis quo odio perferendis non consequatur, laborum at. </p>
         <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit voluptates, dolore voluptatibus maxime perspiciatis, exercitationem a distinctio ea modi esse quis labore veritatis quo odio perferendis non consequatur, laborum at. </p>
         <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit voluptates, dolore voluptatibus maxime perspiciatis, exercitationem a distinctio ea modi esse quis labore veritatis quo odio perferendis non consequatur, laborum at. </p>
         <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit voluptates, dolore voluptatibus maxime perspiciatis, exercitationem a distinctio ea modi esse quis labore veritatis quo odio perferendis non consequatur, laborum at. </p>
@@ -165,6 +156,6 @@ $DB->execute("INSERT INTO Categories (name) VALUES
 $DB->execute("CREATE TABLE Pageviews (
     ID INT( 11 ) AUTO_INCREMENT PRIMARY KEY,
     url VARCHAR(255) NOT NULL, 
-    action INT(255) NOT NULL, 
+    action VARCHAR(255) NOT NULL, 
     count INT(100) NOT NULL, 
     valid INT(1) NOT NULL );");

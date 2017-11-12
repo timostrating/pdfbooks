@@ -77,12 +77,12 @@ $router->get('/demos/:ID/show',  'DemoController#show');
 
 
 // Order
-$router->get('/orders', 'OrderController#index');
-$router->get('/orders/:ID/show',  'OrderController#show');
+$router->get('/profile/orders', 'OrderController#index');
+$router->get('/profile/orders/:ID/show',  'OrderController#show');
 $router->get('/orders/new',   'OrderController#new');
 
-$router->post('/orders/create', 'OrderController#create');
-$router->post('/orders/:ID/delete',   'OrderController#delete'); 
+$router->post('/profile/orders/create', 'OrderController#create');
+$router->post('/profile/orders/:ID/delete',   'OrderController#delete'); 
 
 
 

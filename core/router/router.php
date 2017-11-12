@@ -15,7 +15,7 @@ class Router {
     private $post_routes = [];
     private $notFound;
 
-    private $DB;
+    // private $DB;
 
     public $echoGenerateGlobalConstant = false;
 
@@ -27,8 +27,8 @@ class Router {
             echo '<a href="/"><img src="assets/helaas.png" width="1000" height="1000" title="404 Pagina niet gevonden" alt="404"></a>';
         };
 
-        $this->DB = Database::Instance();
-        $this->DB->connect();
+        // $this->DB = Database::Instance();
+        // $this->DB->connect();
     }
 
     
@@ -138,38 +138,38 @@ class Router {
                     $controller = $actionArr[0];
                     $method = $actionArr[1];
 
-                    $this->register_run($_SERVER['REQUEST_URI'], $action, 1);
+                    // $this->register_run($_SERVER['REQUEST_URI'], $action, 1);
                     // Create a new Controller and call its function with our gathered arguments
                     return call_user_func_array( array((new $controller), $method), $args ); 
                 }
             }
         }
 
-        $this->register_run($_SERVER['REQUEST_URI'],"",0);
+        // $this->register_run($_SERVER['REQUEST_URI'],"",0);
         call_user_func_array($this->notFound,[$_SERVER['REQUEST_URI']]);  // 404 if there is no match
     }
 
-    public function register_run($url, $action, $valid) {
-        $sql = "SELECT * FROM Pageviews WHERE url=:url";
-        $array = [ ":url" => $url ];
-        $result = $this->DB->query($sql, $array, "Product");
+    // public function register_run($url, $action, $valid) {
+    //     $sql = "SELECT * FROM Pageviews WHERE url=:url";
+    //     $array = [ ":url" => $url ];
+    //     $result = $this->DB->query($sql, $array, "Product");
 
-        if(empty($result)) {
-            $sql = "INSERT INTO Pageviews (url, action, count, valid) VALUES (?,?,?,?);";
-            $array = [$url, $action, 1, $valid];
-            $result = $this->DB->query($sql, $array);
+    //     if(empty($result)) {
+    //         $sql = "INSERT INTO Pageviews (url, action, count, valid) VALUES (?,?,?,?);";
+    //         $array = [$url, $action, 1, $valid];
+    //         $result = $this->DB->query($sql, $array);
 
-        } else {
-            $sql = "UPDATE Pageviews SET url=:url, action=:action, count=:count, valid=:valid WHERE ID=:id;";
-            $array = [
-                ":url" => $url, 
-                ":action" => $action, 
-                ":count" => $result[0]->count + 1, 
-                ":valid" => $valid, 
-                ":id" => $result[0]->ID
-            ];
-            $result = $this->DB->query($sql, $array);
-        }
+    //     } else {
+    //         $sql = "UPDATE Pageviews SET url=:url, action=:action, count=:count, valid=:valid WHERE ID=:id;";
+    //         $array = [
+    //             ":url" => $url, 
+    //             ":action" => $action, 
+    //             ":count" => $result[0]->count + 1, 
+    //             ":valid" => $valid, 
+    //             ":id" => $result[0]->ID
+    //         ];
+    //         $result = $this->DB->query($sql, $array);
+    //     }
               
-    }    
+    // }    
 }

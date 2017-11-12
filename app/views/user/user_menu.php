@@ -5,7 +5,7 @@
         <ul class="profile-menu">
             <li><a href="<?= USER_PROFILE_PATH; ?>">Mijn profiel</a></li>
             <li><a href="<?= USER_EDIT_PATH; ?>">Profiel bewerken</a></li>
-            <li><a href="<?= USER_PROFILE_PATH; ?>">Mijn boeken</a></li>
+            <li><a href="<?= ORDER_INDEX_PATH; ?>">Mijn boeken</a></li>
             <li><a href="<?= USER_REMOVE_ACCOUNT_PATH; ?>">Account verwijderen</a></li>
         </ul>
 

@@ -1485,10 +1485,6 @@ table, th, td {
   padding: 5px 10px;
 }
 
-.add { color: green; }
-.edit { color: blue; }
-.delete { color: red;}
-
 .smallform {
   display: block;
   width: 300px !important;

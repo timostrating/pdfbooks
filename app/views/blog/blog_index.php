@@ -7,7 +7,7 @@
             <img src="<?= $blog->imgurl; ?>" alt="" style="height: auto; width: 100%;">
         </div> 
         <div class="col-md-8">
-            <h1> <?= $blog->title; ?></h1>
+            <h1> <a href="<?= URL( BLOG_SHOW_PATH, $blog->ID); ?>"><?= $blog->title; ?></a></h1>
             <div class="blog content">
                 <?= $blog->description; ?>
             </div>

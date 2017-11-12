@@ -4,7 +4,9 @@ class OrderController extends baseController {
 
     function index() {  # GET /orders
         $result = $this->DB->query("SELECT * FROM Orders", [], "Order");
-        $this->view->display("order/order_index.php", $result);        
+        $this->view->display("user/user_menu.php");                
+            $this->view->display("order/order_index.php", $result); 
+        echo "</div></div>";     
     }
 
 
@@ -12,7 +14,9 @@ class OrderController extends baseController {
         $sql = "SELECT * FROM Orders WHERE ID=:id";
         $array = [ ":id" => $id ];
         $result = $this->DB->query($sql, $array, "Order");
-        $this->view->display("order/order_show.php", $result);                
+        $this->view->display("user/user_menu.php");                
+            $this->view->display("order/order_show.php", $result); 
+        echo "</div></div>";
     }
 
 
