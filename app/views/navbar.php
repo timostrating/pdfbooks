@@ -1,3 +1,14 @@
+<?php 
+$cartCount = null;
+if(isset($_SESSION["CART"])) { 
+    foreach ($_SESSION["CART"] as $value) {
+        $cartCount += intval($value["count"]);
+    }
+} 
+
+?>
+
+
 <nav class="navbar navbar-default">
     <div class="navbar-header">
     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
@@ -25,7 +36,7 @@
     </form>
 
     <ul class="nav navbar-nav navbar-right">
-        <li> <a href="<?= CART_INDEX_PATH ?>"> <span class="glyphicon glyphicon-shopping-cart icon"></span> </a> </li>
+        <li> <a href="<?= CART_INDEX_PATH ?>"> <span class="glyphicon glyphicon-shopping-cart icon"></span> <?= $cartCount ?> </a> </li>
         <li class="dropdown mt15 mr10">
             <button class="btn" type="button" data-toggle="dropdown">
                 <span class="glyphicon glyphicon-user icon"></span>

@@ -13,7 +13,7 @@ if (strpos($_SERVER['REQUEST_URI'],'categorie') !== false) {
         <h2 style="color: white;"><?= $title; ?></h2>
     </th>
 
-<?php if(empty($result)) { echo "<tr <td> Er zijn geen resultaten </td> </tr>"; } ?>
+<?php if(empty($result)) { echo "<tr> <td> Er zijn geen resultaten </td> </tr>"; } ?>
 <?php foreach($result as $product) { ?> 
     <tr>
         <td height="250">

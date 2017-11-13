@@ -4,6 +4,8 @@
 
 There is no setup required just place the folder pdfbooks on your server and go to [localhost/pdfbooks](localhost/pdfbooks).
 
+The files used in the demo are in /app/views/demo/...
+
 
 ## Project structure
 <!-- You can not trust tabs here for a correct result so we use spaces instead -->
@@ -45,7 +47,7 @@ noframework.php         -- $ php ./noframework.php  for more info about this too
 - [x] More comments - Every class should at least be explained somewhere.
 - [x] Docblocks could also help.
 - [ ] Generators that support model variables.
-- [ ] Router that supports a resource function to loads the default crud urls.
+- [x] Router that supports a resource function to loads the default crud urls.
 - [ ] Router that supports prefixes.
 - [ ] Router that supports subdomains.
 - [ ] Maybe migrations ???

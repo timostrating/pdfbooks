@@ -1,7 +1,8 @@
 <?php if(empty($result) == false) {  $product = $result[0] ?>
 
     <h1>Product <?= $product->ID; ?> </h1>
-    
+    <img src="<?= $product->imgurl; ?>" alt="">
+
     <p><b> ID: </b> <?= $product->ID; ?></p>
     <p><b> Name: </b> <?= $product->name; ?></p>
     <p><b> Description: </b> <?= $product->description; ?></p>

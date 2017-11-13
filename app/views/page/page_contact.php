@@ -13,9 +13,9 @@
 <div class="row marketing">
 	<div class="col-md-6">
 		<form method="post" action="<?= CONTACT_CREATE_PATH; ?>">          	
-			<input class="form-control" type="text" name="name" placeholder="Naam" required> 
-			<input class="form-control" type="email" name="email" placeholder="E-mail" required> 
-			<textarea class="form-control" type="text" name="description" rows="5" cols="30" placeholder="Opmerkingen" required></textarea> 
+			<div class="form-group"> <input class="form-control" type="text" name="name" placeholder="Naam" required> </div>
+			<div class="form-group"> <input class="form-control" type="email" name="email" placeholder="E-mail" required> </div>
+			<div class="form-group"> <textarea class="form-control" type="text" name="description" rows="5" cols="30" placeholder="Opmerkingen" required></textarea> </div>
 			<input type="submit" name="verstuur" class="btn btn-success" value="Verstuur">
 		</form>
 	</div>
