@@ -21,7 +21,9 @@ class OrderController extends baseController {
 
 
     function new() {  # GET /orders/new
-        $this->view->display("order/order_new.php");                		
+        if(isset($_SESSION["USER_ID"])) {
+            $this->view->display("order/order_new.php");   
+        } else { header("location: ".USER_LOGIN_PATH); exit(); }
 	}
 
 

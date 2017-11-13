@@ -18,6 +18,6 @@ class ContactController extends baseController {
             
             header("location: ".CONTACT_NEW_PATH."?success=Bedankt+voor+uw+bericht");  // terug naar een GET
             exit();
-        } else { header("location: ".CONTACT_NEW_PATH."?error=Vul+alle+velden+aub+in"); exit(); }
+        } else { header("location: ".CONTACT_NEW_PATH."?error=Vul+alle+velden+in+aub"); exit(); }
     }
 }

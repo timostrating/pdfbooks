@@ -83,7 +83,7 @@ $router->post('/users/delete',   'UserController#delete', 1);
 // Order
 $router->get('/profile/orders', 'OrderController#index', 1);
 $router->get('/profile/orders/:ID/show',  'OrderController#show', 1);
-$router->get('/orders/new',   'OrderController#new', 1);
+$router->get('/orders/new',   'OrderController#new');   // we check this in the controller itself
 
 $router->post('/profile/orders/create', 'OrderController#create', 1);
 $router->post('/profile/orders/:ID/delete',   'OrderController#delete', 1); 
