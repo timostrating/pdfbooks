@@ -45,6 +45,8 @@ function showRoutes() {
     $string = file_get_contents(__DIR__."/config/routes.php");
     var_dump(eval("
         require(__DIR__.'/config/config.php');  
+        require(__DIR__.'/core/helpers.php');      
+        require(__DIR__.'/core/database/database.php'); 
         require(__DIR__.'/core/router/router.php');
         \$router = new Router();
         \$router->echoGenerateGlobalConstant = true;

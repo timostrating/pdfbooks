@@ -12,10 +12,16 @@
 class Router {
 
     private $get_routes = [];
+    private $get_user_routes = [];
+    private $get_admin_routes = [];
+
     private $post_routes = [];
+    private $post_user_routes = [];
+    private $post_admin_routes = [];
+
     private $notFound;
 
-    // private $DB;
+    private $DB;
 
     public $echoGenerateGlobalConstant = false;
 
@@ -27,41 +33,45 @@ class Router {
             echo '<a href="/"><img src="assets/helaas.png" width="1000" height="1000" title="404 Pagina niet gevonden" alt="404"></a>';
         };
 
-        // $this->DB = Database::Instance();
-        // $this->DB->connect();
+        $this->DB = Database::Instance();
+        $this->DB->connect();
     }
 
     
     /** Mark url as valid for GET requests */
-    public function get($url, $action) {
-        $this->generateGlobalConstant($url, $action);
-        $this->get_routes[ROOT_PATH.$url] = $action;
+    public function get($url, $action, $permission=0, $generateConstant=true) {
+        if($generateConstant){ $this->generateGlobalConstant($url, $action); }
+        if($permission == 0) { $this->get_routes[ROOT_PATH.$url] = $action; }
+        if($permission == 1) { $this->get_user_routes[ROOT_PATH.$url] = $action; }
+        if($permission == 2) { $this->get_admin_routes[ROOT_PATH.$url] = $action; }
     }
 
 
     /** Mark url as valid for POST requests */
-    public function post($url, $action) {
-        $this->generateGlobalConstant($url, $action);        
-        $this->post_routes[ROOT_PATH.$url] = $action;
+    public function post($url, $action, $permission=0, $generateConstant=true) {
+        if($generateConstant){ $this->generateGlobalConstant($url, $action); }
+        if($permission == 0) { $this->post_routes[ROOT_PATH.$url] = $action; }
+        if($permission == 1) { $this->post_user_routes[ROOT_PATH.$url] = $action; }
+        if($permission == 2) { $this->post_admin_routes[ROOT_PATH.$url] = $action; }
     }
 
     /** Mark url as valid for POST and GET requests */
-    public function both($url, $action) {
+    public function both($url, $action, $permission=0) {
         $this->generateGlobalConstant($url, $action);        
-        $this->get_routes[ROOT_PATH.$url] = $action;
-        $this->post_routes[ROOT_PATH.$url] = $action;
+        $this->get($url, $action, $permission, false);
+        $this->post($url, $action, $permission, false);
     }
 
     /** Mark all crud urls as valid for there standard scaffold POST and GET requests */
-    public function resource($url, $action) {
-        $this->get($url,                $action."#index");
-        $this->get($url."/:ID/show",    $action."#show");
-        $this->get($url."/new",         $action."#new");
-        $this->get($url."/:ID/edit",    $action."#edit");
+    public function resource($url, $action, $permission=0) {
+        $this->get($url,                $action."#index",   $permission);
+        $this->get($url."/:ID/show",    $action."#show",    $permission);
+        $this->get($url."/new",         $action."#new",     $permission);
+        $this->get($url."/:ID/edit",    $action."#edit",    $permission);
 
-        $this->post($url."/create",     $action."#create");
-        $this->post($url."/:ID/update", $action."#update");
-        $this->post($url."/:ID/delete", $action."#delete");;
+        $this->post($url."/create",     $action."#create",  $permission);
+        $this->post($url."/:ID/update", $action."#update",  $permission);
+        $this->post($url."/:ID/delete", $action."#delete",  $permission);;
     }
 
 
@@ -138,38 +148,38 @@ class Router {
                     $controller = $actionArr[0];
                     $method = $actionArr[1];
 
-                    // $this->register_run($_SERVER['REQUEST_URI'], $action, 1);
+                    $this->register_run($_SERVER['REQUEST_URI'], $action, 1);
                     // Create a new Controller and call its function with our gathered arguments
                     return call_user_func_array( array((new $controller), $method), $args ); 
                 }
             }
         }
 
-        // $this->register_run($_SERVER['REQUEST_URI'],"",0);
+        $this->register_run($_SERVER['REQUEST_URI'],"",0);
         call_user_func_array($this->notFound,[$_SERVER['REQUEST_URI']]);  // 404 if there is no match
     }
 
-    // public function register_run($url, $action, $valid) {
-    //     $sql = "SELECT * FROM Pageviews WHERE url=:url";
-    //     $array = [ ":url" => $url ];
-    //     $result = $this->DB->query($sql, $array, "Product");
+    public function register_run($url, $action, $valid) {
+        $sql = "SELECT * FROM Pageviews WHERE url=:url";
+        $array = [ ":url" => $url ];
+        $result = $this->DB->query($sql, $array, "Product");
 
-    //     if(empty($result)) {
-    //         $sql = "INSERT INTO Pageviews (url, action, count, valid) VALUES (?,?,?,?);";
-    //         $array = [$url, $action, 1, $valid];
-    //         $result = $this->DB->query($sql, $array);
+        if(empty($result)) {
+            $sql = "INSERT INTO Pageviews (url, action, count, valid) VALUES (?,?,?,?);";
+            $array = [$url, $action, 1, $valid];
+            $result = $this->DB->query($sql, $array);
 
-    //     } else {
-    //         $sql = "UPDATE Pageviews SET url=:url, action=:action, count=:count, valid=:valid WHERE ID=:id;";
-    //         $array = [
-    //             ":url" => $url, 
-    //             ":action" => $action, 
-    //             ":count" => $result[0]->count + 1, 
-    //             ":valid" => $valid, 
-    //             ":id" => $result[0]->ID
-    //         ];
-    //         $result = $this->DB->query($sql, $array);
-    //     }
+        } else {
+            $sql = "UPDATE Pageviews SET url=:url, action=:action, count=:count, valid=:valid WHERE ID=:id;";
+            $array = [
+                ":url" => $url, 
+                ":action" => $action, 
+                ":count" => $result[0]->count + 1, 
+                ":valid" => $valid, 
+                ":id" => $result[0]->ID
+            ];
+            $result = $this->DB->query($sql, $array);
+        }
               
-    // }    
+    }    
 }
