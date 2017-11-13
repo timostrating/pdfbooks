@@ -26,8 +26,6 @@ class Database {
     private $db_handler;
     
 
-    // Private construct so nobody else can instantiate it
-    // see https://stackoverflow.com/questions/203336/creating-the-singleton-design-pattern-in-php5
     public function __construct() { 
         $this->connect();
     }
@@ -84,7 +82,10 @@ class Database {
     public function seed() {
         $DB = $this;
         require_once(ROOT."/config/seeds.php");
-        echo "The seeds have grown to plants, let's start framing";        
+        echo "<center style='margin-top: 50px'>";
+            echo "The seeds have grown to plants, let's start framing";        
+            echo "<h1>You are now ready to use the website.</h1>";   
+        echo "</center>";     
     }
 
 

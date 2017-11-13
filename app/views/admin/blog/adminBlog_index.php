@@ -4,17 +4,17 @@
 
 <table class="table table-striped">
     <tr>
-        <th> Title </td>
-        <th> Description </td>
-        <th> Imgurl </td>
-        <th> Actions </td>
+        <th> Afbeelding </td>
+        <th> Titel </td>
+        <th> Beschrijving </td>
+        <th> Acties </td>
     </tr>
 
 <?php foreach($result as $blog) { ?>        
     <tr>
+        <td><img src="<?= $blog->imgurl; ?>" alt="" style="height: 100px"></td>
         <td><?= $blog->title; ?></td>
         <td><?= $blog->description; ?></td>
-        <td><?= $blog->imgurl; ?></td>
         <td>
             <a class="btn btn-info" href="<?= URL(ADMINBLOG_SHOW_PATH, $blog->ID); ?>">Bekijk</a>
             <a class="btn btn-warning" href="<?= URL(ADMINBLOG_EDIT_PATH, $blog->ID); ?>">Bewerken</a>

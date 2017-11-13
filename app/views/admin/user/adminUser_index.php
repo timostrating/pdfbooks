@@ -3,11 +3,11 @@
 
 <table class="table table-striped">
     <tr>
-        <th> Name </td>
+        <th> Naam </td>
         <th> Achternaam </td>
         <th> E-mail </td>
         <th> Gebruikers type </td>
-        <th> Actions </td>
+        <th> Acties </td>
     </tr>
 
 <?php foreach($result as $User) { ?>        

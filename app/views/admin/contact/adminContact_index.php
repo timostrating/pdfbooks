@@ -2,10 +2,10 @@
 
 <table class="table table-striped">
     <tr>
-        <th> Name </td>
+        <th> Naam </td>
         <th> E-Mail </td>
-        <th> Description </td>
-        <th> Actions </td>
+        <th> Beschrijving </td>
+        <th> Acties </td>
     </tr>
 
 <?php foreach($result as $contact) { ?>        

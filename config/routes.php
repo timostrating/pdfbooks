@@ -17,8 +17,8 @@ if(DEVELOPMENT) { $router->both('/seeds', 'Database#seed'); }  // for testing
 
 
 /**
- * $router->get('/products/:ID/edit', 'ProductController#edit'); 
- *           1            2                        3
+ * $router->get('/products/:ID/edit', 'ProductController#edit', [0,1,2]); 
+ *           1            2                        3               4
  * 
  * 1 - get    mark as Allowed to send   GET  request to this url 
  *   - post   mark as Allowed to send  POST  request to this url 
@@ -26,13 +26,13 @@ if(DEVELOPMENT) { $router->both('/seeds', 'Database#seed'); }  // for testing
  * 2 - URL  if you use :VARIABLE_NAME the router will pass whatever number a users enters in this part of the url to the function.
  * 
  * 3 - "CLASS_NAME # FUNCTION_NAME"  this gets called by the router
+ * 
+ * 4 - required permission level.      0 (default) - anyone     1 - user     2 - admin
  */
 
 
 
 $router->get('/', 'PageController#index');
-$router->get('/admin', 'PageController#admin');
-
 
 // Contact
 $router->get('/contact', 'ContactController#new');
@@ -42,20 +42,6 @@ $router->post('/contact/create', 'ContactController#create');
 // Product
 $router->get('/webshop', 'ProductController#index');
 $router->get('/webshop/:ID/show', 'ProductController#show'); 
-
-
-// User
-$router->get('/login', 'UserController#login');
-$router->get('/logout', 'UserController#logout');
-$router->get('/register',   'UserController#register');
-$router->get('/profile',  'UserController#profile');
-$router->get('/profile/remove',  'UserController#remove_account');
-$router->get('/profile/edit',  'UserController#edit');
-
-$router->post('/users/create_session', 'UserController#create_session');
-$router->post('/users/create', 'UserController#create');
-$router->post('/users/update',  'UserController#update');
-$router->post('/users/delete',   'UserController#delete');         
 
 
 // Cart
@@ -71,18 +57,36 @@ $router->get('/blogs', 'BlogController#index');
 $router->get('/blogs/:ID/show',  'BlogController#show');
 
 
-// Demo
-$router->get('/demos', 'DemoController#index');
-$router->get('/demos/:ID/show',  'DemoController#show');
+// Categorie crud
+$router->get('/categories', 'CategorieController#index');
+$router->get('/categories/:ID/show',  'CategorieController#show');
+
+
+
+
+//////////////////
+//    _USER_    //
+//////////////////
+$router->get('/login', 'UserController#login');
+$router->get('/register',   'UserController#register');
+$router->get('/logout', 'UserController#logout', 1);
+$router->get('/profile',  'UserController#profile', 1);
+$router->get('/profile/remove',  'UserController#remove_account', 1);
+$router->get('/profile/edit',  'UserController#edit', 1);
+
+$router->post('/users/create_session', 'UserController#create_session');
+$router->post('/users/create', 'UserController#create');
+$router->post('/users/update',  'UserController#update', 1);
+$router->post('/users/delete',   'UserController#delete', 1);         
 
 
 // Order
-$router->get('/profile/orders', 'OrderController#index');
-$router->get('/profile/orders/:ID/show',  'OrderController#show');
-$router->get('/orders/new',   'OrderController#new');
+$router->get('/profile/orders', 'OrderController#index', 1);
+$router->get('/profile/orders/:ID/show',  'OrderController#show', 1);
+$router->get('/orders/new',   'OrderController#new');   // we check this in the controller itself
 
-$router->post('/profile/orders/create', 'OrderController#create');
-$router->post('/profile/orders/:ID/delete',   'OrderController#delete'); 
+$router->post('/profile/orders/create', 'OrderController#create', 1);
+$router->post('/profile/orders/:ID/delete',   'OrderController#delete', 1); 
 
 
 
@@ -90,42 +94,26 @@ $router->post('/profile/orders/:ID/delete',   'OrderController#delete');
 /////////////////
 //   _ADMIN_   //
 /////////////////
-
+$router->get('/admin', 'PageController#admin', 2);
 
 // AdminBlog crud
-$router->resource('/admin/blogs', 'AdminBlogController');
+$router->resource('/admin/blogs', 'AdminBlogController', 2);
 
 // AdminUser crud
-$router->resource('/admin/users', 'AdminUserController');
+$router->resource('/admin/users', 'AdminUserController', 2);
 
 // AdminContact crud
-$router->resource('/admin/contacts', 'AdminContactController');
+$router->resource('/admin/contacts', 'AdminContactController', 2);
 
 // AdminOrder crud
-$router->resource('/admin/orders', 'AdminOrderController');
+$router->resource('/admin/orders', 'AdminOrderController', 2);
 
 // AdminProduct crud
-$router->resource('/admin/products', 'AdminProductController');
+$router->resource('/admin/products', 'AdminProductController', 2);
  
- 
-
-// Categorie crud
-$router->get('/categories', 'CategorieController#index');
-$router->get('/categories/:ID/show',  'CategorieController#show');
-$router->get('/categories/new',   'CategorieController#new');
-$router->get('/categories/:ID/edit',  'CategorieController#edit');
-
-$router->post('/categories/create', 'CategorieController#create');
-$router->post('/categories/:ID/update',  'CategorieController#update');
-$router->post('/categories/:ID/delete',   'CategorieController#delete'); 
- 
-
 // AdminCategorie crud
-$router->get('/adminCategories', 'AdminCategorieController#index');
-$router->get('/adminCategories/:ID/show',  'AdminCategorieController#show');
-$router->get('/adminCategories/new',   'AdminCategorieController#new');
-$router->get('/adminCategories/:ID/edit',  'AdminCategorieController#edit');
+$router->resource('/admin/categories', 'AdminCategorieController', 2);
 
-$router->post('/adminCategories/create', 'AdminCategorieController#create');
-$router->post('/adminCategories/:ID/update',  'AdminCategorieController#update');
-$router->post('/adminCategories/:ID/delete',   'AdminCategorieController#delete');
+// Demo
+$router->get('/demos', 'DemoController#index', 2);
+$router->get('/demos/:ID/show',  'DemoController#show', 2);

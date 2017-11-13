@@ -13,7 +13,7 @@ require ROOT."/app/views/header.php";
 require ROOT."/app/views/navbar.php";
 
 // We rely on quick termination here to not call the $_SESSION superglobal in case of a POST request
-if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_SESSION["ADMIN_ID"])) { 
+if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_SESSION["ADMIN_ID"]) && $_SERVER['REQUEST_URI'] !== USER_LOGOUT_PATH) { 
   require ROOT."/app/views/adminbar.php";
 } 
 ?>

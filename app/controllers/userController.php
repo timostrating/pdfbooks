@@ -26,16 +26,13 @@ class UserController extends baseController {
     }    
 
     function profile() {  # GET /users/profile
-        if(isset($_SESSION["USER_ID"])) {
-            $sql = "SELECT * FROM Users WHERE ID=:id";
-            $array = [ ":id" => $_SESSION['USER_ID'] ];
-            $result = $this->DB->query($sql, $array, "User");
-            
-            $this->view->display("user/user_menu.php");                            
-                $this->view->display("user/user_show.php", $result); 
-            echo "</div></div>"; 
-        } 
-        else { header("location: ".USER_LOGIN_PATH); exit; }        
+        $sql = "SELECT * FROM Users WHERE ID=:id";
+        $array = [ ":id" => $_SESSION['USER_ID'] ];
+        $result = $this->DB->query($sql, $array, "User");
+        
+        $this->view->display("user/user_menu.php");                            
+            $this->view->display("user/user_show.php", $result); 
+        echo "</div></div>";       
     }
 
 
@@ -46,16 +43,13 @@ class UserController extends baseController {
     
 
     function edit() {  # GET /users/update
-        if(isset($_SESSION["USER_ID"])) {
-            $sql = "SELECT * FROM Users WHERE ID=:id";
-            $array = [":id" => $_SESSION["USER_ID"]];
-            $result = $this->DB->query($sql, $array, "User");
-            
-            $this->view->display("user/user_menu.php");                            
-                $this->view->display("user/user_edit.php", $result); 
-            echo "</div></div>"; 
-        } 
-        else { header("location: ".USER_LOGIN_PATH); exit; }                 		
+        $sql = "SELECT * FROM Users WHERE ID=:id";
+        $array = [":id" => $_SESSION["USER_ID"]];
+        $result = $this->DB->query($sql, $array, "User");
+        
+        $this->view->display("user/user_menu.php");                            
+            $this->view->display("user/user_edit.php", $result); 
+        echo "</div></div>";              		
     }
 
     
@@ -101,14 +95,13 @@ class UserController extends baseController {
 
 
     function update() {  # POST /users/update
-        if(isset($_SESSION["USER_ID"])) {
-            $sql = "UPDATE Users SET name=:name WHERE ID=:id;";
-            $array = [
-                ":name" => $_POST["name"], 
-                ":id" => $_SESSION["USER_ID"]
-            ];
-            $result = $this->DB->query($sql, $array);
-        }
+        $sql = "UPDATE Users SET name=:name WHERE ID=:id;";
+        $array = [
+            ":name" => $_POST["name"], 
+            ":id" => $_SESSION["USER_ID"]
+        ];
+        $result = $this->DB->query($sql, $array);
+    
         
         header("location: ".USER_PROFILE_PATH);
         exit();
@@ -116,11 +109,10 @@ class UserController extends baseController {
 
 
     function delete() {  # POST /users/1/delete
-        if(isset($_SESSION["USER_ID"])) {
-            $sql = "DELETE FROM Users WHERE ID=:id";
-            $array = [":id" => $_SESSION["USER_ID"]];
-            $result = $this->DB->query($sql, $array);
-        }
+        $sql = "DELETE FROM Users WHERE ID=:id";
+        $array = [":id" => $_SESSION["USER_ID"]];
+        $result = $this->DB->query($sql, $array);
+
         header("location: ".ROOT_PATH);  
         exit();
 	}
