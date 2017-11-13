@@ -35,14 +35,14 @@ function platformSlashes($path, $slash1='/', $slash2='\\') {
 function generateTableField($name, $sqlName, $type ="text", $value="") {
 	echo'<tr>';
 	echo'	<td>'.$name.':</td>';
-	echo'	<td><input type="'.$type.'" name="'.$sqlName.'" value="'.$value.'"/></td>';
+	echo'	<td><input class="form-control" type="'.$type.'" name="'.$sqlName.'" value="'.$value.'"/></td>';
 	echo'</tr>';
 }
 
 
 function generateFormField($name, $sqlName, $type='text', $value='') {
     echo '<div class="form-group">';
-        echo '<input type="'.$type.'" name="'.$sqlName.'" class="form-control" placeholder="'.$name.'" value="'.$value.'"/></td>';
+        echo '<input class="form-control" type="'.$type.'" name="'.$sqlName.'" placeholder="'.$name.'" value="'.$value.'"/></td>';
     echo '<div class="form-group">';
 }
 
