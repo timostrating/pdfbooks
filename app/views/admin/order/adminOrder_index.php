@@ -4,8 +4,8 @@
 
 <table class="table table-striped">
     <tr>
-        <th> Name </td>
-        <th> Actions </td>
+        <th> Naam </td>
+        <th> Acties </td>
     </tr>
 
 <?php foreach($result as $order) { ?>        

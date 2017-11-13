@@ -1,10 +1,10 @@
 #!/usr/bin/php
- _   _       ______                                           _    
-| \ | |     |  ____|                                         | |   
-|  \| | ___ | |__ _ __ __ _ _ __ ___   _____      _____  _ __| | __
-| . ` |/ _ \|  __| '__/ _` | '_ ` _ \ / _ \ \ /\ / / _ \| '__| |/ /
-| |\  | (_) | |  | | | (_| | | | | | |  __/\ V  V / (_) | |  |   < 
-|_| \_|\___/|_|  |_|  \__,_|_| |_| |_|\___| \_/\_/ \___/|_|  |_|\_\
+ _   _       ______                                        _    
+| \ | |     |  ____|                                      | |   
+|  \| | ___ | |__   __ _ _ __ ___   _____      _____  _ __| | __
+| . ` |/ _ \|  __| / _` | '_ ` _ \ / _ \ \ /\ / / _ \| '__| |/ /
+| |\  | (_) | |   | (_| | | | | | |  __/\ V  V / (_) | |  |   < 
+|_| \_|\___/|_|    \__,_|_| |_| |_|\___| \_/\_/ \___/|_|  |_|\_\
 
 <?php
 
@@ -83,23 +83,23 @@ function generateScaffold($name) {
 
 /** Create a new class in the /app/models folder. */
 function generateModel($name) {
-    createFile("/noframework/generateModel.txt.php", "/app/models/".$name.".php", $name); 
+    createFile("/nofamework/generateModel.txt.php", "/app/models/".$name.".php", $name); 
 }
 
 
 /** Create a new Controller width the INDEX, SHOW, NEW, EDIT functions in the /app/models folder. */
 function generateController($name) {
-    createFile("/noframework/generateController.txt.php", "/app/controllers/".$name."Controller.php", $name); 
+    createFile("/nofamework/generateController.txt.php", "/app/controllers/".$name."Controller.php", $name); 
 }
 
 
 /** Create new INDEX, SHOW, NEW, EDIT views in a sepparate folder that is then placed in /app/views/. */
 function generateViews($name) {
     mkdir(__DIR__."/app/views/".$name, 0755);
-    createFile("/noframework/generateViewIndex.txt.php", "/app/views/".$name."/".$name."_index.php", $name); 
-    createFile("/noframework/generateViewShow.txt.php", "/app/views/".$name."/".$name."_show.php", $name); 
-    createFile("/noframework/generateViewNew.txt.php", "/app/views/".$name."/".$name."_new.php", $name); 
-    createFile("/noframework/generateViewEdit.txt.php", "/app/views/".$name."/".$name."_edit.php", $name); 
+    createFile("/nofamework/generateViewIndex.txt.php", "/app/views/".$name."/".$name."_index.php", $name); 
+    createFile("/nofamework/generateViewShow.txt.php", "/app/views/".$name."/".$name."_show.php", $name); 
+    createFile("/nofamework/generateViewNew.txt.php", "/app/views/".$name."/".$name."_new.php", $name); 
+    createFile("/nofamework/generateViewEdit.txt.php", "/app/views/".$name."/".$name."_edit.php", $name); 
 }
 
 
