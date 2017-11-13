@@ -9,7 +9,7 @@ function console_warning($message)  {  console_messsage($message, "warn"); }
 function console_error($message)    {  console_messsage($message, "error"); }
 
 function console_messsage($message, $type) { 
-    if(CONSOLE_MESSAGES_ON) { 
+    if(CONSOLE_MESSAGES_ON && $_SERVER['REQUEST_METHOD'] === "GET") { 
         echo str_replace("\\", "/", "<script>console.$type(\"".str_replace(PHP_EOL, "", $message)."\"); </script> \n");
     }
 }

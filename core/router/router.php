@@ -54,6 +54,7 @@ class Router {
         if($permission == 1) { $this->post_user_routes[ROOT_PATH.$url] = $action; }
         if($permission == 2) { $this->post_admin_routes[ROOT_PATH.$url] = $action; }
     }
+    
 
     /** Mark url as valid for POST and GET requests */
     public function both($url, $action, $permission=0) {
@@ -61,6 +62,7 @@ class Router {
         $this->get($url, $action, $permission, false);
         $this->post($url, $action, $permission, false);
     }
+
 
     /** Mark all crud urls as valid for there standard scaffold POST and GET requests */
     public function resource($url, $action, $permission=0) {
@@ -105,24 +107,39 @@ class Router {
         $this->notFound = $action;
     }
 
+
+    /** Get your routes based on your permission level. */
+    private function getAvailableRoutes() {
+        // We make a big assumption here. 
+        // We only handle GET and POST requests. All other requests will be seen as POST request.
+        // to make other requests like PATCH and DELETE work you should rewrite them as POST requests.
+        $routes = [];  
+        
+        if($_SERVER['REQUEST_METHOD'] === 'GET') {
+            if(isset($_SESSION["ADMIN_ID"])) {      $routes = array_merge($this->get_routes, $this->get_user_routes, $this->get_admin_routes); }
+            elseif(isset($_SESSION["USER_ID"])) {   $routes = array_merge($this->get_routes, $this->get_user_routes); }
+            else {                                  $routes = $this->get_routes; }
+        } 
+        else {
+            if(isset($_SESSION["ADMIN_ID"])) {      $routes = array_merge($this->post_routes, $this->post_user_routes, $this->post_admin_routes); }
+            elseif(isset($_SESSION["USER_ID"])) {   $routes = array_merge($this->post_routes, $this->post_user_routes); }
+            else {                                  $routes = $this->post_routes; }
+        }
+
+        return $routes;
+    }
+
     
     /** Handle The request the user send and serve it */
     public function run() {
         console_log("ROUTER ".$_SERVER['REQUEST_METHOD'].": ".$_SERVER['REQUEST_URI']);        
 
-        // We make a big assumption here. 
-        // We only handle GET and POST requests. All other requests will be seen as POST request.
-        // to make other requests like PATCH and DELETE work you should rewrite them as POST requests.
-        $routes = ($_SERVER['REQUEST_METHOD'] === 'GET')? $this->get_routes : $this->post_routes;  
+        $routes = $this->getAvailableRoutes();;
         $request = explode('?', $_SERVER['REQUEST_URI'])[0];        
         $request = explode('/', $request );        
 
-
         foreach ($routes as $url => $action) {
             $url = explode('/', $url);
-
-            // var_dump($request); echo "<br/><br/>";
-            // var_dump($url); echo "<br/><br/>";
 
             if (count($request) == count($url)) {
                 $matchAll = true;
@@ -158,7 +175,9 @@ class Router {
         $this->register_run($_SERVER['REQUEST_URI'],"",0);
         call_user_func_array($this->notFound,[$_SERVER['REQUEST_URI']]);  // 404 if there is no match
     }
+    
 
+    /** Save a request to the database. Thanks to kevin for making this work */
     public function register_run($url, $action, $valid) {
         $sql = "SELECT * FROM Pageviews WHERE url=:url";
         $array = [ ":url" => $url ];

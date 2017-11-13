@@ -67,15 +67,15 @@ $router->get('/categories/:ID/show',  'CategorieController#show');
 //////////////////
 //    _USER_    //
 //////////////////
-$router->get('/login', 'UserController#login', 1);
+$router->get('/login', 'UserController#login');
+$router->get('/register',   'UserController#register');
 $router->get('/logout', 'UserController#logout', 1);
-$router->get('/register',   'UserController#register', 1);
 $router->get('/profile',  'UserController#profile', 1);
 $router->get('/profile/remove',  'UserController#remove_account', 1);
 $router->get('/profile/edit',  'UserController#edit', 1);
 
-$router->post('/users/create_session', 'UserController#create_session', 1);
-$router->post('/users/create', 'UserController#create', 1);
+$router->post('/users/create_session', 'UserController#create_session');
+$router->post('/users/create', 'UserController#create');
 $router->post('/users/update',  'UserController#update', 1);
 $router->post('/users/delete',   'UserController#delete', 1);         
 
