@@ -17,13 +17,13 @@
         <th> Min </th>
     </tr>
 
-<?php foreach($result as $item) { $priceTotal += $item["count"] * $item["price"]?>        
+<?php foreach($result as $item) { $priceTotal += intval($item["count"]) * intval($item["price"]) ?>        
     <tr>
         <td> <a class="btn btn-danger" method="post" href="<?= URL(CART_DELETE_PATH, $item["ID"]); ?>">x</a> </td>
         <td> <a href="<?= URL(PRODUCT_SHOW_PATH, $item["ID"]); ?>"><?= $item["name"] ?></a> </td>
         <td> <?= $item["count"] ?> </td>
         <td> € <?php printf("%.2f",$item["price"]); ?> </td>
-        <td> € <?php printf("%.2f",$item["count"] * $item["price"]); ?> </td>
+        <td> € <?php printf("%.2f",intval($item["count"]) * intval($item["price"])); ?> </td>
         <td> <a class="btn btn-success" method="post" href="<?= URL(CART_ADD_PATH, $item["ID"]); ?>">+</a> </td>
         <td> <a class="btn btn-warning" method="post" href="<?= URL(CART_SUBTRACT_PATH, $item["ID"]); ?>">-</a> </td>
     </tr>
