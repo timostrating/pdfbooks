@@ -1,12 +1,12 @@
 <?php 
 
 /**
- *  We assume some IMPORTANT things about our database
+ *  This class is responsible for handeling everything that has to do with the database.
  * 
- *  1. Every tabel will have these standard columns
- *      ID - We always have the primary key on this field
+ *  TODO: add 'updated_at' and 'created_at'
  *      updated_at - When any data is change in the row we will fill in the current timestemp
  *      created_at - When we create the row we will fill in the current timestemp
+ *  TODO: add the database options to the config file.
  */
 
 class Database {
@@ -24,32 +24,41 @@ class Database {
         PDO::ATTR_EMULATE_PREPARES   => false,
     ];
     private $db_handler;
+    
 
-
-    public function __construct() {
+    public function __construct() { 
         $this->connect();
     }
 
 
-    private function connect() {
+    public static function Instance() {
+        static $inst = null;
+        if ($inst === null) {
+            $inst = new Database();
+        }
+        return $inst;
+    }
+
+
+    public function connect() {
         try {
             $dsn = $this->dbtype.":host=".$this->host.";dbname=".$this->db.";charset=".$this->charset;            
             $this->db_handler = new PDO($dsn, $this->user, $this->pass, $this->PDO_options);                    
         } catch (PDOException $e) {
 
-            echo "YOUR SELECTED DATABASE DOES NOT EXIST <br/>";
+            console_warning("DB WARNING: your selected database does not exist, trying general connection");
             
             try {
                 $this->db_handler = new PDO("mysql:host=".$this->host, $this->user, $this->pass);                                    
             } catch (PDOException $e) {
-                echo "WE CAN NOT CONNECT TO MYSQL <br/>";                
+                die("DB ERROR: CAN NOT CONNECT TO MYSQL");                
             }
         }
     }
 
+
     public function dropDB() {
-        echo "drop <br/>";
-        
+        console_error("DATABASE DROP");
         try {
             $this->db_handler->exec("DROP DATABASE `".$this->db."`;");
             $this->connect();            
@@ -58,8 +67,9 @@ class Database {
         }
     }
 
+
     public function createDB() {
-        echo "create <br/>";
+        console_error("DATABASE CREATE");
         try {
             $this->db_handler->exec("CREATE DATABASE `".$this->db."`;");
             $this->connect();
@@ -67,38 +77,43 @@ class Database {
             die("DB ERROR - could not create database: ". $e->getMessage());
         }
     }
+    
 
     public function seed() {
         $DB = $this;
-        require_once(ROOTPATH."/config/seeds.php");
-        echo "The seeds have grown to plants, let's start framing";        
+        require_once(ROOT."/config/seeds.php");
+        echo "<center style='margin-top: 50px'>";
+            echo "The seeds have grown to plants, let's start framing";        
+            echo "<h1>You are now ready to use the website.</h1>";   
+        echo "</center>";     
     }
-    
-    function runQuery($query) {
-                $result = $this->db_handler->query($query, $array);
-                while($row = $result->fetch()) {
-                        $resultset[] = $row;
-                }
-                if(!empty($resultset))
-                        return $resultset;
-    }
-        
-    function numRows($query) {
-                $result  = mysqli_query($this->conn,$query);
-                $rowcount = mysqli_num_rows($result);
-                return $rowcount;       
-        }
 
-    public function execute($queryString) {
+
+    private function log_query($sql, $array) {
+        if(LOG_RAW_SQL) {
+            console_warning("DB QUERY: ".$sql);            
+        } else {
+            foreach ($array as $key => $value) {
+                $sql = str_replace($key, $value, $sql);
+            }
+
+            console_warning("DB QUERY: ".$sql);
+        }   
+    }
+
+    
+    public function execute($sql) { return $this->query($sql); }  // TODO: remove this
+    public function query($sql, $array=[], $fetchClass="") {
         try {
-            $this->db_handler->exec($queryString);
+            $this->log_query($sql, $array);
+            $dbs = $this->db_handler->prepare($sql);
+            $dbs->execute($array);
+            if (empty($fetchClass) == false) {
+                $dbs->setFetchMode(PDO::FETCH_CLASS, $fetchClass); // We return them as there model class
+            }
+            return $dbs->fetchAll();
         } catch (PDOException $e) {
             die("DB ERROR - execute on database went wrong: ". $e->getMessage());
         }
-    }
-
-    public static function insert($id, $columns = array('*')) {  
-        $instance = new QueryBuilder;
-        return $instance->select($id, $columns);
     }
 }
