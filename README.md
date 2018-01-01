@@ -27,7 +27,7 @@ The files used in the demo are in /app/views/demo/...
     - router/             -- View / ViewLoader Class
     helpers.php         -- All helper functions are in here
 
-- nonframework/         -- A collection of files that are used in the generators
+- noframework/          -- A collection of files that are used in the generators
 
 - public/               -- The root of our application
     - assets/             -- Contains all assets for the web-application
@@ -38,22 +38,3 @@ noframework.php         -- $ php ./noframework.php  for more info about this too
 </pre>
 
 
-## Nice too have 
-- [x] Admin backend.
-- [ ] Our own frontend framework.
-- [ ] Asset pipeline - We could minify all assets and place them afterwards in the folder /public/assets/.
-- [x] A better way to handle / and \ difference.
-- [x] A better way to handle Links. Maybe we can use the routes to generate static variables.
-- [x] More comments - Every class should at least be explained somewhere.
-- [x] Docblocks could also help.
-- [ ] Generators that support model variables.
-- [x] Router that supports a resource function to loads the default crud urls.
-- [ ] Router that supports prefixes.
-- [ ] Router that supports subdomains.
-- [ ] Maybe migrations ???
-- [ ] A database that lets you query without writing SQL.
-- [ ] A database that automaticly detects PDO:FETCHCLASS options.
-- [ ] An ORM that works from the models and that lets you query them.
-- [ ] A documented git flow.
-- [ ] Multi language support.
-- [ ] Git documentation.
