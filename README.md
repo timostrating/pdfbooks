@@ -6,6 +6,21 @@ There is no setup required just place the folder pdfbooks on your server and go 
 
 The files used in the demo are in /app/views/demo/...
 
+## Command line tool of https://github.com/timostrating/noframework
+<pre>
+$ php nofamework.php
+ _   _       ______                                        _    
+| \ | |     |  ____|                                      | |   
+|  \| | ___ | |__   __ _ _ __ ___   _____      _____  _ __| | __
+| . ` |/ _ \|  __| / _` | '_ ` _ \ / _ \ \ /\ / / _ \| '__| |/ /
+| |\  | (_) | |   | (_| | | | | | |  __/\ V  V / (_) | |  |   < 
+|_| \_|\___/|_|    \__,_|_| |_| |_|\___| \_/\_/ \___/|_|  |_|\_\
+
+you can use the following functions
+    generate [name]     - generates a scaffold 
+    seed                - seeds the database
+    routes              - shows all SuperGlobal route paths 
+</pre>
 
 ## Project structure
 <!-- You can not trust tabs here for a correct result so we use spaces instead -->
